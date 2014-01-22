@@ -73,7 +73,7 @@
         <scene sceneID="zb5-eO-pgQ">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="ZhE-ts-wl0" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="VUB-d9-TSq">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -108,16 +108,6 @@
         <!--Table View Controller - Wish List-->
         <scene sceneID="EbZ-np-mf9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X2j-aK-9py" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="80S-1S-aLH">
-                    <connections>
-                        <outlet property="delegate" destination="lcu-ZS-hj4" id="TUE-iC-sjY"/>
-                        <outlet property="searchBar" destination="Q5I-0K-mlv" id="t7A-YJ-k8h"/>
-                        <outlet property="searchContentsController" destination="lcu-ZS-hj4" id="z4J-LI-7b7"/>
-                        <outlet property="searchResultsDataSource" destination="lcu-ZS-hj4" id="Bed-ba-iQd"/>
-                        <outlet property="searchResultsDelegate" destination="lcu-ZS-hj4" id="PrL-pC-Fl0"/>
-                    </connections>
-                </searchDisplayController>
                 <tableViewController id="lcu-ZS-hj4" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="x4Y-n0-wDg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -154,13 +144,23 @@
                         <outlet property="searchDisplayController" destination="80S-1S-aLH" id="Fng-lc-Luz"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X2j-aK-9py" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="80S-1S-aLH">
+                    <connections>
+                        <outlet property="delegate" destination="lcu-ZS-hj4" id="TUE-iC-sjY"/>
+                        <outlet property="searchBar" destination="Q5I-0K-mlv" id="t7A-YJ-k8h"/>
+                        <outlet property="searchContentsController" destination="lcu-ZS-hj4" id="z4J-LI-7b7"/>
+                        <outlet property="searchResultsDataSource" destination="lcu-ZS-hj4" id="Bed-ba-iQd"/>
+                        <outlet property="searchResultsDelegate" destination="lcu-ZS-hj4" id="PrL-pC-Fl0"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-1203" y="732"/>
         </scene>
-        <!--App Store View Controller - Top Free Apps-->
+        <!--Top Free Apps View Controller - Top Free Apps-->
         <scene sceneID="N2y-bu-fGs">
             <objects>
-                <viewController id="pUy-WE-bT3" customClass="AppStoreViewController" sceneMemberID="viewController">
+                <viewController id="pUy-WE-bT3" customClass="TopFreeAppsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8VK-vF-nkY"/>
                         <viewControllerLayoutGuide type="bottom" id="0jc-61-zpL"/>
@@ -168,14 +168,91 @@
                     <view key="view" contentMode="scaleToFill" id="XMH-co-hRG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8GX-m0-Tf8">
+                                <rect key="frame" x="0.0" y="64" width="320" height="453"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.99418689959999995" green="1" blue="0.99777659210000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4gd-cr-1yH">
+                                    <size key="itemSize" width="148" height="178"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="fGu-B3-CSl" customClass="AppCell">
+                                        <rect key="frame" x="0.0" y="64" width="148" height="178"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="148" height="178"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vo8-kW-8as">
+                                                    <rect key="frame" x="8" y="0.0" width="127" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMW-ha-HP9">
+                                                    <rect key="frame" x="20" y="98" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqb-cq-qak">
+                                                    <rect key="frame" x="20" y="120" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGh-Dz-2op">
+                                                    <rect key="frame" x="20" y="144" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="categoryLabel" destination="zqb-cq-qak" id="ift-jh-6Iv"/>
+                                            <outlet property="imageView" destination="vo8-kW-8as" id="4cW-N8-0tZ"/>
+                                            <outlet property="nameLabel" destination="HMW-ha-HP9" id="d3D-uq-Ndx"/>
+                                            <outlet property="priceLabel" destination="IGh-Dz-2op" id="2bC-vT-kRg"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="pUy-WE-bT3" id="R7J-cv-jv3"/>
+                                    <outlet property="delegate" destination="pUy-WE-bT3" id="UJs-d1-39F"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Top Free Apps" id="aCJ-gh-L0u"/>
                     <navigationItem key="navigationItem" title="Top Free Apps" id="m2d-Th-WTw">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="Yim-0x-rCs"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="iQX-MG-rDq" id="XPi-eB-blH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRf-1m-tMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="TVC-rB-g9M">
+                    <connections>
+                        <outlet property="delegate" destination="pUy-WE-bT3" id="TIh-lt-aiv"/>
+                        <outlet property="searchContentsController" destination="pUy-WE-bT3" id="Pkd-op-HRu"/>
+                        <outlet property="searchResultsDataSource" destination="pUy-WE-bT3" id="xF5-Ys-teM"/>
+                        <outlet property="searchResultsDelegate" destination="pUy-WE-bT3" id="Ref-Fm-f60"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="iQX-MG-rDq">
+                    <connections>
+                        <outlet property="delegate" destination="pUy-WE-bT3" id="5vr-L0-4h5"/>
+                        <outlet property="searchContentsController" destination="pUy-WE-bT3" id="b0R-ZL-JvH"/>
+                        <outlet property="searchResultsDataSource" destination="pUy-WE-bT3" id="otD-vh-Ehz"/>
+                        <outlet property="searchResultsDelegate" destination="pUy-WE-bT3" id="y1s-0z-MGZ"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-1203" y="-798"/>
         </scene>

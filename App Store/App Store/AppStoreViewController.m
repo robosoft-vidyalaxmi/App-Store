@@ -10,6 +10,11 @@
 #import "JSONParser.h"
 
 @interface AppStoreViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *category;
+@property (weak, nonatomic) IBOutlet UILabel *price;
+
 
 @end
 
