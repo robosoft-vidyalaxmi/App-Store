@@ -7,6 +7,7 @@
 //
 
 #import "JSONParser.h"
+#import "AppData.h"
 
 @implementation JSONParser
 
@@ -19,7 +20,12 @@
                                             options:kNilOptions error:&error];
     if (!error) {
         NSArray *feedArray = [NSArray arrayWithArray:[[self.jsonDictionary valueForKey:@"feed"] valueForKey:@"entry"]];
-        NSLog(@"Parsed JSON data= %@", feedArray);
+        //NSLog(@"Parsed JSON data= %@", feedArray);
+        
+        for (NSDictionary *appEntry in feedArray) {
+            AppData *appData=[[AppData alloc] initAppDataFromDictionary:appEntry];
+            NSLog(@"App name=%@", appData.price);
+        }
     }
     
 }
