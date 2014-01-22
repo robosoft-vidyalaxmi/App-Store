@@ -7,6 +7,7 @@
 //
 
 #import "AppStoreViewController.h"
+#import "JSONParser.h"
 
 @interface AppStoreViewController ()
 
@@ -17,13 +18,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    JSONParser *jsonParser = [[JSONParser alloc] init];
+    NSURL *url=[NSURL URLWithString:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=25/json"];
+    [jsonParser parseAppDataUsingFeed:url];
+	
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
 }
 
 @end

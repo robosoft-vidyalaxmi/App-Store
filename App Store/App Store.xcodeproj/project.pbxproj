@@ -22,6 +22,7 @@
 		B7A4D250188FC00B00FD0941 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22F188FC00A00FD0941 /* UIKit.framework */; };
 		B7A4D258188FC00B00FD0941 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D256188FC00B00FD0941 /* InfoPlist.strings */; };
 		B7A4D25A188FC00B00FD0941 /* App_StoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D259188FC00B00FD0941 /* App_StoreTests.m */; };
+		B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D268188FC18E00FD0941 /* JSONParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		B7A4D255188FC00B00FD0941 /* App StoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "App StoreTests-Info.plist"; sourceTree = "<group>"; };
 		B7A4D257188FC00B00FD0941 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B7A4D259188FC00B00FD0941 /* App_StoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = App_StoreTests.m; sourceTree = "<group>"; };
+		B7A4D267188FC18E00FD0941 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONParser.h; path = "Model/JSON Parser/JSONParser.h"; sourceTree = "<group>"; };
+		B7A4D268188FC18E00FD0941 /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONParser.m; path = "Model/JSON Parser/JSONParser.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +117,10 @@
 		B7A4D231188FC00A00FD0941 /* App Store */ = {
 			isa = PBXGroup;
 			children = (
-				B7A4D23A188FC00A00FD0941 /* AppStoreAppDelegate.h */,
-				B7A4D23B188FC00A00FD0941 /* AppStoreAppDelegate.m */,
-				B7A4D23D188FC00A00FD0941 /* Main_iPhone.storyboard */,
-				B7A4D240188FC00A00FD0941 /* Main_iPad.storyboard */,
-				B7A4D243188FC00A00FD0941 /* AppStoreViewController.h */,
-				B7A4D244188FC00A00FD0941 /* AppStoreViewController.m */,
+				B7A4D26A188FC49200FD0941 /* Controller */,
+				B7A4D265188FC0E600FD0941 /* Model */,
+				B7A4D264188FC0A800FD0941 /* App Delegate */,
+				B7A4D263188FC08F00FD0941 /* Storyboard */,
 				B7A4D246188FC00A00FD0941 /* Images.xcassets */,
 				B7A4D232188FC00A00FD0941 /* Supporting Files */,
 			);
@@ -153,6 +154,50 @@
 				B7A4D256188FC00B00FD0941 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B7A4D263188FC08F00FD0941 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B7A4D23D188FC00A00FD0941 /* Main_iPhone.storyboard */,
+				B7A4D240188FC00A00FD0941 /* Main_iPad.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		B7A4D264188FC0A800FD0941 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B7A4D23A188FC00A00FD0941 /* AppStoreAppDelegate.h */,
+				B7A4D23B188FC00A00FD0941 /* AppStoreAppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		B7A4D265188FC0E600FD0941 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B7A4D266188FC15F00FD0941 /* JSON Parser */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B7A4D266188FC15F00FD0941 /* JSON Parser */ = {
+			isa = PBXGroup;
+			children = (
+				B7A4D267188FC18E00FD0941 /* JSONParser.h */,
+				B7A4D268188FC18E00FD0941 /* JSONParser.m */,
+			);
+			name = "JSON Parser";
+			sourceTree = "<group>";
+		};
+		B7A4D26A188FC49200FD0941 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B7A4D243188FC00A00FD0941 /* AppStoreViewController.h */,
+				B7A4D244188FC00A00FD0941 /* AppStoreViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +301,7 @@
 			files = (
 				B7A4D23C188FC00A00FD0941 /* AppStoreAppDelegate.m in Sources */,
 				B7A4D238188FC00A00FD0941 /* main.m in Sources */,
+				B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */,
 				B7A4D245188FC00A00FD0941 /* AppStoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
