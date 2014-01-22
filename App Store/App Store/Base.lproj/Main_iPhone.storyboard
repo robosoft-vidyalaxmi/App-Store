@@ -1,21 +1,183 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ZhE-ts-wl0">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Navigation Controller - Top Free Apps-->
+        <scene sceneID="yAP-Il-kBe">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="AppStoreViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                <navigationController definesPresentationContext="YES" id="Brl-sq-tzT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Top Free Apps" id="EiE-ZY-Clm"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Sa-Oq-W7t">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pUy-WE-bT3" kind="relationship" relationship="rootViewController" id="SbE-LF-9Ur"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XFE-ZO-3Mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1684" y="-793"/>
+        </scene>
+        <!--Navigation Controller - Top Paid Apps-->
+        <scene sceneID="myo-Xj-YaG">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="SJ5-Dn-ZFW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Top Paid Apps" id="5IN-dz-nP1"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R2t-tD-xI7">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="u7d-JZ-q0x" kind="relationship" relationship="rootViewController" id="2ih-dw-w1L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Se6-UV-PEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1674" y="-78"/>
+        </scene>
+        <!--App Store View Controller - Top Paid Apps-->
+        <scene sceneID="cYx-QQ-Bdv">
+            <objects>
+                <viewController id="u7d-JZ-q0x" customClass="AppStoreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="thr-0U-m8O"/>
+                        <viewControllerLayoutGuide type="bottom" id="2N3-mQ-yDw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1oP-ZV-UNa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Top Paid Apps" id="596-wX-UAX"/>
+                    <navigationItem key="navigationItem" title="Top Paid Apps" id="R4r-Vj-h3c">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="qqF-4d-hMy"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="oyz-Yz-15y" id="zuW-I9-4os"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qgZ-dZ-A7y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="oyz-Yz-15y">
+                    <connections>
+                        <outlet property="delegate" destination="u7d-JZ-q0x" id="8gE-5i-JvD"/>
+                        <outlet property="searchContentsController" destination="u7d-JZ-q0x" id="iiu-PO-Q5o"/>
+                        <outlet property="searchResultsDataSource" destination="u7d-JZ-q0x" id="RrA-gc-AsZ"/>
+                        <outlet property="searchResultsDelegate" destination="u7d-JZ-q0x" id="C3a-Ch-mjV"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="-1203" y="-55"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zb5-eO-pgQ">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="ZhE-ts-wl0" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="VUB-d9-TSq">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Brl-sq-tzT" kind="relationship" relationship="viewControllers" id="XQe-Zh-daK"/>
+                        <segue destination="SJ5-Dn-ZFW" kind="relationship" relationship="viewControllers" id="FXn-Lx-UQp"/>
+                        <segue destination="IGd-53-kNk" kind="relationship" relationship="viewControllers" id="a6U-B2-WLW"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P8p-2N-nlo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2265" y="-156"/>
+        </scene>
+        <!--Navigation Controller - Wish List-->
+        <scene sceneID="20C-L0-q8o">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="IGd-53-kNk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Wish List" id="Uye-iv-rCK"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AEj-l8-2pE">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lcu-ZS-hj4" kind="relationship" relationship="rootViewController" id="xwY-zF-MSX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CmG-hZ-N7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1684" y="732"/>
+        </scene>
+        <!--Table View Controller - Wish List-->
+        <scene sceneID="EbZ-np-mf9">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X2j-aK-9py" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="80S-1S-aLH">
+                    <connections>
+                        <outlet property="delegate" destination="lcu-ZS-hj4" id="TUE-iC-sjY"/>
+                        <outlet property="searchBar" destination="Q5I-0K-mlv" id="t7A-YJ-k8h"/>
+                        <outlet property="searchContentsController" destination="lcu-ZS-hj4" id="z4J-LI-7b7"/>
+                        <outlet property="searchResultsDataSource" destination="lcu-ZS-hj4" id="Bed-ba-iQd"/>
+                        <outlet property="searchResultsDelegate" destination="lcu-ZS-hj4" id="PrL-pC-Fl0"/>
+                    </connections>
+                </searchDisplayController>
+                <tableViewController id="lcu-ZS-hj4" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="x4Y-n0-wDg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Q5I-0K-mlv">
+                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="lcu-ZS-hj4" id="qR9-wq-EmA"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NdR-Tc-Kxv">
+                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NdR-Tc-Kxv" id="WAs-45-T4h">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lcu-ZS-hj4" id="i0g-f0-tAN"/>
+                            <outlet property="delegate" destination="lcu-ZS-hj4" id="eXA-ED-thX"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Wish List" id="g7X-eB-sLQ"/>
+                    <navigationItem key="navigationItem" title="Wish List" id="AEY-yz-NDq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="hbI-cs-TdO"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="80S-1S-aLH" id="Fng-lc-Luz"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="-1203" y="732"/>
+        </scene>
+        <!--App Store View Controller - Top Free Apps-->
+        <scene sceneID="N2y-bu-fGs">
+            <objects>
+                <viewController id="pUy-WE-bT3" customClass="AppStoreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8VK-vF-nkY"/>
+                        <viewControllerLayoutGuide type="bottom" id="0jc-61-zpL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XMH-co-hRG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Top Free Apps" id="aCJ-gh-L0u"/>
+                    <navigationItem key="navigationItem" title="Top Free Apps" id="m2d-Th-WTw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Yim-0x-rCs"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LRf-1m-tMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1203" y="-798"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
