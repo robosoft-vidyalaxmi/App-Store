@@ -23,6 +23,7 @@
 		B7A4D258188FC00B00FD0941 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D256188FC00B00FD0941 /* InfoPlist.strings */; };
 		B7A4D25A188FC00B00FD0941 /* App_StoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D259188FC00B00FD0941 /* App_StoreTests.m */; };
 		B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D268188FC18E00FD0941 /* JSONParser.m */; };
+		B7A4D26E188FC64200FD0941 /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D26D188FC64200FD0941 /* AppData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		B7A4D259188FC00B00FD0941 /* App_StoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = App_StoreTests.m; sourceTree = "<group>"; };
 		B7A4D267188FC18E00FD0941 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONParser.h; path = "Model/JSON Parser/JSONParser.h"; sourceTree = "<group>"; };
 		B7A4D268188FC18E00FD0941 /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONParser.m; path = "Model/JSON Parser/JSONParser.m"; sourceTree = "<group>"; };
+		B7A4D26C188FC64200FD0941 /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppData.h; path = "Model/App Data/AppData.h"; sourceTree = "<group>"; };
+		B7A4D26D188FC64200FD0941 /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppData.m; path = "Model/App Data/AppData.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,7 @@
 		B7A4D265188FC0E600FD0941 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B7A4D26B188FC60900FD0941 /* App Data */,
 				B7A4D266188FC15F00FD0941 /* JSON Parser */,
 			);
 			name = Model;
@@ -198,6 +202,15 @@
 				B7A4D244188FC00A00FD0941 /* AppStoreViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		B7A4D26B188FC60900FD0941 /* App Data */ = {
+			isa = PBXGroup;
+			children = (
+				B7A4D26C188FC64200FD0941 /* AppData.h */,
+				B7A4D26D188FC64200FD0941 /* AppData.m */,
+			);
+			name = "App Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +316,7 @@
 				B7A4D238188FC00A00FD0941 /* main.m in Sources */,
 				B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */,
 				B7A4D245188FC00A00FD0941 /* AppStoreViewController.m in Sources */,
+				B7A4D26E188FC64200FD0941 /* AppData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
