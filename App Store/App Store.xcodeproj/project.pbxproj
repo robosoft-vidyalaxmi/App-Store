@@ -24,7 +24,7 @@
 		B7A4D25A188FC00B00FD0941 /* App_StoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D259188FC00B00FD0941 /* App_StoreTests.m */; };
 		B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D268188FC18E00FD0941 /* JSONParser.m */; };
 		B7A4D26E188FC64200FD0941 /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D26D188FC64200FD0941 /* AppData.m */; };
-		B7A4D275188FF09200FD0941 /* TopFreeAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D274188FF09200FD0941 /* TopFreeAppsViewController.m */; };
+		B7A4D275188FF09200FD0941 /* TopAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D274188FF09200FD0941 /* TopAppsViewController.m */; };
 		B7A4D278188FF4FD00FD0941 /* AppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D277188FF4FD00FD0941 /* AppCell.m */; };
 /* End PBXBuildFile section */
 
@@ -63,8 +63,8 @@
 		B7A4D268188FC18E00FD0941 /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONParser.m; path = "Model/JSON Parser/JSONParser.m"; sourceTree = "<group>"; };
 		B7A4D26C188FC64200FD0941 /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppData.h; path = "Model/App Data/AppData.h"; sourceTree = "<group>"; };
 		B7A4D26D188FC64200FD0941 /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppData.m; path = "Model/App Data/AppData.m"; sourceTree = "<group>"; };
-		B7A4D273188FF09200FD0941 /* TopFreeAppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopFreeAppsViewController.h; path = Controller/TopFreeAppsViewController.h; sourceTree = "<group>"; };
-		B7A4D274188FF09200FD0941 /* TopFreeAppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopFreeAppsViewController.m; path = Controller/TopFreeAppsViewController.m; sourceTree = "<group>"; };
+		B7A4D273188FF09200FD0941 /* TopAppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppsViewController.h; path = Controller/TopAppsViewController.h; sourceTree = "<group>"; };
+		B7A4D274188FF09200FD0941 /* TopAppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopAppsViewController.m; path = Controller/TopAppsViewController.m; sourceTree = "<group>"; };
 		B7A4D276188FF4FD00FD0941 /* AppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCell.h; sourceTree = "<group>"; };
 		B7A4D277188FF4FD00FD0941 /* AppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,8 +207,8 @@
 			children = (
 				B7A4D243188FC00A00FD0941 /* AppStoreViewController.h */,
 				B7A4D244188FC00A00FD0941 /* AppStoreViewController.m */,
-				B7A4D273188FF09200FD0941 /* TopFreeAppsViewController.h */,
-				B7A4D274188FF09200FD0941 /* TopFreeAppsViewController.m */,
+				B7A4D273188FF09200FD0941 /* TopAppsViewController.h */,
+				B7A4D274188FF09200FD0941 /* TopAppsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -330,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7A4D275188FF09200FD0941 /* TopFreeAppsViewController.m in Sources */,
+				B7A4D275188FF09200FD0941 /* TopAppsViewController.m in Sources */,
 				B7A4D23C188FC00A00FD0941 /* AppStoreAppDelegate.m in Sources */,
 				B7A4D278188FF4FD00FD0941 /* AppCell.m in Sources */,
 				B7A4D238188FC00A00FD0941 /* main.m in Sources */,

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TopFreeAppsViewController : UIViewController
+@interface TopAppsViewController : UIViewController
 
 @end

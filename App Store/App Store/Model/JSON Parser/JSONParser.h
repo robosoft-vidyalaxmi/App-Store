@@ -11,7 +11,8 @@
 @interface JSONParser : NSObject
 
 @property (nonatomic, strong) NSDictionary *jsonDictionary;
+@property (nonatomic, strong) NSMutableArray *appDataArray;
 
--(void) parseAppDataUsingFeed:(NSURL *) jsonFeedURL;
+-(NSArray *) parseAppDataUsingFeed:(NSString *) jsonFeed;
 
 @end
