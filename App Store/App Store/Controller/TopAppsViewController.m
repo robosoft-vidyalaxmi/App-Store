@@ -10,12 +10,17 @@
 #import "JSONParser.h"
 #import "AppCell.h"
 #import "AppData.h"
+#import "SearchHeaderView.h"
 
 @interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSArray *appDataArray;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) JSONParser *jsonParser;
+@property (nonatomic) BOOL searchBarShouldDisplay;
+
+
+-(IBAction)searchForApps:(id)sender;
 
 @end
 
@@ -43,13 +48,15 @@
     
     if ([self.navigationItem.title isEqualToString:@"Top Free Apps"])
     {
-        self.appDataArray = [self.jsonParser parseAppDataUsingFeed:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=25/json"];
+        self.appDataArray = [self.jsonParser parseAppDataUsingFeed:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=25/json"];
     }
     else if([self.navigationItem.title isEqualToString:@"Top Paid Apps"])
     {
-        self.appDataArray = [self.jsonParser parseAppDataUsingFeed:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=25/json"];
+        self.appDataArray = [self.jsonParser parseAppDataUsingFeed:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=25/json"];
     }
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -73,21 +80,49 @@
 {
     AppCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
 
-    cell.backgroundColor = [UIColor redColor];
+    cell.backgroundColor = [UIColor blueColor];
     [self updateDataForCell:cell atIndexPath:indexPath];
     return cell;
 }
 
-
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGSize retval = CGSizeMake(135, 150);
-    return retval;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+    {
+        CGSize retval = CGSizeMake(135, 135);
+        return retval;
+    }
+    else
+    {
+        CGSize retval = CGSizeMake(225, 225);
+        return retval;
+    }
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(30, 20, 30, 20);
+//    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
+//        return UIEdgeInsetsMake(50, 50, 50, 50);
+//    }
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+    
+}
+
+- (UICollectionReusableView *)collectionView:
+(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerView" forIndexPath:indexPath];
+    if (self.searchBarShouldDisplay == NO)
+    {
+        headerView.searchBar.hidden = YES;
+    }
+    else
+    {
+        headerView.searchBar.hidden = NO;
+        [headerView.searchBar becomeFirstResponder];
+    }
+    
+    return headerView;
 }
 
 #pragma mark Updating UICollectionViewCell
@@ -113,6 +148,15 @@
     cell.priceLabel.text = appData.price;
 }
 
-
+#pragma mark Saerch for an app
+-(IBAction)searchForApps:(id)sender
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+    {
+        self.searchBarShouldDisplay = YES;
+        
+        [self.collectionView reloadData];
+    }
+}
 
 @end

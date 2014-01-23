@@ -20,39 +20,45 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="2Bk-gh-JjQ" customClass="AppCell">
-                                <rect key="frame" x="0.0" y="0.0" width="261" height="330"/>
+                                <rect key="frame" x="0.0" y="64" width="225" height="225"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="261" height="330"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="225" height="225"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEX-zi-XgF">
-                                            <rect key="frame" x="36" y="20" width="189" height="114"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEX-zi-XgF">
+                                            <rect key="frame" x="49" y="20" width="126" height="114"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWN-2u-RM6">
-                                            <rect key="frame" x="41" y="149" width="184" height="21"/>
+                                            <rect key="frame" x="20" y="142" width="157" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NC4-zN-mQB">
-                                            <rect key="frame" x="41" y="178" width="184" height="21"/>
+                                            <rect key="frame" x="20" y="171" width="157" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoQ-UE-kq6">
-                                            <rect key="frame" x="41" y="207" width="184" height="21"/>
+                                            <rect key="frame" x="20" y="192" width="157" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RGA-SP-Mbu">
+                                            <rect key="frame" x="94" y="58" width="37" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <size key="customSize" width="225" height="225"/>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="RGA-SP-Mbu" id="M6z-tl-GkN"/>
                                     <outlet property="categoryLabel" destination="NC4-zN-mQB" id="Dc2-B5-wcZ"/>
                                     <outlet property="imageView" destination="QEX-zi-XgF" id="pRp-GN-nhU"/>
                                     <outlet property="nameLabel" destination="dWN-2u-RM6" id="XCV-ql-0Bm"/>
@@ -66,10 +72,26 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Top Free Apps" id="Bfu-U1-4S4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Lxf-KB-UpC"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Lxf-KB-UpC">
+                            <connections>
+                                <action selector="searchForApps:" destination="4jl-uZ-hpa" id="UMO-ct-J2X"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="cb4-sQ-4YV" id="V2K-h2-M3D"/>
+                        <outlet property="searchDisplayController" destination="N2S-aC-J08" id="XR7-gZ-3YZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UTM-2e-dem" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="N2S-aC-J08">
+                    <connections>
+                        <outlet property="delegate" destination="4jl-uZ-hpa" id="2vJ-rD-D32"/>
+                        <outlet property="searchContentsController" destination="4jl-uZ-hpa" id="khI-Bw-LIf"/>
+                        <outlet property="searchResultsDataSource" destination="4jl-uZ-hpa" id="mOE-U3-Xa5"/>
+                        <outlet property="searchResultsDelegate" destination="4jl-uZ-hpa" id="71A-8t-g4F"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1183" y="-415"/>
         </scene>
@@ -93,22 +115,83 @@
             </objects>
             <point key="canvasLocation" x="-773" y="138"/>
         </scene>
-        <!--View Controller - Top Paid Apps-->
+        <!--Top Apps View Controller - Top Paid Apps-->
         <scene sceneID="Qpg-he-aRK">
             <objects>
-                <viewController id="EX4-gA-xPC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9fm-fd-GzV"/>
-                        <viewControllerLayoutGuide type="bottom" id="mF9-YA-7sL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2as-88-cRH">
+                <viewController id="EX4-gA-xPC" customClass="TopAppsViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="er7-Uy-TkQ">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.99418689959999995" green="1" blue="0.99777659210000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ufq-wy-Dqf">
+                            <size key="itemSize" width="261" height="330"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="0b0-89-Bv4" customClass="AppCell">
+                                <rect key="frame" x="0.0" y="64" width="225" height="225"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="225" height="225"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hVS-CQ-0dW">
+                                            <rect key="frame" x="49" y="20" width="126" height="114"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Bhm-gw-wqs">
+                                            <rect key="frame" x="94" y="58" width="37" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAg-7y-Znf">
+                                            <rect key="frame" x="20" y="142" width="157" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zl-fi-hTV">
+                                            <rect key="frame" x="20" y="171" width="157" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFA-gN-UBd">
+                                            <rect key="frame" x="20" y="192" width="157" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <size key="customSize" width="225" height="225"/>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="Bhm-gw-wqs" id="ON0-9d-r7i"/>
+                                    <outlet property="categoryLabel" destination="5Zl-fi-hTV" id="oNx-zp-xdj"/>
+                                    <outlet property="imageView" destination="hVS-CQ-0dW" id="ueX-ki-cjO"/>
+                                    <outlet property="nameLabel" destination="bAg-7y-Znf" id="4Lr-ED-8LY"/>
+                                    <outlet property="priceLabel" destination="eFA-gN-UBd" id="bbY-ia-loE"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="EX4-gA-xPC" id="JuF-1a-Vl9"/>
+                            <outlet property="delegate" destination="EX4-gA-xPC" id="KkI-bD-C79"/>
+                        </connections>
+                    </collectionView>
                     <navigationItem key="navigationItem" title="Top Paid Apps" id="27B-sK-p9l">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="f3p-rI-tEA"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="f3p-rI-tEA">
+                            <connections>
+                                <action selector="searchForApps:" destination="EX4-gA-xPC" id="5IH-9A-4eP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="er7-Uy-TkQ" id="MpG-mv-qfL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvB-Nc-6x2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,7 +244,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="x5w-Yb-lvd">
-                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="768" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
@@ -170,7 +253,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0VM-8g-Jtz">
-                                <rect key="frame" x="0.0" y="66" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="130" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0VM-8g-Jtz" id="c9Z-6j-ERW">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>

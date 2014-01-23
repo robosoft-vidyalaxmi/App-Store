@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B793C5D61891248C002FD7A1 /* SearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B793C5D51891248C002FD7A1 /* SearchHeaderView.m */; };
 		B7A4D22C188FC00A00FD0941 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22B188FC00A00FD0941 /* Foundation.framework */; };
 		B7A4D22E188FC00A00FD0941 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22D188FC00A00FD0941 /* CoreGraphics.framework */; };
 		B7A4D230188FC00A00FD0941 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22F188FC00A00FD0941 /* UIKit.framework */; };
@@ -15,7 +16,6 @@
 		B7A4D23C188FC00A00FD0941 /* AppStoreAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D23B188FC00A00FD0941 /* AppStoreAppDelegate.m */; };
 		B7A4D23F188FC00A00FD0941 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D23D188FC00A00FD0941 /* Main_iPhone.storyboard */; };
 		B7A4D242188FC00A00FD0941 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D240188FC00A00FD0941 /* Main_iPad.storyboard */; };
-		B7A4D245188FC00A00FD0941 /* AppStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D244188FC00A00FD0941 /* AppStoreViewController.m */; };
 		B7A4D247188FC00A00FD0941 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D246188FC00A00FD0941 /* Images.xcassets */; };
 		B7A4D24E188FC00B00FD0941 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D24D188FC00B00FD0941 /* XCTest.framework */; };
 		B7A4D24F188FC00B00FD0941 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22B188FC00A00FD0941 /* Foundation.framework */; };
@@ -39,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B793C5D41891248C002FD7A1 /* SearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHeaderView.h; path = View/SearchHeaderView.h; sourceTree = "<group>"; };
+		B793C5D51891248C002FD7A1 /* SearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHeaderView.m; path = View/SearchHeaderView.m; sourceTree = "<group>"; };
 		B7A4D228188FC00A00FD0941 /* App Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A4D22B188FC00A00FD0941 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B7A4D22D188FC00A00FD0941 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -51,8 +53,6 @@
 		B7A4D23B188FC00A00FD0941 /* AppStoreAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStoreAppDelegate.m; sourceTree = "<group>"; };
 		B7A4D23E188FC00A00FD0941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B7A4D241188FC00A00FD0941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		B7A4D243188FC00A00FD0941 /* AppStoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppStoreViewController.h; sourceTree = "<group>"; };
-		B7A4D244188FC00A00FD0941 /* AppStoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStoreViewController.m; sourceTree = "<group>"; };
 		B7A4D246188FC00A00FD0941 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B7A4D24C188FC00B00FD0941 /* App StoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "App StoreTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A4D24D188FC00B00FD0941 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -205,8 +205,6 @@
 		B7A4D26A188FC49200FD0941 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B7A4D243188FC00A00FD0941 /* AppStoreViewController.h */,
-				B7A4D244188FC00A00FD0941 /* AppStoreViewController.m */,
 				B7A4D273188FF09200FD0941 /* TopAppsViewController.h */,
 				B7A4D274188FF09200FD0941 /* TopAppsViewController.m */,
 			);
@@ -227,6 +225,8 @@
 			children = (
 				B7A4D276188FF4FD00FD0941 /* AppCell.h */,
 				B7A4D277188FF4FD00FD0941 /* AppCell.m */,
+				B793C5D41891248C002FD7A1 /* SearchHeaderView.h */,
+				B793C5D51891248C002FD7A1 /* SearchHeaderView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -330,12 +330,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B793C5D61891248C002FD7A1 /* SearchHeaderView.m in Sources */,
 				B7A4D275188FF09200FD0941 /* TopAppsViewController.m in Sources */,
 				B7A4D23C188FC00A00FD0941 /* AppStoreAppDelegate.m in Sources */,
 				B7A4D278188FF4FD00FD0941 /* AppCell.m in Sources */,
 				B7A4D238188FC00A00FD0941 /* main.m in Sources */,
 				B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */,
-				B7A4D245188FC00A00FD0941 /* AppStoreViewController.m in Sources */,
 				B7A4D26E188FC64200FD0941 /* AppData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
