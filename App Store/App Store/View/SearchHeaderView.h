@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SearchHeaderView : UICollectionReusableView
+
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

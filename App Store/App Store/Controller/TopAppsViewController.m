@@ -12,7 +12,7 @@
 #import "AppData.h"
 #import "SearchHeaderView.h"
 
-@interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchDisplayDelegate>
 
 @property (nonatomic, strong) NSArray *appDataArray;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -25,15 +25,6 @@
 @end
 
 @implementation TopAppsViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -56,7 +47,8 @@
     }
 }
 
-#pragma mark UICollectionView
+#pragma mark UICollectionViewDataSource
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return [self.appDataArray count];
@@ -76,6 +68,15 @@
     return cell;
 }
 
+- (UICollectionReusableView *)collectionView:
+(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerView" forIndexPath:indexPath];
+    return headerView;
+}
+
+#pragma mark UICollectionViewDelegateFlowLayout
+
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
@@ -92,9 +93,10 @@
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-//    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
-//        return UIEdgeInsetsMake(50, 50, 50, 50);
-//    }
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
+    {
+        //todo
+    }
     return UIEdgeInsetsMake(kEdgeInsetsTop, kEdgeInsetsLeft, kEdgeInsetsBottom, kEdgeInsetsRight);
 }
 
@@ -107,20 +109,16 @@
     }
 }
 
-- (UICollectionReusableView *)collectionView:
-(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerView" forIndexPath:indexPath];
-    return headerView;
-}
-
 #pragma mark Updating UICollectionViewCell
+
 -(void)updateDataForCell:(AppCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     AppData *appData = [[AppData alloc] init];
     appData = [self.appDataArray objectAtIndex:indexPath.row];
     
     cell.appImage.image = nil;
+    
+    //perform background operation as it takes long time to load images
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(backgroundQueue, ^{
         [cell.activityIndicator startAnimating];
@@ -137,13 +135,13 @@
     cell.priceLabel.text = appData.price;
 }
 
-#pragma mark Saerch for an app
+#pragma mark Search Button
+
 -(IBAction)searchForApps:(id)sender
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
     {
         self.searchBarShouldDisplay = YES;
-        
         [self.collectionView reloadData];
     }
 }
