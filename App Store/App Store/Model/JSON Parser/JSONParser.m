@@ -12,21 +12,25 @@
 @implementation JSONParser
 
 //parses JSON data from iTunes using JSON feed URL
--(void)parseAppDataUsingFeed:(NSURL *)jsonFeedURL
+-(NSArray *)parseAppDataUsingFeed:(NSString *)jsonFeed
 {
+    NSURL *jsonFeedURL = [NSURL URLWithString:jsonFeed];
     NSData *jsonData = [NSData dataWithContentsOfURL:jsonFeedURL];
     NSError *error;
     self.jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
-                                            options:kNilOptions error:&error];
-    if (!error) {
-        NSArray *feedArray = [NSArray arrayWithArray:[[self.jsonDictionary valueForKey:@"feed"] valueForKey:@"entry"]];
-        //NSLog(@"Parsed JSON data= %@", feedArray);
-        
-        for (NSDictionary *appEntry in feedArray) {
-            AppData *appData=[[AppData alloc] initAppDataFromDictionary:appEntry];
-            NSLog(@"App name=%@", appData.price);
-        }
+                                                              options:kNilOptions error:&error];
+    
+    
+    NSArray *feedArray = [NSArray arrayWithArray:[[self.jsonDictionary valueForKey:@"feed"] valueForKey:@"entry"]];
+    self.appDataArray = [[NSMutableArray alloc] initWithCapacity:25];
+    
+    for (NSDictionary *appEntry in feedArray)
+    {
+        AppData *appData = [[AppData alloc] initAppDataFromDictionary:appEntry];
+        [self.appDataArray addObject:appData];
     }
+    
+    return self.appDataArray;
     
 }
 

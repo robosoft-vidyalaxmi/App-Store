@@ -1,5 +1,5 @@
 //
-//  AppStoreViewController.h
+//  TopFreeAppsViewController.h
 //  App Store
 //
 //  Created by Vidyalaxmi Shenoy on 22/01/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppStoreViewController : UIViewController
+@interface TopAppsViewController : UIViewController
 
 @end
