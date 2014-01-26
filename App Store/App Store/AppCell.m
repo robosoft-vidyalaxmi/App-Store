@@ -7,7 +7,6 @@
 //
 
 #import "AppCell.h"
-#import "AppData.h"
 
 @implementation AppCell
 

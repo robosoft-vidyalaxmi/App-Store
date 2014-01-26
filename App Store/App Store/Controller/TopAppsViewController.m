@@ -11,6 +11,7 @@
 #import "AppCell.h"
 #import "AppData.h"
 #import "SearchHeaderView.h"
+#import "PopUpViewController.h"
 
 @interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchDisplayDelegate>
 
@@ -29,6 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self setModalPresentationStyle:UIModalPresentationCurrentContext];
 	self.jsonParser = [[JSONParser alloc] init];
     self.appDataArray = [[NSArray alloc] init];
 }
@@ -73,6 +76,14 @@
 {
     SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerView" forIndexPath:indexPath];
     return headerView;
+}
+
+#pragma mark UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"popUp" sender:self];
+    
 }
 
 #pragma mark UICollectionViewDelegateFlowLayout
@@ -130,7 +141,7 @@
             cell.appImage.image = image;
         });
     });
-    cell.nameLabel.text = appData.appName;
+    cell.nameTextView.text = appData.appName;
     cell.categoryLabel.text = appData.category;
     cell.priceLabel.text = appData.price;
 }
@@ -144,6 +155,20 @@
         self.searchBarShouldDisplay = YES;
         [self.collectionView reloadData];
     }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"popUp"])
+	{
+        UIViewController *controller=segue.destinationViewController;
+        if([controller isKindOfClass:[PopUpViewController class]])
+        {
+            PopUpViewController *popUpViewController = (PopUpViewController *)controller;
+            popUpViewController.indexPathForSelectedItem = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
+            [popUpViewController setLabels:self.appDataArray];
+        }
+	}
 }
 
 @end

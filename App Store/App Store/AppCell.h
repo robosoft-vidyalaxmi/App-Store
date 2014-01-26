@@ -10,8 +10,8 @@
 
 @interface AppCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UITextView *nameTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *appImage;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;

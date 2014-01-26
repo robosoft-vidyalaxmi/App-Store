@@ -10,8 +10,8 @@
 
 @implementation Constants
 
-CGFloat const kItemWidth_iPhone = 135;
-CGFloat const kItemHeight_iPhone = 135;
+CGFloat const kItemWidth_iPhone = 140;
+CGFloat const kItemHeight_iPhone = 140;
 CGFloat const kItemWidth_iPad = 225;
 CGFloat const kItemHeight_iPad = 225;
 CGFloat const kHeaderViewHeight = 50;
