@@ -18,19 +18,20 @@
     NSData *jsonData = [NSData dataWithContentsOfURL:jsonFeedURL];
     NSError *error;
     self.jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
-                                            options:kNilOptions error:&error];
-    if (!error)
+                                                              options:kNilOptions error:&error];
+    
+    
+    NSArray *feedArray = [NSArray arrayWithArray:[[self.jsonDictionary valueForKey:@"feed"] valueForKey:@"entry"]];
+    self.appDataArray = [[NSMutableArray alloc] initWithCapacity:25];
+    
+    for (NSDictionary *appEntry in feedArray)
     {
-        NSArray *feedArray = [NSArray arrayWithArray:[[self.jsonDictionary valueForKey:@"feed"] valueForKey:@"entry"]];
-        self.appDataArray = [[NSMutableArray alloc] initWithCapacity:25];
-        
-        for (NSDictionary *appEntry in feedArray)
-        {
-            AppData *appData = [[AppData alloc] initAppDataFromDictionary:appEntry];
-            [self.appDataArray addObject:appData];
-        }
+        AppData *appData = [[AppData alloc] initAppDataFromDictionary:appEntry];
+        [self.appDataArray addObject:appData];
     }
+    
     return self.appDataArray;
+    
 }
 
 @end

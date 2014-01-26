@@ -56,19 +56,10 @@
     }
 }
 
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 #pragma mark UICollectionView
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 25;
+    return [self.appDataArray count];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -89,12 +80,12 @@
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
     {
-        CGSize retval = CGSizeMake(135, 135);
+        CGSize retval = CGSizeMake(kItemWidth_iPhone, kItemHeight_iPhone);
         return retval;
     }
     else
     {
-        CGSize retval = CGSizeMake(225, 225);
+        CGSize retval = CGSizeMake(kItemWidth_iPad, kItemHeight_iPad);
         return retval;
     }
 }
@@ -104,24 +95,22 @@
 //    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)) {
 //        return UIEdgeInsetsMake(50, 50, 50, 50);
 //    }
-    return UIEdgeInsetsMake(10, 10, 10, 10);
-    
+    return UIEdgeInsetsMake(kEdgeInsetsTop, kEdgeInsetsLeft, kEdgeInsetsBottom, kEdgeInsetsRight);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    if (self.searchBarShouldDisplay == NO) {
+        return CGSizeMake(0, 0);
+    }else {
+        return CGSizeMake(self.collectionView.bounds.size.width, 50);
+    }
 }
 
 - (UICollectionReusableView *)collectionView:
 (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerView" forIndexPath:indexPath];
-    if (self.searchBarShouldDisplay == NO)
-    {
-        headerView.searchBar.hidden = YES;
-    }
-    else
-    {
-        headerView.searchBar.hidden = NO;
-        [headerView.searchBar becomeFirstResponder];
-    }
-    
     return headerView;
 }
 
@@ -131,7 +120,7 @@
     AppData *appData = [[AppData alloc] init];
     appData = [self.appDataArray objectAtIndex:indexPath.row];
     
-    cell.imageView.image = nil;
+    cell.appImage.image = nil;
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(backgroundQueue, ^{
         [cell.activityIndicator startAnimating];
@@ -140,7 +129,7 @@
         UIImage *image = [[UIImage alloc] initWithData:data];
         dispatch_async(dispatch_get_main_queue(), ^{
             [cell.activityIndicator stopAnimating];
-            cell.imageView.image = image;
+            cell.appImage.image = image;
         });
     });
     cell.nameLabel.text = appData.appName;
