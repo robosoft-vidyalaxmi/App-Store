@@ -19,5 +19,9 @@ extern CGFloat const kEdgeInsetsTop;
 extern CGFloat const kEdgeInsetsLeft;
 extern CGFloat const kEdgeInsetsBottom;
 extern CGFloat const kEdgeInsetsRight;
+extern NSString * const kTopPaidApps;
+extern NSString * const kTopFreeApps;
+extern NSString * const kWishList;
+extern NSString * const kWishListArray;
 
 @end

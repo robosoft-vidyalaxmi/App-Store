@@ -13,9 +13,10 @@
 #import "SearchHeaderView.h"
 #import "PopUpViewController.h"
 
-@interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchDisplayDelegate>
+@interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchDisplayDelegate, PopUpViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *appDataArray;
+@property (nonatomic ,strong) NSMutableArray *wishListArray;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) JSONParser *jsonParser;
 @property (nonatomic) BOOL searchBarShouldDisplay;
@@ -34,19 +35,24 @@
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
 	self.jsonParser = [[JSONParser alloc] init];
     self.appDataArray = [[NSArray alloc] init];
+    self.wishListArray = [[NSMutableArray alloc] init];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     
-    if ([self.navigationItem.title isEqualToString:@"Top Free Apps"])
+    if ([self.navigationItem.title isEqualToString:kTopFreeApps])
     {
         self.appDataArray = [self.jsonParser parseAppDataUsingFeed:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=25/json"];
     }
-    else if([self.navigationItem.title isEqualToString:@"Top Paid Apps"])
+    else if([self.navigationItem.title isEqualToString:kTopPaidApps])
     {
         self.appDataArray = [self.jsonParser parseAppDataUsingFeed:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=25/json"];
+    }
+    else if ([self.navigationItem.title isEqualToString:kWishList])
+    {
+        self.appDataArray = self.wishListArray;
     }
 }
 
@@ -157,6 +163,13 @@
     }
 }
 
+#pragma mark PopUpViewControllerDelegateMethod
+
+-(void)newItemAddedToWishListWithAppData:(AppData *)appData
+{
+    [self.wishListArray addObject:appData];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"popUp"])
@@ -166,7 +179,8 @@
         {
             PopUpViewController *popUpViewController = (PopUpViewController *)controller;
             popUpViewController.indexPathForSelectedItem = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
-            [popUpViewController setLabels:self.appDataArray];
+            popUpViewController.delegate = self;
+            [popUpViewController setViewProperties:self.appDataArray];
         }
 	}
 }

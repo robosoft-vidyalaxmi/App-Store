@@ -11,6 +11,7 @@
 
 @interface PopUpViewController ()
 
+@property (nonatomic, strong) AppData *appData;
 @property (weak, nonatomic) IBOutlet UITextView *authorTextView;
 @property (weak, nonatomic) IBOutlet UITextView *copyrightTextView;
 @property (weak, nonatomic) IBOutlet UITextView *summaryTextView;
@@ -23,16 +24,21 @@
 
 @implementation PopUpViewController
 
--(void)setLabels:(NSArray *)appDataArray
+-(void)viewDidLoad
 {
-    AppData *appData = [[AppData alloc] init];
-    appData = [appDataArray objectAtIndex:self.indexPathForSelectedItem.row];
+    [super viewDidLoad];
+    self.appData = [[AppData alloc] init];
+}
+
+-(void)setViewProperties:(NSArray *)appDataArray
+{
+    self.appData = [appDataArray objectAtIndex:self.indexPathForSelectedItem.row];
     
     UITextView *authorTextView = (UITextView *)[self.view viewWithTag:51];
-    authorTextView.text = [NSString stringWithFormat:@"Author: %@", appData.authorName];
-    self.copyrightTextView.text = [NSString stringWithFormat:@"Copyright: %@", appData.copyright];
-    self.summaryTextView.text = [NSString stringWithFormat:@"Summary: %@", appData.summary];
-    self.releaseDateTextView.text = [NSString stringWithFormat:@"Release Date: %@", appData.releaseDate];
+    authorTextView.text = [NSString stringWithFormat:@"Author: %@", self.appData.authorName];
+    self.copyrightTextView.text = [NSString stringWithFormat:@"Copyright: %@", self.appData.copyright];
+    self.summaryTextView.text = [NSString stringWithFormat:@"Summary: %@", self.appData.summary];
+    self.releaseDateTextView.text = [NSString stringWithFormat:@"Release Date: %@", self.appData.releaseDate];
 }
 
 - (IBAction)closeButton:(id)sender
@@ -42,5 +48,6 @@
 
 - (IBAction)addToWishListButton:(id)sender
 {
+    [self.delegate newItemAddedToWishListWithAppData:self.appData];
 }
 @end

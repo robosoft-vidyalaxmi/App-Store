@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class PopUpViewController;
+@class AppData;
+
+@protocol PopUpViewControllerDelegate <NSObject>
+
+-(void)newItemAddedToWishListWithAppData:(AppData *)appData;
+
+@end
 @interface PopUpViewController : UIViewController
 
 @property (nonatomic, strong) NSIndexPath *indexPathForSelectedItem;
+@property (nonatomic, assign) id<PopUpViewControllerDelegate> delegate;
 
--(void)setLabels:(NSArray *)appDataArray;
+-(void)setViewProperties:(NSArray *)appDataArray;
 
 @end

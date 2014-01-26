@@ -19,5 +19,9 @@ CGFloat const kEdgeInsetsTop = 10;
 CGFloat const kEdgeInsetsLeft = 10;
 CGFloat const kEdgeInsetsBottom = 10;
 CGFloat const kEdgeInsetsRight = 10;
+NSString *const kTopFreeApps = @"Top Free Apps";
+NSString *const kTopPaidApps = @"Top Paid Apps";
+NSString *const kWishList = @"Wish List";
+NSString *const kWishListArray = @"Wish List Array";
 
 @end
