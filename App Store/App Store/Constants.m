@@ -12,8 +12,8 @@
 
 CGFloat const kItemWidth_iPhone = 90;
 CGFloat const kItemHeight_iPhone = 100;
-CGFloat const kItemWidth_iPad = 225;
-CGFloat const kItemHeight_iPad = 225;
+CGFloat const kItemWidth_iPad = 150;
+CGFloat const kItemHeight_iPad = 150;
 CGFloat const kHeaderViewHeight = 50;
 CGFloat const kEdgeInsetsTop = 10;
 CGFloat const kEdgeInsetsLeft = 10;

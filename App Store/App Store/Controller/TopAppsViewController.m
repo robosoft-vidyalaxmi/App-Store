@@ -118,7 +118,7 @@
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
         CGSize retval = CGSizeMake(kItemWidth_iPhone, kItemHeight_iPhone);
         return retval;
@@ -178,7 +178,6 @@
         });
     });
     cell.appNameLabel.text = appData.appName;
-    cell.nameTextView.text = appData.appName;
     cell.categoryLabel.text = appData.category;
     cell.priceLabel.text = appData.price;
 }
@@ -187,7 +186,7 @@
 
 -(IBAction)searchForApps:(id)sender
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
         self.isSearchBarDisplayed = YES;
         [self.collectionView reloadData];
@@ -298,7 +297,7 @@
     self.popUpView.authorNameTextView.text = [NSString stringWithFormat:@"Author: %@",appData.authorName];
     [self.popUpView.priceButton setTitle:appData.price forState:UIControlStateNormal];
     self.popUpView.summaryTextView.text = [NSString stringWithFormat:@"Description:\n%@",appData.summary];
-    self.popUpView.inforationTextView.text = [NSString stringWithFormat:@"Information:\nCategory: %@\nCopyright: %@\nRelease Date: %@\nLink: %@", appData.category, appData.copyright, appData.releaseDate, appData.link];
+    self.popUpView.inforationTextView.text = [NSString stringWithFormat:@"Information\nCategory: %@\nCopyright: %@\nRelease Date: %@", appData.category, appData.copyright, appData.releaseDate];
 }
 
 @end
