@@ -19,13 +19,13 @@ extern CGFloat const kEdgeInsetsTop;
 extern CGFloat const kEdgeInsetsLeft;
 extern CGFloat const kEdgeInsetsBottom;
 extern CGFloat const kEdgeInsetsRight;
+extern CGFloat const kCollectionViewHeaderHeight;
 extern NSString * const kTopPaidApps;
 extern NSString * const kTopFreeApps;
 extern NSString * const kWishList;
 extern NSString * const kWishListArray;
 extern NSString * const kTopFreeAppsJsonFeed;
 extern NSString * const kTopPaidAppsJsonFeed;
-extern NSString * const kAlertTitle;
 extern NSString * const kAlertMessage;
 
 @end

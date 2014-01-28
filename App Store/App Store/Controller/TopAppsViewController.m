@@ -147,7 +147,7 @@
     }
     else
     {
-        return CGSizeMake(self.collectionView.bounds.size.width, 50);
+        return CGSizeMake(self.collectionView.bounds.size.width, kCollectionViewHeaderHeight);
     }
 }
 
@@ -202,6 +202,7 @@
 
 -(void)filterContentForSearchText:(NSString *)searchText inSearchBar:(UISearchBar *)searchBar
 {
+    // Update the filtered array based on the search text
     if(searchText.length == 0)
     {
         self.isFiltered = false;
@@ -229,8 +230,10 @@
 
 -(void)displayAlert
 {
-    if ([self.filteredAppDataArray count] == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:kAlertTitle message:kAlertMessage delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+    //if appName not found
+    if ([self.filteredAppDataArray count] == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:kAlertMessage delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
         [alert show];
     }
 }
@@ -240,13 +243,6 @@
     self.isSearchBarDisplayed = NO;
     self.isFiltered = false;
     [self.collectionView reloadData];
-}
-
-#pragma mark PopUpViewControllerDelegateMethod
-
--(void)newItemAddedToWishListWithAppData:(AppData *)appData
-{
-    [self.wishListArray addObject:appData];
 }
 
 -(void)prepareForAnimatingView
