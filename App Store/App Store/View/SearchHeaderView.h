@@ -8,8 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchHeaderView : UICollectionReusableView
+@class SearchHeaderView;
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@protocol SearchDelegate <NSObject>
+
+-(void) filterContentForSearchText:(NSString *)searchText inSearchBar:(UISearchBar *)searchBar ;
+-(void) displayAlert;
+-(void) hideSearchBar;
+
+@end
+
+@interface SearchHeaderView : UICollectionReusableView <UISearchBarDelegate>
+
+@property (weak, nonatomic) IBOutlet UISearchBar *appSearchBar;
+@property (nonatomic, assign) id<SearchDelegate> delegate;
 
 @end

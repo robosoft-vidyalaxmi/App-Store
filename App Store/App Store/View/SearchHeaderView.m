@@ -10,4 +10,19 @@
 
 @implementation SearchHeaderView
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self.delegate filterContentForSearchText:searchText inSearchBar:(UISearchBar *)self.appSearchBar];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.delegate displayAlert];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
+{
+    [self.delegate hideSearchBar];
+}
+
 @end

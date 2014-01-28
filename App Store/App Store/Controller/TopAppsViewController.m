@@ -11,16 +11,19 @@
 #import "AppCell.h"
 #import "AppData.h"
 #import "SearchHeaderView.h"
-#import "PopUpViewController.h"
+#import "PopUpView.h"
 
-@interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchDisplayDelegate, PopUpViewControllerDelegate>
+@interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchDisplayDelegate, UIAlertViewDelegate, SearchDelegate, PopUpViewDelegate>
 
 @property (nonatomic, strong) NSArray *appDataArray;
+@property (nonatomic, strong) NSMutableArray *filteredAppDataArray;
 @property (nonatomic ,strong) NSMutableArray *wishListArray;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) JSONParser *jsonParser;
-@property (nonatomic) BOOL searchBarShouldDisplay;
-
+@property (nonatomic) BOOL isSearchBarDisplayed;
+@property (nonatomic) BOOL isFiltered;
+@property (nonatomic, strong) PopUpView *popUpView;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 
 -(IBAction)searchForApps:(id)sender;
 
@@ -28,14 +31,27 @@
 
 @implementation TopAppsViewController
 
+-(void)setUpModel
+{
+    self.jsonParser = [[JSONParser alloc] init];
+    self.appDataArray = [[NSArray alloc] init];
+    self.wishListArray = [[NSMutableArray alloc] init];
+}
+
+-(void)setUpPopUpView
+{
+    self.popUpView = [PopUpView popUpView];
+    self.popUpView.delegate= self;
+    self.popUpView.alpha = 0;
+    [self.collectionView addSubview:self.popUpView];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController setModalPresentationStyle:UIModalPresentationCurrentContext];
-    [self setModalPresentationStyle:UIModalPresentationCurrentContext];
-	self.jsonParser = [[JSONParser alloc] init];
-    self.appDataArray = [[NSArray alloc] init];
-    self.wishListArray = [[NSMutableArray alloc] init];
+    [self setUpModel];
+    [self setUpPopUpView];
+    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissPopUp)];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -44,11 +60,11 @@
     
     if ([self.navigationItem.title isEqualToString:kTopFreeApps])
     {
-        self.appDataArray = [self.jsonParser parseAppDataUsingFeed:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=25/json"];
+        self.appDataArray = [self.jsonParser parseAppDataUsingFeed:kTopFreeAppsJsonFeed];
     }
     else if([self.navigationItem.title isEqualToString:kTopPaidApps])
     {
-        self.appDataArray = [self.jsonParser parseAppDataUsingFeed:@"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=25/json"];
+        self.appDataArray = [self.jsonParser parseAppDataUsingFeed:kTopPaidAppsJsonFeed];
     }
     else if ([self.navigationItem.title isEqualToString:kWishList])
     {
@@ -60,7 +76,11 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.appDataArray count];
+    if (self.isFiltered)
+    {
+        return [self.filteredAppDataArray count];
+    }
+    else return [self.appDataArray count];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -72,7 +92,6 @@
 {
     AppCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
 
-    cell.backgroundColor = [UIColor blueColor];
     [self updateDataForCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -81,6 +100,7 @@
 (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerView" forIndexPath:indexPath];
+    headerView.delegate = self;
     return headerView;
 }
 
@@ -88,7 +108,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"popUp" sender:self];
+    [self prepareForAnimatingView];
+    [self.popUpView animatePopUp];
+    [self configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath];
     
 }
 
@@ -119,9 +141,12 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    if (self.searchBarShouldDisplay == NO) {
+    if (self.isSearchBarDisplayed == NO)
+    {
         return CGSizeMake(0, 0);
-    }else {
+    }
+    else
+    {
         return CGSizeMake(self.collectionView.bounds.size.width, 50);
     }
 }
@@ -131,9 +156,14 @@
 -(void)updateDataForCell:(AppCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     AppData *appData = [[AppData alloc] init];
-    appData = [self.appDataArray objectAtIndex:indexPath.row];
+    if (self.isFiltered)
+    {
+        appData = [self.filteredAppDataArray objectAtIndex:indexPath.row];
+    }
+    else
+        appData = [self.appDataArray objectAtIndex:indexPath.row];
     
-    cell.appImage.image = nil;
+    cell.appImageView.image = nil;
     
     //perform background operation as it takes long time to load images
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -144,9 +174,10 @@
         UIImage *image = [[UIImage alloc] initWithData:data];
         dispatch_async(dispatch_get_main_queue(), ^{
             [cell.activityIndicator stopAnimating];
-            cell.appImage.image = image;
+            cell.appImageView.image = image;
         });
     });
+    cell.appNameLabel.text = appData.appName;
     cell.nameTextView.text = appData.appName;
     cell.categoryLabel.text = appData.category;
     cell.priceLabel.text = appData.price;
@@ -158,9 +189,57 @@
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
     {
-        self.searchBarShouldDisplay = YES;
+        self.isSearchBarDisplayed = YES;
         [self.collectionView reloadData];
     }
+    else
+    {
+        //todo
+    }
+}
+
+#pragma mark SearchDelegate
+
+-(void)filterContentForSearchText:(NSString *)searchText inSearchBar:(UISearchBar *)searchBar
+{
+    if(searchText.length == 0)
+    {
+        self.isFiltered = false;
+        [self.filteredAppDataArray removeAllObjects];
+        [self.filteredAppDataArray addObjectsFromArray:self.appDataArray];
+    }
+    else
+    {
+        self.isFiltered = true;
+        [self.filteredAppDataArray removeAllObjects];
+        self.filteredAppDataArray = [[NSMutableArray alloc] init];
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.appName contains[c] %@",searchText];
+        NSMutableArray *appNameArray = [[NSMutableArray alloc] init];
+        for (AppData *appData in self.appDataArray)
+        {
+            [appNameArray addObject:appData];
+        }
+        NSArray *tempArray = [appNameArray filteredArrayUsingPredicate:predicate];
+        self.filteredAppDataArray = [NSMutableArray arrayWithArray:tempArray];
+    }
+    [self.collectionView reloadData];
+    [searchBar becomeFirstResponder];
+}
+
+-(void)displayAlert
+{
+    if ([self.filteredAppDataArray count] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:kAlertTitle message:kAlertMessage delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
+-(void)hideSearchBar
+{
+    self.isSearchBarDisplayed = NO;
+    self.isFiltered = false;
+    [self.collectionView reloadData];
 }
 
 #pragma mark PopUpViewControllerDelegateMethod
@@ -170,19 +249,60 @@
     [self.wishListArray addObject:appData];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)prepareForAnimatingView
 {
-    if ([segue.identifier isEqualToString:@"popUp"])
-	{
-        UIViewController *controller=segue.destinationViewController;
-        if([controller isKindOfClass:[PopUpViewController class]])
-        {
-            PopUpViewController *popUpViewController = (PopUpViewController *)controller;
-            popUpViewController.indexPathForSelectedItem = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
-            popUpViewController.delegate = self;
-            [popUpViewController setViewProperties:self.appDataArray];
-        }
-	}
+    //Getting the center of the screen coordinates
+    CGPoint screenCenter = CGPointMake(([UIScreen mainScreen].bounds.size.width)/2, ([UIScreen mainScreen].bounds.size.height)/2);
+    //converting it to window coordinates
+    UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
+    CGPoint pointInWindowCoords = [mainWindow convertPoint:screenCenter fromWindow:nil];
+    //converting it to view coordinates
+    CGPoint pointInCollectionViewCoords = [self.collectionView convertPoint:pointInWindowCoords fromView:mainWindow];
+    self.popUpView.center = pointInCollectionViewCoords;
+}
+
+#pragma mark PopUpViewDelegate
+
+-(void)popUpViewDidAppear
+{
+    //add tap gesture recognizer so tat pop up can disappear when tapped outside the view
+    [self.view addGestureRecognizer:self.tapGestureRecognizer];
+    
+    //disable scrolling when popUp is shown
+    self.collectionView.scrollEnabled = NO;
+}
+
+-(void)dismissPopUp
+{
+    self.popUpView.alpha = 0;
+    [self.view removeGestureRecognizer:self.tapGestureRecognizer];
+    
+    //enable scrolling when popUp is hidden
+    self.collectionView.scrollEnabled = YES;
+}
+
+-(void)configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    AppData *appData = [[AppData alloc] init];
+    appData = [self.appDataArray objectAtIndex:indexPath.row];
+    
+    //perform background operation to load image
+    self.popUpView.appImageView.image = nil;
+    dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(backgroundQueue, ^{
+        NSURL *url = [NSURL URLWithString:[[appData.imagePathList objectAtIndex:0] valueForKey:@"label"]];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *image = [[UIImage alloc] initWithData:data];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.popUpView.appImageView.image = image;
+        });
+    });
+    
+    self.popUpView.appNameTextView.text = appData.appName;
+    self.popUpView.authorNameTextView.text = [NSString stringWithFormat:@"Author: %@",appData.authorName];
+    [self.popUpView.priceButton setTitle:appData.price forState:UIControlStateNormal];
+    self.popUpView.summaryTextView.text = [NSString stringWithFormat:@"Description:\n%@",appData.summary];
+    self.popUpView.inforationTextView.text = [NSString stringWithFormat:@"Information:\nCategory: %@\nCopyright: %@\nRelease Date: %@\nLink: %@", appData.category, appData.copyright, appData.releaseDate, appData.link];
 }
 
 @end

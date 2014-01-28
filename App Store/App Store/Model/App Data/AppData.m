@@ -23,8 +23,8 @@
         self.releaseDate = [[[appDictionary valueForKey:@"im:releaseDate"] valueForKey:@"attributes"]valueForKey:@"label"];
         self.summary = [[appDictionary valueForKey:@"summary"] valueForKey:@"label"];
         self.imagePathList = [appDictionary valueForKey:@"im:image"];
-
     }
     return self;
 }
+
 @end

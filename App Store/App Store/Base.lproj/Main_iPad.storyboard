@@ -59,7 +59,7 @@
                                 <size key="customSize" width="225" height="225"/>
                                 <connections>
                                     <outlet property="activityIndicator" destination="RGA-SP-Mbu" id="M6z-tl-GkN"/>
-                                    <outlet property="appImage" destination="QEX-zi-XgF" id="fxu-GE-tJ6"/>
+                                    <outlet property="appImageView" destination="QEX-zi-XgF" id="VWe-Uf-DVN"/>
                                     <outlet property="categoryLabel" destination="NC4-zN-mQB" id="Dc2-B5-wcZ"/>
                                     <outlet property="nameLabel" destination="dWN-2u-RM6" id="XCV-ql-0Bm"/>
                                     <outlet property="priceLabel" destination="NoQ-UE-kq6" id="dmu-Ro-nrT"/>
@@ -170,7 +170,7 @@
                                 <size key="customSize" width="225" height="225"/>
                                 <connections>
                                     <outlet property="activityIndicator" destination="Bhm-gw-wqs" id="ON0-9d-r7i"/>
-                                    <outlet property="appImage" destination="hVS-CQ-0dW" id="6un-kS-hme"/>
+                                    <outlet property="appImageView" destination="hVS-CQ-0dW" id="Zp0-Pf-InM"/>
                                     <outlet property="categoryLabel" destination="5Zl-fi-hTV" id="oNx-zp-xdj"/>
                                     <outlet property="nameLabel" destination="bAg-7y-Znf" id="4Lr-ED-8LY"/>
                                     <outlet property="priceLabel" destination="eFA-gN-UBd" id="bbY-ia-loE"/>

@@ -29,9 +29,7 @@
         AppData *appData = [[AppData alloc] initAppDataFromDictionary:appEntry];
         [self.appDataArray addObject:appData];
     }
-    
     return self.appDataArray;
-    
 }
 
 @end
