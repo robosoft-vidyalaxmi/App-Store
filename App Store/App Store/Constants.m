@@ -22,10 +22,12 @@ CGFloat const kEdgeInsetsRight = 10;
 CGFloat const kCollectionViewHeaderHeight = 50;
 NSString *const kTopFreeApps = @"Top Free Apps";
 NSString *const kTopPaidApps = @"Top Paid Apps";
-NSString *const kWishList = @"Wish List";
-NSString *const kWishListArray = @"Wish List Array";
 NSString *const kTopFreeAppsJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=25/json";
 NSString *const kTopPaidAppsJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=25/json";
 NSString *const kAlertMessage = @"App not found";
+NSString *const kInstallTitle = @"INSTALL";
+NSString *const kButtonTitleDone = @"Done";
+NSString *const kButtonTitleEdit = @"Edit";
+NSString *const kplistFileName = @"WishList.plist";
 
 @end

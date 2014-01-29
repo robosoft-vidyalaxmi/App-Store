@@ -104,7 +104,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.isItemSelected = true;
+    self.isItemSelected = YES;
     [self setUpPopUpViewCenter];
     [self.popUpView animatePopUp];
     [self configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath];
@@ -201,13 +201,13 @@
     // Update the filtered array based on the search text
     if(searchText.length == 0)
     {
-        self.isFiltered = false;
+        self.isFiltered = NO;
         [self.filteredAppDataArray removeAllObjects];
         [self.filteredAppDataArray addObjectsFromArray:self.appDataArray];
     }
     else
     {
-        self.isFiltered = true;
+        self.isFiltered = YES;
         [self.filteredAppDataArray removeAllObjects];
         self.filteredAppDataArray = [[NSMutableArray alloc] init];
         
@@ -237,7 +237,7 @@
 -(void)hideSearchBar
 {
     self.isSearchBarDisplayed = NO;
-    self.isFiltered = false;
+    self.isFiltered = NO;
     [self.collectionView reloadData];
 }
 
@@ -271,13 +271,13 @@
     
     //enable scrolling when popUp is hidden
     self.collectionView.scrollEnabled = YES;
-    self.isItemSelected = false;
+    self.isItemSelected = NO;
 }
 
 -(void)addAppToWishList
 {
     //Get plist file path where setails about apps added to wishlist are stored
-    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"Wishlist.plist"];
+    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:kplistFileName];
     
     NSError *error;
     

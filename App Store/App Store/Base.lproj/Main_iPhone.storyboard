@@ -215,10 +215,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKV-MC-Nh4">
-                                            <rect key="frame" x="221" y="21" width="82" height="25"/>
+                                            <rect key="frame" x="244" y="24" width="56" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="82" id="mQ6-JS-7oy"/>
+                                                <constraint firstAttribute="width" constant="56" id="mQ6-JS-7oy"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <state key="normal" title="Price">
@@ -236,14 +236,15 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="aKV-MC-Nh4" secondAttribute="trailing" constant="17" id="ZEM-2A-unE"/>
-                                        <constraint firstAttribute="bottom" secondItem="aKV-MC-Nh4" secondAttribute="bottom" constant="17" id="bTr-5g-F9C"/>
-                                        <constraint firstItem="aKV-MC-Nh4" firstAttribute="top" secondItem="2Zp-Kj-CSs" secondAttribute="top" constant="21" id="wEh-rz-WP2"/>
+                                        <constraint firstAttribute="trailing" secondItem="aKV-MC-Nh4" secondAttribute="trailing" constant="20" id="ZEM-2A-unE"/>
+                                        <constraint firstAttribute="bottom" secondItem="aKV-MC-Nh4" secondAttribute="bottom" constant="14" id="bTr-5g-F9C"/>
+                                        <constraint firstItem="aKV-MC-Nh4" firstAttribute="top" secondItem="2Zp-Kj-CSs" secondAttribute="top" constant="24" id="wEh-rz-WP2"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="appImageView" destination="bLy-bc-uel" id="0Ck-xk-n6m"/>
                                     <outlet property="appNameLabel" destination="vB2-iz-bYJ" id="lgL-XW-I8c"/>
+                                    <outlet property="categoryLabel" destination="mNf-ct-Uyn" id="933-qS-wPG"/>
                                     <outlet property="priceButton" destination="aKV-MC-Nh4" id="owq-mz-bbN"/>
                                 </connections>
                             </tableViewCell>
@@ -253,7 +254,13 @@
                             <outlet property="delegate" destination="RUu-Ry-McY" id="pb4-9q-4t9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Wish List" id="Upf-ul-CvS"/>
+                    <navigationItem key="navigationItem" title="Wish List" id="Upf-ul-CvS">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="vPD-k0-ZXh">
+                            <connections>
+                                <action selector="editWishList:" destination="RUu-Ry-McY" id="rbB-OY-Wk5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uoq-aF-Vfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

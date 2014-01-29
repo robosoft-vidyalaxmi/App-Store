@@ -22,11 +22,13 @@ extern CGFloat const kEdgeInsetsRight;
 extern CGFloat const kCollectionViewHeaderHeight;
 extern NSString * const kTopPaidApps;
 extern NSString * const kTopFreeApps;
-extern NSString * const kWishList;
-extern NSString * const kWishListArray;
 extern NSString * const kTopFreeAppsJsonFeed;
 extern NSString * const kTopPaidAppsJsonFeed;
 extern NSString * const kAlertMessage;
 extern NSString * const kMenuItemTitle;
+extern NSString * const kInstallTitle;
+extern NSString * const kButtonTitleDone;
+extern NSString * const kButtonTitleEdit;
+extern NSString * const kplistFileName;
 
 @end
