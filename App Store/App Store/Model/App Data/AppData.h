@@ -18,7 +18,8 @@
 @property (nonatomic, strong) NSString *price;
 @property (nonatomic, strong) NSString *releaseDate;
 @property (nonatomic, strong) NSString *summary;
-@property (nonatomic, strong) NSArray  *imagePathList;
+@property (nonatomic, strong) NSString  *imageUrlString;
+@property (nonatomic, strong) NSDictionary *appDetailsDictionary;
 
 -(id)initAppDataFromDictionary:(NSDictionary *)appDictionary;
 

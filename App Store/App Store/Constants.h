@@ -27,5 +27,6 @@ extern NSString * const kWishListArray;
 extern NSString * const kTopFreeAppsJsonFeed;
 extern NSString * const kTopPaidAppsJsonFeed;
 extern NSString * const kAlertMessage;
+extern NSString * const kMenuItemTitle;
 
 @end

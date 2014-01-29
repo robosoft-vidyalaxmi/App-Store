@@ -14,6 +14,7 @@
 
 -(void)popUpViewDidAppear;
 -(void)dismissPopUp;
+-(void)addAppToWishList;
 
 @end
 
@@ -29,7 +30,7 @@
 
 - (IBAction)priceButtonClicked:(id)sender;
 - (IBAction)closePopUp:(id)sender;
-- (IBAction)addToWishList:(id)sender;
+- (IBAction)addToWishListButtonClicked:(id)sender;
 
 +(id)popUpView;
 -(void)animatePopUp;

@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B793C5D61891248C002FD7A1 /* SearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B793C5D51891248C002FD7A1 /* SearchHeaderView.m */; };
+		B79636BD1898CF670050F1C1 /* WishListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BC1898CF670050F1C1 /* WishListTableViewController.m */; };
+		B79636C01898D5710050F1C1 /* WishListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BF1898D5710050F1C1 /* WishListTableViewCell.m */; };
 		B79C69FD189766C30064BBE9 /* PopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C69FC189766C30064BBE9 /* PopUpView.m */; };
 		B79C69FF189766E10064BBE9 /* PopUpView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C69FE189766E10064BBE9 /* PopUpView_iPhone.xib */; };
 		B79C6A071897B4AE0064BBE9 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A061897B4AE0064BBE9 /* cart.png */; };
 		B79C6A091897BC960064BBE9 /* PopUpView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A081897BC960064BBE9 /* PopUpView_iPad.xib */; };
+		B79C6A0B1897D1100064BBE9 /* PopUpView_iPhoneLandscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A0A1897D1100064BBE9 /* PopUpView_iPhoneLandscape.xib */; };
+		B79C6A0D1897DA720064BBE9 /* PopUpView_iPadLandscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A0C1897DA720064BBE9 /* PopUpView_iPadLandscape.xib */; };
 		B7A04A261894BDFB00DD0EFE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A04A251894BDFB00DD0EFE /* Constants.m */; };
 		B7A04A2E1894D11800DD0EFE /* popupBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A04A2D1894D11800DD0EFE /* popupBackground.png */; };
 		B7A04A301894D19500DD0EFE /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A04A2F1894D19500DD0EFE /* close.png */; };
@@ -48,11 +52,17 @@
 /* Begin PBXFileReference section */
 		B793C5D41891248C002FD7A1 /* SearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHeaderView.h; path = View/SearchHeaderView.h; sourceTree = "<group>"; };
 		B793C5D51891248C002FD7A1 /* SearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHeaderView.m; path = View/SearchHeaderView.m; sourceTree = "<group>"; };
+		B79636BB1898CF670050F1C1 /* WishListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListTableViewController.h; path = Controller/WishListTableViewController.h; sourceTree = "<group>"; };
+		B79636BC1898CF670050F1C1 /* WishListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListTableViewController.m; path = Controller/WishListTableViewController.m; sourceTree = "<group>"; };
+		B79636BE1898D5710050F1C1 /* WishListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListTableViewCell.h; path = View/WishListTableViewCell.h; sourceTree = "<group>"; };
+		B79636BF1898D5710050F1C1 /* WishListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListTableViewCell.m; path = View/WishListTableViewCell.m; sourceTree = "<group>"; };
 		B79C69FB189766C30064BBE9 /* PopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpView.h; path = View/PopUpView.h; sourceTree = "<group>"; };
 		B79C69FC189766C30064BBE9 /* PopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopUpView.m; path = View/PopUpView.m; sourceTree = "<group>"; };
 		B79C69FE189766E10064BBE9 /* PopUpView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopUpView_iPhone.xib; path = ../PopUpView_iPhone.xib; sourceTree = "<group>"; };
 		B79C6A061897B4AE0064BBE9 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
 		B79C6A081897BC960064BBE9 /* PopUpView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpView_iPad.xib; sourceTree = "<group>"; };
+		B79C6A0A1897D1100064BBE9 /* PopUpView_iPhoneLandscape.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpView_iPhoneLandscape.xib; sourceTree = "<group>"; };
+		B79C6A0C1897DA720064BBE9 /* PopUpView_iPadLandscape.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpView_iPadLandscape.xib; sourceTree = "<group>"; };
 		B7A04A241894BDFB00DD0EFE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B7A04A251894BDFB00DD0EFE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		B7A04A2D1894D11800DD0EFE /* popupBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popupBackground.png; sourceTree = "<group>"; };
@@ -152,9 +162,9 @@
 		B7A4D231188FC00A00FD0941 /* App Store */ = {
 			isa = PBXGroup;
 			children = (
+				B7A4D265188FC0E600FD0941 /* Model */,
 				B7A4D279188FFA9200FD0941 /* View */,
 				B7A4D26A188FC49200FD0941 /* Controller */,
-				B7A4D265188FC0E600FD0941 /* Model */,
 				B7A4D264188FC0A800FD0941 /* App Delegate */,
 				B7A4D263188FC08F00FD0941 /* Storyboard */,
 				B7A4D246188FC00A00FD0941 /* Images.xcassets */,
@@ -236,6 +246,8 @@
 			children = (
 				B7A4D273188FF09200FD0941 /* TopAppsViewController.h */,
 				B7A4D274188FF09200FD0941 /* TopAppsViewController.m */,
+				B79636BB1898CF670050F1C1 /* WishListTableViewController.h */,
+				B79636BC1898CF670050F1C1 /* WishListTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -258,8 +270,12 @@
 				B793C5D51891248C002FD7A1 /* SearchHeaderView.m */,
 				B79C69FB189766C30064BBE9 /* PopUpView.h */,
 				B79C69FC189766C30064BBE9 /* PopUpView.m */,
+				B79636BE1898D5710050F1C1 /* WishListTableViewCell.h */,
+				B79636BF1898D5710050F1C1 /* WishListTableViewCell.m */,
 				B79C6A081897BC960064BBE9 /* PopUpView_iPad.xib */,
 				B79C69FE189766E10064BBE9 /* PopUpView_iPhone.xib */,
+				B79C6A0A1897D1100064BBE9 /* PopUpView_iPhoneLandscape.xib */,
+				B79C6A0C1897DA720064BBE9 /* PopUpView_iPadLandscape.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -341,8 +357,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B79C6A0D1897DA720064BBE9 /* PopUpView_iPadLandscape.xib in Resources */,
 				B7A04A301894D19500DD0EFE /* close.png in Resources */,
 				B7A4D242188FC00A00FD0941 /* Main_iPad.storyboard in Resources */,
+				B79C6A0B1897D1100064BBE9 /* PopUpView_iPhoneLandscape.xib in Resources */,
 				B7A4D247188FC00A00FD0941 /* Images.xcassets in Resources */,
 				B7A4D23F188FC00A00FD0941 /* Main_iPhone.storyboard in Resources */,
 				B7A4D236188FC00A00FD0941 /* InfoPlist.strings in Resources */,
@@ -373,7 +391,9 @@
 				B79C69FD189766C30064BBE9 /* PopUpView.m in Sources */,
 				B7A4D23C188FC00A00FD0941 /* AppStoreAppDelegate.m in Sources */,
 				B7A04A261894BDFB00DD0EFE /* Constants.m in Sources */,
+				B79636C01898D5710050F1C1 /* WishListTableViewCell.m in Sources */,
 				B7A4D278188FF4FD00FD0941 /* AppCell.m in Sources */,
+				B79636BD1898CF670050F1C1 /* WishListTableViewController.m in Sources */,
 				B7A4D238188FC00A00FD0941 /* main.m in Sources */,
 				B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */,
 				B7A4D26E188FC64200FD0941 /* AppData.m in Sources */,

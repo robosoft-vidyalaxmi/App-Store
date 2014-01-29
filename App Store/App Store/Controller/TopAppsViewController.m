@@ -17,11 +17,12 @@
 
 @property (nonatomic, strong) NSArray *appDataArray;
 @property (nonatomic, strong) NSMutableArray *filteredAppDataArray;
-@property (nonatomic ,strong) NSMutableArray *wishListArray;
+@property (nonatomic, strong) NSMutableArray *wishListArray;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) JSONParser *jsonParser;
 @property (nonatomic) BOOL isSearchBarDisplayed;
 @property (nonatomic) BOOL isFiltered;
+@property (nonatomic) BOOL isItemSelected;
 @property (nonatomic, strong) PopUpView *popUpView;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 
@@ -35,7 +36,6 @@
 {
     self.jsonParser = [[JSONParser alloc] init];
     self.appDataArray = [[NSArray alloc] init];
-    self.wishListArray = [[NSMutableArray alloc] init];
 }
 
 -(void)setUpPopUpView
@@ -65,10 +65,6 @@
     else if([self.navigationItem.title isEqualToString:kTopPaidApps])
     {
         self.appDataArray = [self.jsonParser parseAppDataUsingFeed:kTopPaidAppsJsonFeed];
-    }
-    else if ([self.navigationItem.title isEqualToString:kWishList])
-    {
-        self.appDataArray = self.wishListArray;
     }
 }
 
@@ -108,7 +104,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self prepareForAnimatingView];
+    self.isItemSelected = true;
+    [self setUpPopUpViewCenter];
     [self.popUpView animatePopUp];
     [self configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath];
     
@@ -169,7 +166,7 @@
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(backgroundQueue, ^{
         [cell.activityIndicator startAnimating];
-        NSURL *url = [NSURL URLWithString:[[appData.imagePathList objectAtIndex:0] valueForKey:@"label"]];
+        NSURL *url = [NSURL URLWithString:appData.imageUrlString];
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [[UIImage alloc] initWithData:data];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -244,14 +241,14 @@
     [self.collectionView reloadData];
 }
 
--(void)prepareForAnimatingView
+-(void)setUpPopUpViewCenter
 {
-    //Getting the center of the screen coordinates
+    //Get the center of the screen coordinates
     CGPoint screenCenter = CGPointMake(([UIScreen mainScreen].bounds.size.width)/2, ([UIScreen mainScreen].bounds.size.height)/2);
-    //converting it to window coordinates
+    //convert it to window coordinates
     UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
     CGPoint pointInWindowCoords = [mainWindow convertPoint:screenCenter fromWindow:nil];
-    //converting it to view coordinates
+    //convert it to view coordinates
     CGPoint pointInCollectionViewCoords = [self.collectionView convertPoint:pointInWindowCoords fromView:mainWindow];
     self.popUpView.center = pointInCollectionViewCoords;
 }
@@ -274,6 +271,40 @@
     
     //enable scrolling when popUp is hidden
     self.collectionView.scrollEnabled = YES;
+    self.isItemSelected = false;
+}
+
+-(void)addAppToWishList
+{
+    //Get plist file path where setails about apps added to wishlist are stored
+    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"Wishlist.plist"];
+    
+    NSError *error;
+    
+    //if file doesn't exist then create file
+    if (![[NSFileManager defaultManager] fileExistsAtPath: datapath])
+    {
+        NSString *bundle = [[NSBundle mainBundle] pathForResource:@"Wishlist" ofType:@"plist"];
+        [[NSFileManager defaultManager] copyItemAtPath:bundle toPath:datapath error:&error];
+    }
+    
+    //set plist data into mutable array
+    self.wishListArray = [[NSArray arrayWithContentsOfFile:datapath] mutableCopy];
+    
+    //if plist file is empty
+    if (self.wishListArray.count == 0)
+    {
+        self.wishListArray = [[NSMutableArray alloc] init];
+    }
+    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
+    AppData *appData = [self.appDataArray objectAtIndex:indexPath.row];
+    if(![self.wishListArray containsObject:appData.appDetailsDictionary])
+    {
+        [self.wishListArray addObject:appData.appDetailsDictionary];
+        
+        //write data from mutable array to plist file
+        [self.wishListArray writeToFile:datapath atomically:YES];
+    }
 }
 
 -(void)configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath
@@ -285,7 +316,7 @@
     self.popUpView.appImageView.image = nil;
     dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(backgroundQueue, ^{
-        NSURL *url = [NSURL URLWithString:[[appData.imagePathList objectAtIndex:0] valueForKey:@"label"]];
+        NSURL *url = [NSURL URLWithString:appData.imageUrlString];
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [[UIImage alloc] initWithData:data];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -298,6 +329,24 @@
     [self.popUpView.priceButton setTitle:appData.price forState:UIControlStateNormal];
     self.popUpView.summaryTextView.text = [NSString stringWithFormat:@"Description:\n%@",appData.summary];
     self.popUpView.inforationTextView.text = [NSString stringWithFormat:@"Information\nCategory: %@\nCopyright: %@\nRelease Date: %@", appData.category, appData.copyright, appData.releaseDate];
+}
+
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if (self.popUpView)
+        [self.popUpView removeFromSuperview];
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [self setUpPopUpView];
+    if(self.isItemSelected)
+    {
+        [self setUpPopUpViewCenter];
+        [self.popUpView animatePopUp];
+        NSIndexPath * indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
+        [self configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath];
+    }
 }
 
 @end
