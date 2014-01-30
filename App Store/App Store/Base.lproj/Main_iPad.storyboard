@@ -266,20 +266,20 @@
         <scene sceneID="Gj1-8s-IiU">
             <objects>
                 <tableViewController id="F22-lc-7F7" customClass="WishListTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" id="rXu-WM-rzC">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="rXu-WM-rzC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wishListCell" rowHeight="102" id="0VM-8g-Jtz" customClass="WishListTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="768" height="102"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wishListCell" rowHeight="90" id="0VM-8g-Jtz" customClass="WishListTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="768" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0VM-8g-Jtz" id="c9Z-6j-ERW">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="101"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mJD-Pb-9hh">
-                                            <rect key="frame" x="27" y="9" width="74" height="72"/>
+                                            <rect key="frame" x="27" y="9" width="74" height="60"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNv-Om-JHr">
@@ -304,7 +304,7 @@
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRF-Va-tKI">
                                             <rect key="frame" x="109" y="49" width="454" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -326,7 +326,13 @@
                             <outlet property="delegate" destination="F22-lc-7F7" id="Dbi-7e-hh5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Wish List" id="yLk-Re-lWt"/>
+                    <navigationItem key="navigationItem" title="Wish List" id="yLk-Re-lWt">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="06p-pv-clh">
+                            <connections>
+                                <action selector="editWishList:" destination="F22-lc-7F7" id="6nF-vs-bEo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="F6s-oc-xTj" id="TkO-L7-wDB"/>
                     </connections>
