@@ -58,11 +58,11 @@
 {
     [super viewWillAppear:YES];
     
-    if ([self.navigationItem.title isEqualToString:kTopFreeApps])
+    if (self.tabBarController.selectedIndex == 0)
     {
         self.appDataArray = [self.jsonParser parseAppDataUsingFeed:kTopFreeAppsJsonFeed];
     }
-    else if([self.navigationItem.title isEqualToString:kTopPaidApps])
+    else if(self.tabBarController.selectedIndex == 1)
     {
         self.appDataArray = [self.jsonParser parseAppDataUsingFeed:kTopPaidAppsJsonFeed];
     }

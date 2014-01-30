@@ -103,7 +103,7 @@
                             <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-mM-YCC">
+                                <searchBar contentMode="redraw" placeholder="Search for an app" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-mM-YCC">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -113,9 +113,9 @@
                                 </searchBar>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="Ryq-mM-YCC" firstAttribute="leading" secondItem="Bz2-i2-77E" secondAttribute="leading" id="52k-ZT-fMR"/>
-                                <constraint firstItem="Ryq-mM-YCC" firstAttribute="top" secondItem="Bz2-i2-77E" secondAttribute="top" id="JSC-IX-hlW"/>
-                                <constraint firstAttribute="trailing" secondItem="Ryq-mM-YCC" secondAttribute="trailing" id="cSl-PQ-t1I"/>
+                                <constraint firstAttribute="trailing" secondItem="Ryq-mM-YCC" secondAttribute="trailing" id="B92-5N-CTZ"/>
+                                <constraint firstItem="Ryq-mM-YCC" firstAttribute="top" secondItem="Bz2-i2-77E" secondAttribute="top" id="hmx-aQ-71Y"/>
+                                <constraint firstItem="Ryq-mM-YCC" firstAttribute="leading" secondItem="Bz2-i2-77E" secondAttribute="leading" id="txu-4U-LnM"/>
                             </constraints>
                             <connections>
                                 <outlet property="appSearchBar" destination="Ryq-mM-YCC" id="eiF-7G-paC"/>
@@ -324,7 +324,7 @@
                             <rect key="frame" x="0.0" y="64" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obF-yl-JAR">
+                                <searchBar contentMode="redraw" placeholder="Search for an app" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obF-yl-JAR">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -334,9 +334,9 @@
                                 </searchBar>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="obF-yl-JAR" firstAttribute="leading" secondItem="Hau-tQ-mSF" secondAttribute="leading" id="Sm6-UU-POy"/>
-                                <constraint firstAttribute="trailing" secondItem="obF-yl-JAR" secondAttribute="trailing" id="VP4-d0-EYl"/>
-                                <constraint firstItem="obF-yl-JAR" firstAttribute="top" secondItem="Hau-tQ-mSF" secondAttribute="top" id="gRt-M3-lmp"/>
+                                <constraint firstItem="obF-yl-JAR" firstAttribute="leading" secondItem="Hau-tQ-mSF" secondAttribute="leading" id="0WF-o0-KmF"/>
+                                <constraint firstItem="obF-yl-JAR" firstAttribute="top" secondItem="Hau-tQ-mSF" secondAttribute="top" id="Gzl-jq-Tj2"/>
+                                <constraint firstAttribute="trailing" secondItem="obF-yl-JAR" secondAttribute="trailing" id="IOs-lN-1bK"/>
                             </constraints>
                             <connections>
                                 <outlet property="appSearchBar" destination="obF-yl-JAR" id="1TY-7M-OBy"/>

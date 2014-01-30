@@ -10,7 +10,7 @@
 
 @implementation PopUpView
 
-+(id)popUpView
++(instancetype)popUpView
 {
     PopUpView *popUpView;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
@@ -26,14 +26,7 @@
     }
     else
     {
-        if ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait)
-        {
-            popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpView_iPad" owner:nil options:nil] objectAtIndex:0];
-        }
-        else
-        {
-            popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpView_iPadLandscape" owner:nil options:nil] objectAtIndex:0];
-        }
+        popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpView_iPad" owner:nil options:nil] objectAtIndex:0];
     }
     if ([popUpView isKindOfClass:[PopUpView class]])
     {

@@ -32,7 +32,7 @@
 - (IBAction)closePopUp:(id)sender;
 - (IBAction)addToWishListButtonClicked:(id)sender;
 
-+(id)popUpView;
++(instancetype)popUpView;
 -(void)animatePopUp;
 
 @end
