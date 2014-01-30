@@ -15,14 +15,8 @@
     PopUpView *popUpView;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
-        if ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait)
-        {
+
             popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpView_iPhone" owner:nil options:nil] objectAtIndex:0];
-        }
-        else
-        {
-            popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpView_iPhoneLandscape" owner:nil options:nil] objectAtIndex:0];
-        }
     }
     else
     {

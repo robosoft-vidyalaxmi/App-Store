@@ -23,7 +23,6 @@
 @property (nonatomic, assign) id<PopUpViewDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIImageView *appImageView;
 @property (weak, nonatomic) IBOutlet UITextView *appNameTextView;
-@property (weak, nonatomic) IBOutlet UITextView *authorNameTextView;
 @property (weak, nonatomic) IBOutlet UITextView *inforationTextView;
 @property (weak, nonatomic) IBOutlet UIButton *priceButton;
 @property (weak, nonatomic) IBOutlet UITextView *summaryTextView;

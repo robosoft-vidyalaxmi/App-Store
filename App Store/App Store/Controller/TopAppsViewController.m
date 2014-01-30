@@ -12,6 +12,7 @@
 #import "AppData.h"
 #import "SearchHeaderView.h"
 #import "PopUpView.h"
+#import "AppStoreAppDelegate.h"
 
 @interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchDisplayDelegate, UIAlertViewDelegate, SearchDelegate, PopUpViewDelegate>
 
@@ -42,30 +43,34 @@
 {
     self.popUpView = [PopUpView popUpView];
     self.popUpView.delegate= self;
-    self.popUpView.alpha = 0;
     [self.collectionView addSubview:self.popUpView];
+    self.popUpView.alpha = 0;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self setUpModel];
-    [self setUpPopUpView];
     self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissPopUp)];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    
-    if (self.tabBarController.selectedIndex == 0)
+    if ([self.tabBarController.tabBar.items indexOfObject:self.tabBarController.tabBar.selectedItem] ==0)
     {
         self.appDataArray = [self.jsonParser parseAppDataUsingFeed:kTopFreeAppsJsonFeed];
     }
-    else if(self.tabBarController.selectedIndex == 1)
+    else if([self.tabBarController.tabBar.items indexOfObject:self.tabBarController.tabBar.selectedItem] ==1)
     {
         self.appDataArray = [self.jsonParser parseAppDataUsingFeed:kTopPaidAppsJsonFeed];
     }
+    [self setUpPopUpView];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self dismissPopUp];
 }
 
 #pragma mark UICollectionViewDataSource
@@ -129,10 +134,6 @@
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation))
-    {
-        //todo
-    }
     return UIEdgeInsetsMake(kEdgeInsetsTop, kEdgeInsetsLeft, kEdgeInsetsBottom, kEdgeInsetsRight);
 }
 
@@ -319,27 +320,27 @@
     });
     
     self.popUpView.appNameTextView.text = appData.appName;
-    self.popUpView.authorNameTextView.text = [NSString stringWithFormat:@"Author: %@",appData.authorName];
     [self.popUpView.priceButton setTitle:appData.price forState:UIControlStateNormal];
     self.popUpView.summaryTextView.text = [NSString stringWithFormat:@"Description:\n%@",appData.summary];
-    self.popUpView.inforationTextView.text = [NSString stringWithFormat:@"Information\nCategory: %@\nCopyright: %@\nRelease Date: %@", appData.category, appData.copyright, appData.releaseDate];
+    self.popUpView.inforationTextView.text = [NSString stringWithFormat:@"Information\nAuthor: %@\nCategory: %@\nCopyright: %@\nRelease Date: %@",appData.authorName, appData.category, appData.copyright, appData.releaseDate];
 }
 
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    if (self.popUpView)
-        [self.popUpView removeFromSuperview];
-}
+//-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+//{
+//    if (self.popUpView)
+//        [self.popUpView removeFromSuperview];
+//}
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    [self setUpPopUpView];
+    //[self setUpPopUpView];
     if(self.isItemSelected)
     {
         [self setUpPopUpViewCenter];
-        [self.popUpView animatePopUp];
-        NSIndexPath * indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
-        [self configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath];
+//        [self.collectionView addSubview:self.popUpView];
+//        [self.popUpView animatePopUp];
+//        NSIndexPath * indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
+//        [self configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath];
     }
 }
 
