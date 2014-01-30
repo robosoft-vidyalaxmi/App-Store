@@ -25,9 +25,15 @@ NSString *const kTopPaidApps = @"Top Paid Apps";
 NSString *const kTopFreeAppsJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=25/json";
 NSString *const kTopPaidAppsJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=25/json";
 NSString *const kAlertMessage = @"App not found";
+NSString *const kAlertCancelButtonTitle = @"Cancel";
 NSString *const kInstallTitle = @"INSTALL";
 NSString *const kButtonTitleDone = @"Done";
 NSString *const kButtonTitleEdit = @"Edit";
 NSString *const kplistFileName = @"WishList.plist";
+NSString *const kWishListFile = @"WishList";
+NSString *const kWishListFileExtension = @"plist";
+NSString *const kTableCellIdentifier = @"wishListCell";
+NSString *const kCollectionViewIdentifier = @"cell";
+NSString *const kHeaderViewIdentifier = @"headerView";
 
 @end

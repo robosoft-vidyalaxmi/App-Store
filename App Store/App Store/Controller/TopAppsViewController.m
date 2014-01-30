@@ -86,7 +86,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    AppCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    AppCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewIdentifier forIndexPath:indexPath];
 
     [self updateDataForCell:cell atIndexPath:indexPath];
     return cell;
@@ -95,7 +95,7 @@
 - (UICollectionReusableView *)collectionView:
 (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headerView" forIndexPath:indexPath];
+    SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderViewIdentifier forIndexPath:indexPath];
     headerView.delegate = self;
     return headerView;
 }
@@ -183,15 +183,9 @@
 
 -(IBAction)searchForApps:(id)sender
 {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {
-        self.isSearchBarDisplayed = YES;
-        [self.collectionView reloadData];
-    }
-    else
-    {
-        //todo
-    }
+    self.isSearchBarDisplayed = YES;
+    [self.collectionView reloadData];
+    
 }
 
 #pragma mark SearchDelegate
@@ -229,7 +223,7 @@
     //if appName not found
     if ([self.filteredAppDataArray count] == 0)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:kAlertMessage delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:kAlertMessage delegate:self cancelButtonTitle:kAlertCancelButtonTitle otherButtonTitles:nil, nil];
         [alert show];
     }
 }
@@ -284,7 +278,7 @@
     //if file doesn't exist then create file
     if (![[NSFileManager defaultManager] fileExistsAtPath: datapath])
     {
-        NSString *bundle = [[NSBundle mainBundle] pathForResource:@"Wishlist" ofType:@"plist"];
+        NSString *bundle = [[NSBundle mainBundle] pathForResource:kWishListFile ofType:kWishListFileExtension];
         [[NSFileManager defaultManager] copyItemAtPath:bundle toPath:datapath error:&error];
     }
     

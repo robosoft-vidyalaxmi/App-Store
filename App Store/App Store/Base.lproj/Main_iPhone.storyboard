@@ -136,18 +136,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="iZ5-eN-83H" id="kQZ-19-XyI"/>
-                        <outlet property="searchDisplayController" destination="oyz-Yz-15y" id="zuW-I9-4os"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgZ-dZ-A7y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="oyz-Yz-15y">
-                    <connections>
-                        <outlet property="delegate" destination="u7d-JZ-q0x" id="8gE-5i-JvD"/>
-                        <outlet property="searchContentsController" destination="u7d-JZ-q0x" id="iiu-PO-Q5o"/>
-                        <outlet property="searchResultsDataSource" destination="u7d-JZ-q0x" id="RrA-gc-AsZ"/>
-                        <outlet property="searchResultsDelegate" destination="u7d-JZ-q0x" id="C3a-Ch-mjV"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-1220" y="-217"/>
         </scene>
@@ -203,8 +194,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLy-bc-uel">
-                                            <rect key="frame" x="14" y="0.0" width="76" height="54"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLy-bc-uel">
+                                            <rect key="frame" x="20" y="6" width="57" height="43"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vB2-iz-bYJ">
@@ -366,18 +357,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="xYx-aC-6SC" id="Fzo-Nl-c5C"/>
-                        <outlet property="searchDisplayController" destination="pNP-P8-2od" id="H0W-5y-fhj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Unl-uc-xnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="pNP-P8-2od">
-                    <connections>
-                        <outlet property="delegate" destination="BTR-QU-agP" id="vfc-TB-IJG"/>
-                        <outlet property="searchContentsController" destination="BTR-QU-agP" id="Pt5-Sl-NU8"/>
-                        <outlet property="searchResultsDataSource" destination="BTR-QU-agP" id="3pO-F3-gIi"/>
-                        <outlet property="searchResultsDelegate" destination="BTR-QU-agP" id="mSn-xy-jkn"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-1077" y="-810"/>
         </scene>

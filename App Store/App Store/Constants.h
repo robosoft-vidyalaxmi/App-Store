@@ -25,10 +25,15 @@ extern NSString * const kTopFreeApps;
 extern NSString * const kTopFreeAppsJsonFeed;
 extern NSString * const kTopPaidAppsJsonFeed;
 extern NSString * const kAlertMessage;
-extern NSString * const kMenuItemTitle;
+extern NSString * const kAlertCancelButtonTitle;
 extern NSString * const kInstallTitle;
 extern NSString * const kButtonTitleDone;
 extern NSString * const kButtonTitleEdit;
 extern NSString * const kplistFileName;
+extern NSString * const kWishListFile;
+extern NSString * const kWishListFileExtension;
+extern NSString * const kTableCellIdentifier;
+extern NSString * const kCollectionViewIdentifier;
+extern NSString * const kHeaderViewIdentifier;
 
 @end
