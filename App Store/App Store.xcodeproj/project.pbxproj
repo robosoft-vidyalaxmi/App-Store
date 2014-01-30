@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B778DCB0189A742B0060B0E9 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B778DCAF189A742B0060B0E9 /* ImageLoader.m */; };
 		B793C5D61891248C002FD7A1 /* SearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B793C5D51891248C002FD7A1 /* SearchHeaderView.m */; };
 		B79636BD1898CF670050F1C1 /* WishListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BC1898CF670050F1C1 /* WishListTableViewController.m */; };
 		B79636C01898D5710050F1C1 /* WishListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BF1898D5710050F1C1 /* WishListTableViewCell.m */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B778DCAE189A742B0060B0E9 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLoader.h; path = Model/ImageLoader.h; sourceTree = "<group>"; };
+		B778DCAF189A742B0060B0E9 /* ImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageLoader.m; path = Model/ImageLoader.m; sourceTree = "<group>"; };
 		B793C5D41891248C002FD7A1 /* SearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHeaderView.h; path = View/SearchHeaderView.h; sourceTree = "<group>"; };
 		B793C5D51891248C002FD7A1 /* SearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHeaderView.m; path = View/SearchHeaderView.m; sourceTree = "<group>"; };
 		B79636BB1898CF670050F1C1 /* WishListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListTableViewController.h; path = Controller/WishListTableViewController.h; sourceTree = "<group>"; };
@@ -224,6 +227,8 @@
 			children = (
 				B7A4D26B188FC60900FD0941 /* App Data */,
 				B7A4D266188FC15F00FD0941 /* JSON Parser */,
+				B778DCAE189A742B0060B0E9 /* ImageLoader.h */,
+				B778DCAF189A742B0060B0E9 /* ImageLoader.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -388,6 +393,7 @@
 				B79636BD1898CF670050F1C1 /* WishListTableViewController.m in Sources */,
 				B7A4D238188FC00A00FD0941 /* main.m in Sources */,
 				B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */,
+				B778DCB0189A742B0060B0E9 /* ImageLoader.m in Sources */,
 				B7A4D26E188FC64200FD0941 /* AppData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

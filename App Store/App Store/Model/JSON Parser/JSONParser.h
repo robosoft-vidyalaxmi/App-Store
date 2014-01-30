@@ -8,11 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JSONParser : NSObject
+@class JSONParser;
 
-@property (nonatomic, strong) NSDictionary *jsonDictionary;
+@protocol JSONParserDelegate <NSObject>
+
+-(void)loadParsedData:(NSArray *)array;
+
+@end
+
+@interface JSONParser : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
+
+@property (nonatomic, assign) id<JSONParserDelegate> delegate;
 @property (nonatomic, strong) NSMutableArray *appDataArray;
 
--(NSArray *) parseAppDataUsingFeed:(NSString *) jsonFeed;
+-(void) parseAppDataUsingFeed:(NSString *)jsonFeed;
 
 @end

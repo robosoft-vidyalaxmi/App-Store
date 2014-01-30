@@ -12,9 +12,9 @@
 #import "AppData.h"
 #import "SearchHeaderView.h"
 #import "PopUpView.h"
-#import "AppStoreAppDelegate.h"
+#import "ImageLoader.h"
 
-@interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchDisplayDelegate, UIAlertViewDelegate, SearchDelegate, PopUpViewDelegate>
+@interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchDisplayDelegate, UIAlertViewDelegate, SearchDelegate, PopUpViewDelegate, JSONParserDelegate, ImageLoaderDelegate>
 
 @property (nonatomic, strong) NSArray *appDataArray;
 @property (nonatomic, strong) NSMutableArray *filteredAppDataArray;
@@ -36,6 +36,7 @@
 -(void)setUpModel
 {
     self.jsonParser = [[JSONParser alloc] init];
+    self.jsonParser.delegate = self;
     self.appDataArray = [[NSArray alloc] init];
 }
 
@@ -57,13 +58,13 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    if ([self.tabBarController.tabBar.items indexOfObject:self.tabBarController.tabBar.selectedItem] ==0)
+    if ([self.tabBarController.tabBar.items indexOfObject:self.tabBarController.tabBar.selectedItem] == 0)
     {
-        self.appDataArray = [self.jsonParser parseAppDataUsingFeed:kTopFreeAppsJsonFeed];
+         [self.jsonParser parseAppDataUsingFeed:kTopFreeAppsJsonFeed];
     }
-    else if([self.tabBarController.tabBar.items indexOfObject:self.tabBarController.tabBar.selectedItem] ==1)
+    else if([self.tabBarController.tabBar.items indexOfObject:self.tabBarController.tabBar.selectedItem] == 1)
     {
-        self.appDataArray = [self.jsonParser parseAppDataUsingFeed:kTopPaidAppsJsonFeed];
+         [self.jsonParser parseAppDataUsingFeed:kTopPaidAppsJsonFeed];
     }
     [self setUpPopUpView];
 }
@@ -162,22 +163,31 @@
         appData = [self.appDataArray objectAtIndex:indexPath.row];
     
     cell.appImageView.image = nil;
-    
-    //perform background operation as it takes long time to load images
-    dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(backgroundQueue, ^{
-        [cell.activityIndicator startAnimating];
-        NSURL *url = [NSURL URLWithString:appData.imageUrlString];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [[UIImage alloc] initWithData:data];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [cell.activityIndicator stopAnimating];
-            cell.appImageView.image = image;
-        });
-    });
+    [cell.activityIndicator startAnimating];
+    //load images using NSURLConnection
+    ImageLoader *imageLoader = [[ImageLoader alloc] init];
+    imageLoader.delegate = self;
+    [imageLoader loadImageAsynchronouslyForURL:appData.imageUrlString forCell:cell];
+
     cell.appNameLabel.text = appData.appName;
     cell.categoryLabel.text = appData.category;
     cell.priceLabel.text = appData.price;
+}
+
+#pragma mark - ImageLoader delegate method
+
+-(void)updateImageForCell:(AppCell *)cell withData:(NSData *)data
+{
+    UIImage *image = [[UIImage alloc] initWithData:data];
+    cell.appImageView.image = image;
+    [cell.activityIndicator stopAnimating];
+}
+
+#pragma mark - JSONParser delegate method
+-(void)loadParsedData:(NSArray *)array
+{
+    self.appDataArray = array;
+    [self.collectionView reloadData];
 }
 
 #pragma mark Search Button
@@ -325,23 +335,10 @@
     self.popUpView.inforationTextView.text = [NSString stringWithFormat:@"Information\nAuthor: %@\nCategory: %@\nCopyright: %@\nRelease Date: %@",appData.authorName, appData.category, appData.copyright, appData.releaseDate];
 }
 
-//-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-//{
-//    if (self.popUpView)
-//        [self.popUpView removeFromSuperview];
-//}
-
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    //[self setUpPopUpView];
     if(self.isItemSelected)
-    {
         [self setUpPopUpViewCenter];
-//        [self.collectionView addSubview:self.popUpView];
-//        [self.popUpView animatePopUp];
-//        NSIndexPath * indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
-//        [self configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath];
-    }
 }
 
 @end

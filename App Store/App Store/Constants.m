@@ -20,6 +20,7 @@ CGFloat const kEdgeInsetsLeft = 10;
 CGFloat const kEdgeInsetsBottom = 10;
 CGFloat const kEdgeInsetsRight = 10;
 CGFloat const kCollectionViewHeaderHeight = 50;
+int const kTopAppLimit = 25;
 NSString *const kTopFreeAppsJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=25/json";
 NSString *const kTopPaidAppsJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=25/json";
 NSString *const kAlertMessage = @"App not found";
@@ -33,5 +34,4 @@ NSString *const kWishListFileExtension = @"plist";
 NSString *const kTableCellIdentifier = @"wishListCell";
 NSString *const kCollectionViewIdentifier = @"cell";
 NSString *const kHeaderViewIdentifier = @"headerView";
-
 @end

@@ -19,6 +19,7 @@ extern CGFloat const kEdgeInsetsTop;
 extern CGFloat const kEdgeInsetsLeft;
 extern CGFloat const kEdgeInsetsBottom;
 extern CGFloat const kEdgeInsetsRight;
+extern int const kTopAppLimit;
 extern CGFloat const kCollectionViewHeaderHeight;
 extern NSString * const kTopFreeAppsJsonFeed;
 extern NSString * const kTopPaidAppsJsonFeed;
