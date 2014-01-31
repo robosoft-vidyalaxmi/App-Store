@@ -26,7 +26,7 @@
 @property (nonatomic) BOOL isItemSelected;
 @property (nonatomic, strong) PopUpView *popUpView;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
-
+@property (nonatomic, strong) UISearchBar *appSearchBar;
 -(IBAction)searchForApps:(id)sender;
 
 @end
@@ -58,6 +58,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    //check which tab bar item is selected
     if ([self.tabBarController.tabBar.items indexOfObject:self.tabBarController.tabBar.selectedItem] == 0)
     {
          [self.jsonParser parseAppDataUsingFeed:kTopFreeAppsJsonFeed];
@@ -74,7 +75,7 @@
     [self dismissPopUp];
 }
 
-#pragma mark UICollectionViewDataSource
+#pragma mark UICollectionViewDataSource methods
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -95,6 +96,12 @@
     AppCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewIdentifier forIndexPath:indexPath];
 
     [self updateDataForCell:cell atIndexPath:indexPath];
+    
+    //make search bar first responder to keep keyboard up
+    if (self.isFiltered && ![self.appSearchBar isFirstResponder])
+    {
+        [self.appSearchBar becomeFirstResponder];
+    }
     return cell;
 }
 
@@ -106,7 +113,7 @@
     return headerView;
 }
 
-#pragma mark UICollectionViewDelegate
+#pragma mark UICollectionViewDelegate method
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -114,10 +121,9 @@
     [self setUpPopUpViewCenter];
     [self.popUpView animatePopUp];
     [self configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath];
-    
 }
 
-#pragma mark UICollectionViewDelegateFlowLayout
+#pragma mark UICollectionViewDelegateFlowLayout methods
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -142,11 +148,12 @@
 {
     if (self.isSearchBarDisplayed == NO)
     {
-        return CGSizeMake(0, 0);
+        return CGSizeZero;
     }
     else
     {
         return CGSizeMake(self.collectionView.bounds.size.width, kCollectionViewHeaderHeight);
+
     }
 }
 
@@ -164,7 +171,7 @@
     
     cell.appImageView.image = nil;
     [cell.activityIndicator startAnimating];
-    //load images using NSURLConnection
+    //load images asynchronously using NSURLConnection
     ImageLoader *imageLoader = [[ImageLoader alloc] init];
     imageLoader.delegate = self;
     [imageLoader loadImageAsynchronouslyForURL:appData.imageUrlString forCell:cell];
@@ -179,27 +186,40 @@
 -(void)updateImageForCell:(AppCell *)cell withData:(NSData *)data
 {
     UIImage *image = [[UIImage alloc] initWithData:data];
-    cell.appImageView.image = image;
-    [cell.activityIndicator stopAnimating];
+    //set image for collectionview cells
+    if (cell != nil)
+    {
+        cell.appImageView.image = image;
+        [cell.activityIndicator stopAnimating];
+    }
+    //set popup view image
+    else
+    {
+        self.popUpView.appImageView.image = image;
+    }
 }
 
 #pragma mark - JSONParser delegate method
+
 -(void)loadParsedData:(NSArray *)array
 {
     self.appDataArray = array;
     [self.collectionView reloadData];
 }
 
-#pragma mark Search Button
+#pragma mark - Search Button Action
 
 -(IBAction)searchForApps:(id)sender
 {
     self.isSearchBarDisplayed = YES;
     [self.collectionView reloadData];
     
+    //reset scroll on collection view
+    [self.collectionView setContentOffset:CGPointMake(0, kCollectionViewOffsetHeight) animated:YES];
+    
 }
 
-#pragma mark SearchDelegate
+#pragma mark - SearchDelegate methods
 
 -(void)filterContentForSearchText:(NSString *)searchText inSearchBar:(UISearchBar *)searchBar
 {
@@ -225,8 +245,8 @@
         NSArray *tempArray = [appNameArray filteredArrayUsingPredicate:predicate];
         self.filteredAppDataArray = [NSMutableArray arrayWithArray:tempArray];
     }
+    self.appSearchBar = searchBar;
     [self.collectionView reloadData];
-    [searchBar becomeFirstResponder];
 }
 
 -(void)displayAlert
@@ -234,7 +254,7 @@
     //if appName not found
     if ([self.filteredAppDataArray count] == 0)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:kAlertMessage delegate:self cancelButtonTitle:kAlertCancelButtonTitle otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"App not found" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
 }
@@ -246,19 +266,7 @@
     [self.collectionView reloadData];
 }
 
--(void)setUpPopUpViewCenter
-{
-    //Get the center of the screen coordinates
-    CGPoint screenCenter = CGPointMake(([UIScreen mainScreen].bounds.size.width)/2, ([UIScreen mainScreen].bounds.size.height)/2);
-    //convert it to window coordinates
-    UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
-    CGPoint pointInWindowCoords = [mainWindow convertPoint:screenCenter fromWindow:nil];
-    //convert it to view coordinates
-    CGPoint pointInCollectionViewCoords = [self.collectionView convertPoint:pointInWindowCoords fromView:mainWindow];
-    self.popUpView.center = pointInCollectionViewCoords;
-}
-
-#pragma mark PopUpViewDelegate
+#pragma mark PopUpViewDelegate methods
 
 -(void)popUpViewDidAppear
 {
@@ -310,6 +318,11 @@
         //write data from mutable array to plist file
         [self.wishListArray writeToFile:datapath atomically:YES];
     }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"App already added to wishlist" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 
 -(void)configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath
@@ -317,22 +330,28 @@
     AppData *appData = [[AppData alloc] init];
     appData = [self.appDataArray objectAtIndex:indexPath.row];
     
-    //perform background operation to load image
     self.popUpView.appImageView.image = nil;
-    dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(backgroundQueue, ^{
-        NSURL *url = [NSURL URLWithString:appData.imageUrlString];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [[UIImage alloc] initWithData:data];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.popUpView.appImageView.image = image;
-        });
-    });
+    //load image using NSURLConnection
+    ImageLoader *imageLoader = [[ImageLoader alloc] init];
+    imageLoader.delegate = self;
+    [imageLoader loadImageAsynchronouslyForURL:appData.imageUrlString forCell:nil];
     
     self.popUpView.appNameTextView.text = appData.appName;
     [self.popUpView.priceButton setTitle:appData.price forState:UIControlStateNormal];
     self.popUpView.summaryTextView.text = [NSString stringWithFormat:@"Description:\n%@",appData.summary];
     self.popUpView.inforationTextView.text = [NSString stringWithFormat:@"Information\nAuthor: %@\nCategory: %@\nCopyright: %@\nRelease Date: %@",appData.authorName, appData.category, appData.copyright, appData.releaseDate];
+}
+
+-(void)setUpPopUpViewCenter
+{
+    //Get the center of the screen coordinates
+    CGPoint screenCenter = CGPointMake(([UIScreen mainScreen].bounds.size.width)/2, ([UIScreen mainScreen].bounds.size.height)/2);
+    //convert it to window coordinates
+    UIWindow *mainWindow = [[UIApplication sharedApplication] keyWindow];
+    CGPoint pointInWindowCoords = [mainWindow convertPoint:screenCenter fromWindow:nil];
+    //convert it to view coordinates
+    CGPoint pointInCollectionViewCoords = [self.collectionView convertPoint:pointInWindowCoords fromView:mainWindow];
+    self.popUpView.center = pointInCollectionViewCoords;
 }
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation

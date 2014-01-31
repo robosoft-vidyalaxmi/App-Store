@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class SearchHeaderView;
-
 @protocol SearchDelegate <NSObject>
 
 -(void) filterContentForSearchText:(NSString *)searchText inSearchBar:(UISearchBar *)searchBar ;

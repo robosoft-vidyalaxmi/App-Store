@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class PopUpView;
-
 @protocol PopUpViewDelegate <NSObject>
 
 -(void)popUpViewDidAppear;

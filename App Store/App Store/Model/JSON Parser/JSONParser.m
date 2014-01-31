@@ -15,11 +15,12 @@
 -(void)parseAppDataUsingFeed:(NSString *)jsonFeed
 {
     NSURL *jsonFeedURL = [NSURL URLWithString:jsonFeed];
-    NSURLRequest *myRequest = [NSURLRequest requestWithURL:jsonFeedURL];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:jsonFeedURL];
     
-    NSURLConnection *myConnection = [NSURLConnection connectionWithRequest:myRequest delegate:self];
+    NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:self];
     
-    if (myConnection ==nil) {
+    if (urlConnection == nil)
+    {
         NSLog(@"Connection failed");
     }
 }
@@ -32,11 +33,12 @@
     NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
                                                           options:kNilOptions error:&error];
     
-    NSArray *feedArray = [NSArray arrayWithArray:[[jsonDictionary valueForKey:@"feed"] valueForKey:@"entry"]];
+    NSArray *feedArray = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
     self.appDataArray = [[NSMutableArray alloc] initWithCapacity:kTopAppLimit];
     
     for (NSDictionary *appEntry in feedArray)
     {
+        //convert dictionary to appData object
         AppData *appData = [[AppData alloc] initAppDataFromDictionary:appEntry];
         [self.appDataArray addObject:appData];
     }

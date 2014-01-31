@@ -15,11 +15,12 @@
 {
     self.appCell = cell;
     NSURL *imageURL = [NSURL URLWithString:imageUrlString];
-    NSURLRequest *myRequest = [NSURLRequest requestWithURL:imageURL];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:imageURL];
     
-    NSURLConnection *myConnection = [NSURLConnection connectionWithRequest:myRequest delegate:self];
+    NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:self];
     
-    if (myConnection ==nil) {
+    if (urlConnection == nil)
+    {
         NSLog(@"Connection failed");
     }
 }
@@ -32,3 +33,4 @@
 }
 
 @end
+ 
