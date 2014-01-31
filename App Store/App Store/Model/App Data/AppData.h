@@ -14,7 +14,6 @@
 @property (nonatomic, strong) NSString *authorName;
 @property (nonatomic, strong) NSString *category;
 @property (nonatomic, strong) NSString *copyright;
-@property (nonatomic, strong) NSString *link;
 @property (nonatomic, strong) NSString *price;
 @property (nonatomic, strong) NSString *releaseDate;
 @property (nonatomic, strong) NSString *summary;

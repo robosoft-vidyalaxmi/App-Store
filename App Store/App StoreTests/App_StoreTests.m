@@ -7,9 +7,15 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "AppData.h"
 
 @interface App_StoreTests : XCTestCase
-
+{
+    NSURL *url;
+    NSData *data;
+    NSDictionary *jsonDictionary;
+    NSArray *feedArray;
+}
 @end
 
 @implementation App_StoreTests
@@ -17,18 +23,51 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    [self initialSetUp];
 }
 
-- (void)tearDown
+-(void)initialSetUp
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+    url = [NSURL URLWithString:kTopFreeAppsJsonFeed];
+    data = [NSData dataWithContentsOfURL:url];
+    
+    
+    NSError *error;
+    jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
+                                                     options:kNilOptions error:&error];
+    feedArray = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+
 }
 
-- (void)testExample
+-(void)testData
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+     XCTAssertNotNil(data, @"Data not loaded from url");
+}
+
+-(void)testDict
+{
+     XCTAssertNotNil(jsonDictionary, @"Parsing error");
+}
+
+-(void)testFeedArray
+{
+    XCTAssertNotNil(feedArray, @"App Data Not Found");
+}
+
+-(void)testInitAppData
+{
+    for (NSDictionary *appEntry in feedArray)
+    {
+        AppData *appData = [[AppData alloc] initAppDataFromDictionary:appEntry];
+        XCTAssertNotNil(appData.appName, @"App name is nil");
+        XCTAssertNotNil(appData.category, @"App category is nil");
+        XCTAssertNotNil(appData.price, @"App price is nil");
+        XCTAssertNotNil(appData.releaseDate, @"App release date is nil");
+        XCTAssertNotNil(appData.summary, @"App summary is nil");
+        XCTAssertNotNil(appData.copyright, @"App copyright is nil");
+        XCTAssertNotNil(appData.imageUrlString, @"App image url is nil");
+        XCTAssertNotNil(appData.authorName, @"App author name url is nil");
+    }
 }
 
 @end

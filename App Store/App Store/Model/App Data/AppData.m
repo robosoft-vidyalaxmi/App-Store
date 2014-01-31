@@ -19,7 +19,6 @@
         self.authorName = [appDictionary valueForKeyPath:@"im:artist.label"];
         self.category = [appDictionary valueForKeyPath:@"category.attributes.label"];
         self.copyright = [appDictionary valueForKeyPath:@"rights.label"];
-        self.link = [appDictionary valueForKeyPath:@"link.attributes.href"];
         self.price = [appDictionary valueForKeyPath:@"im:price.label"];
         self.releaseDate = [appDictionary valueForKeyPath:@"im:releaseDate.attributes.label"];
         self.summary = [appDictionary valueForKeyPath:@"summary.label"];
