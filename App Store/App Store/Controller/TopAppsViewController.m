@@ -23,10 +23,11 @@
 @property (nonatomic, strong) JSONParser *jsonParser;
 @property (nonatomic) BOOL isSearchBarDisplayed;
 @property (nonatomic) BOOL isFiltered;
-@property (nonatomic) BOOL isItemSelected;
+@property (nonatomic) BOOL isPopUpDisplayed;
 @property (nonatomic, strong) PopUpView *popUpView;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UISearchBar *appSearchBar;
+
 -(IBAction)searchForApps:(id)sender;
 
 @end
@@ -58,6 +59,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    
     //check which tab bar item is selected
     if ([self.tabBarController.tabBar.items indexOfObject:self.tabBarController.tabBar.selectedItem] == 0)
     {
@@ -67,12 +69,16 @@
     {
          [self.jsonParser parseAppDataUsingFeed:kTopPaidAppsJsonFeed];
     }
+    
     [self setUpPopUpView];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [self dismissPopUp];
+    if(self.isPopUpDisplayed)
+    {
+        [self dismissPopUp];
+    }
 }
 
 #pragma mark UICollectionViewDataSource methods
@@ -105,8 +111,7 @@
     return cell;
 }
 
-- (UICollectionReusableView *)collectionView:
-(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderViewIdentifier forIndexPath:indexPath];
     headerView.delegate = self;
@@ -117,10 +122,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.isItemSelected = YES;
     [self setUpPopUpViewCenter];
-    [self.popUpView animatePopUp];
     [self configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath];
+    [self.popUpView animatePopUp];
+    self.isPopUpDisplayed = YES;
 }
 
 #pragma mark UICollectionViewDelegateFlowLayout methods
@@ -161,7 +166,7 @@
 
 -(void)updateDataForCell:(AppCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    AppData *appData = [[AppData alloc] init];
+    AppData *appData;
     if (self.isFiltered)
     {
         appData = [self.filteredAppDataArray objectAtIndex:indexPath.row];
@@ -183,19 +188,16 @@
 
 #pragma mark - ImageLoader delegate method
 
--(void)updateImageForCell:(AppCell *)cell withData:(NSData *)data
+-(void)updateImageForCell:(id)cell withData:(NSData *)data
 {
     UIImage *image = [[UIImage alloc] initWithData:data];
-    //set image for collectionview cells
-    if (cell != nil)
+    if ([cell isKindOfClass:[AppCell class]])
     {
-        cell.appImageView.image = image;
-        [cell.activityIndicator stopAnimating];
-    }
-    //set popup view image
-    else
-    {
-        self.popUpView.appImageView.image = image;
+        AppCell *appCell = (AppCell *)cell;
+        
+        //set image for collection view cells
+        appCell.appImageView.image = image;
+        [appCell.activityIndicator stopAnimating];
     }
 }
 
@@ -234,7 +236,6 @@
     {
         self.isFiltered = YES;
         [self.filteredAppDataArray removeAllObjects];
-        self.filteredAppDataArray = [[NSMutableArray alloc] init];
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.appName contains[c] %@",searchText];
         NSMutableArray *appNameArray = [[NSMutableArray alloc] init];
@@ -245,6 +246,7 @@
         NSArray *tempArray = [appNameArray filteredArrayUsingPredicate:predicate];
         self.filteredAppDataArray = [NSMutableArray arrayWithArray:tempArray];
     }
+    
     self.appSearchBar = searchBar;
     [self.collectionView reloadData];
 }
@@ -284,12 +286,45 @@
     
     //enable scrolling when popUp is hidden
     self.collectionView.scrollEnabled = YES;
-    self.isItemSelected = NO;
+    self.isPopUpDisplayed = NO;
 }
 
 -(void)addAppToWishList
 {
-    //Get plist file path where setails about apps added to wishlist are stored
+    NSString *datapath = [self dataPathForPlist];
+    
+    //set plist data into mutable array
+    self.wishListArray = [[NSArray arrayWithContentsOfFile:datapath] mutableCopy];
+    
+    //if plist file is empty
+    if (self.wishListArray.count == 0)
+    {
+        self.wishListArray = [[NSMutableArray alloc] init];
+    }
+    
+    //get the index path of item to be added to wish list
+    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
+    AppData *appData = [self.appDataArray objectAtIndex:indexPath.row];
+    
+    //check that app is not already added to wish list
+    if(![self.wishListArray containsObject:appData.appDetailsDictionary])
+    {
+        [self.wishListArray addObject:appData.appDetailsDictionary];
+        
+        //write data from mutable array to plist file
+        [self.wishListArray writeToFile:datapath atomically:YES];
+    }
+    else
+    {
+        [self showAlertWithTile:@"App already added to wish list"];
+    }
+}
+
+#pragma mark - User defined methods
+
+-(NSString *)dataPathForPlist
+{
+    //Get plist file path where details about apps added to wishlist are stored
     NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:kplistFileName];
     
     NSError *error;
@@ -300,29 +335,13 @@
         NSString *bundle = [[NSBundle mainBundle] pathForResource:kWishListFile ofType:kWishListFileExtension];
         [[NSFileManager defaultManager] copyItemAtPath:bundle toPath:datapath error:&error];
     }
-    
-    //set plist data into mutable array
-    self.wishListArray = [[NSArray arrayWithContentsOfFile:datapath] mutableCopy];
-    
-    //if plist file is empty
-    if (self.wishListArray.count == 0)
-    {
-        self.wishListArray = [[NSMutableArray alloc] init];
-    }
-    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
-    AppData *appData = [self.appDataArray objectAtIndex:indexPath.row];
-    if(![self.wishListArray containsObject:appData.appDetailsDictionary])
-    {
-        [self.wishListArray addObject:appData.appDetailsDictionary];
-        
-        //write data from mutable array to plist file
-        [self.wishListArray writeToFile:datapath atomically:YES];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"App already added to wishlist" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
+    return datapath;
+}
+
+-(void)showAlertWithTile:(NSString *)alertTitle
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:alertTitle delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 -(void)configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath
@@ -330,16 +349,26 @@
     AppData *appData = [[AppData alloc] init];
     appData = [self.appDataArray objectAtIndex:indexPath.row];
     
-    self.popUpView.appImageView.image = nil;
-    //load image using NSURLConnection
-    ImageLoader *imageLoader = [[ImageLoader alloc] init];
-    imageLoader.delegate = self;
-    [imageLoader loadImageAsynchronouslyForURL:appData.imageUrlString forCell:nil];
+    NSURL *imageURL = [NSURL URLWithString:appData.imageUrlString];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    self.popUpView.appImageView.image = [UIImage imageWithData:imageData];
     
     self.popUpView.appNameTextView.text = appData.appName;
     [self.popUpView.priceButton setTitle:appData.price forState:UIControlStateNormal];
     self.popUpView.summaryTextView.text = [NSString stringWithFormat:@"Description:\n%@",appData.summary];
     self.popUpView.inforationTextView.text = [NSString stringWithFormat:@"Information\nAuthor: %@\nCategory: %@\nCopyright: %@\nRelease Date: %@",appData.authorName, appData.category, appData.copyright, appData.releaseDate];
+    
+    [self customizePopUpControls];
+}
+
+-(void)customizePopUpControls
+{
+    [self.popUpView.inforationTextView setContentOffset:CGPointZero];
+    [self.popUpView.summaryTextView setContentOffset:CGPointZero];
+    
+    //set button border
+    [[self.popUpView.priceButton layer] setBorderWidth:2];
+    [[self.popUpView.priceButton layer] setBorderColor:[UIColor blueColor].CGColor];
 }
 
 -(void)setUpPopUpViewCenter
@@ -356,7 +385,7 @@
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    if(self.isItemSelected)
+    if(self.isPopUpDisplayed)
         [self setUpPopUpViewCenter];
 }
 

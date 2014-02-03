@@ -41,17 +41,17 @@
 
 -(void)testData
 {
-    XCTAssertNotNil(data, @"Data not loaded from url");
+    XCTAssert(data, @"Data not loaded from url");
 }
 
 -(void)testDict
 {
-    XCTAssertNotNil(jsonDictionary, @"Parsing error");
+    XCTAssert(jsonDictionary, @"Parsing error");
 }
 
 -(void)testFeedArray
 {
-    XCTAssertNotNil(feedArray, @"App Data Not Found");
+    XCTAssert(feedArray, @"App Data Should not be nil");
 }
 
 -(void)testInitAppData
@@ -59,14 +59,14 @@
     for (NSDictionary *appEntry in feedArray)
     {
         AppData *appData = [[AppData alloc] initAppDataFromDictionary:appEntry];
-        XCTAssertNotNil(appData.appName, @"App name is nil");
-        XCTAssertNotNil(appData.category, @"App category is nil");
-        XCTAssertNotNil(appData.price, @"App price is nil");
-        XCTAssertNotNil(appData.releaseDate, @"App release date is nil");
-        XCTAssertNotNil(appData.summary, @"App summary is nil");
-        XCTAssertNotNil(appData.copyright, @"App copyright is nil");
-        XCTAssertNotNil(appData.imageUrlString, @"App image url is nil");
-        XCTAssertNotNil(appData.authorName, @"App author name url is nil");
+        XCTAssert(appData.appName, @"App name should not be nil");
+        XCTAssert(appData.category, @"App category should not be nil");
+        XCTAssert(appData.price, @"App price should not be nil");
+        XCTAssert(appData.releaseDate, @"App release date should not be nil");
+        XCTAssert(appData.summary, @"App summary should not be nil");
+        XCTAssert(appData.copyright, @"App copyright should not be nil");
+        XCTAssert(appData.imageUrlString, @"App image url should not be nil");
+        XCTAssert(appData.authorName, @"App author name url should not be nil");
     }
 }
 

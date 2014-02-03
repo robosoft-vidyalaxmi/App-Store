@@ -7,13 +7,12 @@
 //
 
 #import "ImageLoader.h"
-#import "AppCell.h"
 
 @implementation ImageLoader
 
--(void)loadImageAsynchronouslyForURL:(NSString *)imageUrlString forCell:(AppCell *)cell
+-(void)loadImageAsynchronouslyForURL:(NSString *)imageUrlString forCell:(id)cell
 {
-    self.appCell = cell;
+    self.cell = cell;
     NSURL *imageURL = [NSURL URLWithString:imageUrlString];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:imageURL];
     
@@ -29,7 +28,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    [self.delegate updateImageForCell:self.appCell withData:data];
+    [self.delegate updateImageForCell:self.cell withData:data];
 }
 
 @end

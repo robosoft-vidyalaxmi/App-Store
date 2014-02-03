@@ -18,7 +18,6 @@
 		B79C6A091897BC960064BBE9 /* PopUpView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A081897BC960064BBE9 /* PopUpView_iPad.xib */; };
 		B7A04329189B7E0C004A41EB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A04328189B7E0C004A41EB /* Icon.png */; };
 		B7A04A261894BDFB00DD0EFE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A04A251894BDFB00DD0EFE /* Constants.m */; };
-		B7A04A2E1894D11800DD0EFE /* popupBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A04A2D1894D11800DD0EFE /* popupBackground.png */; };
 		B7A04A301894D19500DD0EFE /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A04A2F1894D19500DD0EFE /* close.png */; };
 		B7A4D22C188FC00A00FD0941 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22B188FC00A00FD0941 /* Foundation.framework */; };
 		B7A4D22E188FC00A00FD0941 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22D188FC00A00FD0941 /* CoreGraphics.framework */; };
@@ -68,7 +67,6 @@
 		B7A04328189B7E0C004A41EB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		B7A04A241894BDFB00DD0EFE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B7A04A251894BDFB00DD0EFE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		B7A04A2D1894D11800DD0EFE /* popupBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popupBackground.png; sourceTree = "<group>"; };
 		B7A04A2F1894D19500DD0EFE /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		B7A4D228188FC00A00FD0941 /* App Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A4D22B188FC00A00FD0941 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -189,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				B7A04A2F1894D19500DD0EFE /* close.png */,
-				B7A04A2D1894D11800DD0EFE /* popupBackground.png */,
 				B79C6A061897B4AE0064BBE9 /* cart.png */,
 			);
 			name = Images;
@@ -428,7 +425,6 @@
 				B79C6A091897BC960064BBE9 /* PopUpView_iPad.xib in Resources */,
 				B79C6A071897B4AE0064BBE9 /* cart.png in Resources */,
 				B79C69FF189766E10064BBE9 /* PopUpView_iPhone.xib in Resources */,
-				B7A04A2E1894D11800DD0EFE /* popupBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

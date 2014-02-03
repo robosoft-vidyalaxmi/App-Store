@@ -8,18 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@class AppCell;
-
 @protocol ImageLoaderDelegate <NSObject>
 
--(void)updateImageForCell:(AppCell *)cell withData:(NSData *)data;
+-(void)updateImageForCell:(id)cell withData:(NSData *)data;
 
 @end
+
 @interface ImageLoader : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
-@property (nonatomic, strong) AppCell *appCell;
+@property (nonatomic, strong) id cell;
 @property (nonatomic, assign) id<ImageLoaderDelegate> delegate;
 
--(void)loadImageAsynchronouslyForURL:(NSString *)imageUrlString forCell:(AppCell *)cell;
+-(void)loadImageAsynchronouslyForURL:(NSString *)imageUrlString forCell:(id)cell;
 
 @end

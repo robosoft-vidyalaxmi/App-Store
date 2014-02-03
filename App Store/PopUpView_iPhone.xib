@@ -34,7 +34,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="app name" translatesAutoresizingMaskIntoConstraints="NO" id="KIv-3t-dG4">
-                    <rect key="frame" x="96" y="22" width="130" height="45"/>
+                    <rect key="frame" x="96" y="22" width="130" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
@@ -50,7 +50,7 @@
                     <dataDetectorType key="dataDetectorTypes" link="YES"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1Z-K3-vs0">
-                    <rect key="frame" x="91" y="64" width="68" height="21"/>
+                    <rect key="frame" x="96" y="64" width="68" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="Price">

@@ -9,8 +9,9 @@
 #import "WishListTableViewController.h"
 #import "WishListTableViewCell.h"
 #import "AppData.h"
+#import "ImageLoader.h"
 
-@interface WishListTableViewController ()
+@interface WishListTableViewController () <ImageLoaderDelegate>
 
 @property (nonatomic, strong) NSMutableArray *wishListArray;
 @property (nonatomic) BOOL isTableViewInEditingMode;
@@ -26,13 +27,13 @@
     [super viewWillAppear:YES];
     
     //initialize wishlist array with contents of plist
-    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:kplistFileName];
+    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:kplistFileName];
     self.wishListArray = [NSArray arrayWithContentsOfFile:datapath];
     
     [self.tableView reloadData];
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view data source methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -53,7 +54,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *datapath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:kplistFileName];
+    NSString *datapath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:kplistFileName];
     
     //delete app from wishlist and update plist in app directory
     [self.wishListArray removeObjectAtIndex:indexPath.row];
@@ -67,22 +68,17 @@
     return UITableViewCellEditingStyleDelete;
 }
 
--(void)updateDataForCell:(WishListTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+#pragma mark - ImageLoader delegate method
+
+-(void)updateImageForCell:(id)cell withData:(NSData *)data
 {
-    NSDictionary *appDictionary = [[NSDictionary alloc] initWithDictionary:[self.wishListArray objectAtIndex:indexPath.row]];
-    AppData *appData = [[AppData alloc] initAppDataFromDictionary:appDictionary];
-    
-    NSURL *url = [NSURL URLWithString:appData.imageUrlString];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    cell.imageView.image = [[UIImage alloc] initWithData:data];
-    
-    cell.appNameLabel.text = [appData appName];
-    cell.categoryLabel.text = [appData category];
-    [cell.priceButton setTitle:appData.price forState:UIControlStateNormal];
-    
-    //add border to button
-    [[cell.priceButton layer] setBorderWidth:2.0f];
-    [[cell.priceButton layer] setBorderColor:[UIColor colorWithRed:.196 green:0.3098 blue:0.52 alpha:1.0].CGColor];
+    UIImage *image = [[UIImage alloc] initWithData:data];
+    if ([cell isKindOfClass:[WishListTableViewCell class]])
+    {
+        WishListTableViewCell *wishListTableViewCell = (WishListTableViewCell *)cell;
+        //set image for table view cells
+        wishListTableViewCell.appImageView.image = image;
+    }
 }
 
 - (IBAction)editWishList:(id)sender
@@ -102,7 +98,28 @@
         //disable table view editing
         [self setEditing:NO];
         self.navigationItem.leftBarButtonItem.title = kButtonTitleEdit;
-        
     }
 }
+
+#pragma mark - User defined methods
+
+-(void)updateDataForCell:(WishListTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *appDictionary = [[NSDictionary alloc] initWithDictionary:[self.wishListArray objectAtIndex:indexPath.row]];
+    AppData *appData = [[AppData alloc] initAppDataFromDictionary:appDictionary];
+    
+    //load images asynchronously using NSURLConnection
+    ImageLoader *imageLoader = [[ImageLoader alloc] init];
+    imageLoader.delegate = self;
+    [imageLoader loadImageAsynchronouslyForURL:appData.imageUrlString forCell:cell];
+    
+    cell.appNameLabel.text = [appData appName];
+    cell.categoryLabel.text = [appData category];
+    [cell.priceButton setTitle:appData.price forState:UIControlStateNormal];
+    
+    //add border to button
+    [[cell.priceButton layer] setBorderWidth:2.0f];
+    [[cell.priceButton layer] setBorderColor:[UIColor blueColor].CGColor];
+}
+
 @end
