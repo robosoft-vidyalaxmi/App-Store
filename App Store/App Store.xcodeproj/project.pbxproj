@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B74508E5189F57D2005DE9FF /* WishList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B74508E4189F57D2005DE9FF /* WishList.plist */; };
 		B778DCB0189A742B0060B0E9 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B778DCAF189A742B0060B0E9 /* ImageLoader.m */; };
 		B793C5D61891248C002FD7A1 /* SearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B793C5D51891248C002FD7A1 /* SearchHeaderView.m */; };
 		B79636BD1898CF670050F1C1 /* WishListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BC1898CF670050F1C1 /* WishListTableViewController.m */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B74508E4189F57D2005DE9FF /* WishList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WishList.plist; sourceTree = "<group>"; };
 		B778DCAE189A742B0060B0E9 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLoader.h; path = Model/ImageLoader.h; sourceTree = "<group>"; };
 		B778DCAF189A742B0060B0E9 /* ImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageLoader.m; path = Model/ImageLoader.m; sourceTree = "<group>"; };
 		B793C5D41891248C002FD7A1 /* SearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHeaderView.h; path = View/SearchHeaderView.h; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				B7A4D233188FC00A00FD0941 /* App Store-Info.plist */,
 				B7A4D234188FC00A00FD0941 /* InfoPlist.strings */,
 				B7A4D237188FC00A00FD0941 /* main.m */,
+				B74508E4189F57D2005DE9FF /* WishList.plist */,
 				B7A4D239188FC00A00FD0941 /* App Store-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -420,6 +423,7 @@
 				B7A04329189B7E0C004A41EB /* Icon.png in Resources */,
 				B7A4D247188FC00A00FD0941 /* Images.xcassets in Resources */,
 				B7A4D23F188FC00A00FD0941 /* Main_iPhone.storyboard in Resources */,
+				B74508E5189F57D2005DE9FF /* WishList.plist in Resources */,
 				B7A4D236188FC00A00FD0941 /* InfoPlist.strings in Resources */,
 				B79C6A091897BC960064BBE9 /* PopUpView_iPad.xib in Resources */,
 				B79C6A071897B4AE0064BBE9 /* cart.png in Resources */,

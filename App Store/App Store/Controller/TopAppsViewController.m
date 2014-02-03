@@ -290,7 +290,7 @@
 -(void)addAppToWishList
 {
     //Get plist file path where setails about apps added to wishlist are stored
-    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:kplistFileName];
+    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:kplistFileName];
     
     NSError *error;
     
