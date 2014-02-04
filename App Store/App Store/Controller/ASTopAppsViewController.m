@@ -19,14 +19,14 @@
 @property (nonatomic, strong) NSArray *appDataArray;
 @property (nonatomic, strong) NSMutableArray *filteredAppDataArray;
 @property (nonatomic, strong) NSMutableArray *wishListArray;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) ASJSONParser *jsonParser;
 @property (nonatomic) BOOL isSearchBarDisplayed;
 @property (nonatomic) BOOL isFiltered;
 @property (nonatomic) BOOL isPopUpDisplayed;
+@property (nonatomic, strong) ASJSONParser *jsonParser;
 @property (nonatomic, strong) ASPopUpView *popUpView;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UISearchBar *appSearchBar;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 -(IBAction)searchForApps:(id)sender;
 
@@ -79,6 +79,12 @@
     {
         [self dismissPopUp];
     }
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    if(self.isPopUpDisplayed)
+        [self setUpPopUpViewCenter];
 }
 
 #pragma mark UICollectionViewDataSource methods
@@ -256,8 +262,7 @@
     //if appName not found
     if ([self.filteredAppDataArray count] == 0)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"App not found" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
+        [self showAlertWithTitle:@"App not found"];
     }
 }
 
@@ -316,7 +321,7 @@
     }
     else
     {
-        [self showAlertWithTile:@"App already added to wish list"];
+        [self showAlertWithTitle:@"App already added to wish list"];
     }
 }
 
@@ -338,7 +343,7 @@
     return datapath;
 }
 
--(void)showAlertWithTile:(NSString *)alertTitle
+-(void)showAlertWithTitle:(NSString *)alertTitle
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:alertTitle delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
@@ -381,12 +386,6 @@
     //convert it to view coordinates
     CGPoint pointInCollectionViewCoords = [self.collectionView convertPoint:pointInWindowCoords fromView:mainWindow];
     self.popUpView.center = pointInCollectionViewCoords;
-}
-
--(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    if(self.isPopUpDisplayed)
-        [self setUpPopUpViewCenter];
 }
 
 @end

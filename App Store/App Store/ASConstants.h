@@ -33,5 +33,7 @@ extern NSString * const kWishListFileExtension;
 extern NSString * const kTableCellIdentifier;
 extern NSString * const kCollectionViewIdentifier;
 extern NSString * const kHeaderViewIdentifier;
+extern NSString * const kPopUpView_iPhone;
+extern NSString * const kPopUpView_iPad;
 
 @end

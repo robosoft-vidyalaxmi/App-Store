@@ -33,4 +33,7 @@ NSString *const kWishListFileExtension = @"plist";
 NSString *const kTableCellIdentifier = @"wishListCell";
 NSString *const kCollectionViewIdentifier = @"cell";
 NSString *const kHeaderViewIdentifier = @"headerView";
+NSString *const kPopUpView_iPhone = @"ASPopUpView_iPhone";
+NSString *const kPopUpView_iPad = @"ASPopUpView_iPad";
+
 @end

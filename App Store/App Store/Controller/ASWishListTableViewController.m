@@ -68,7 +68,7 @@
     return UITableViewCellEditingStyleDelete;
 }
 
-#pragma mark - ImageLoader delegate method
+#pragma mark - ImageLoader delegate methods
 
 -(void)updateImageForCell:(id)cell withData:(NSData *)data
 {
