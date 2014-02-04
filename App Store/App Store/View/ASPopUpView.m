@@ -6,23 +6,23 @@
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import "PopUpView.h"
+#import "ASPopUpView.h"
 
-@implementation PopUpView
+@implementation ASPopUpView
 
 +(instancetype)popUpView
 {
-    PopUpView *popUpView;
+    ASPopUpView *popUpView;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
 
-            popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpView_iPhone" owner:nil options:nil] objectAtIndex:0];
+            popUpView = [[[NSBundle mainBundle] loadNibNamed:@"ASPopUpView_iPhone" owner:nil options:nil] objectAtIndex:0];
     }
     else
     {
-        popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpView_iPad" owner:nil options:nil] objectAtIndex:0];
+        popUpView = [[[NSBundle mainBundle] loadNibNamed:@"ASPopUpView_iPad" owner:nil options:nil] objectAtIndex:0];
     }
-    if ([popUpView isKindOfClass:[PopUpView class]])
+    if ([popUpView isKindOfClass:[ASPopUpView class]])
     {
         return popUpView;
     }

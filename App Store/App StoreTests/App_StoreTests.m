@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "AppData.h"
+#import "ASAppData.h"
 
 @interface App_StoreTests : XCTestCase
 {
@@ -58,7 +58,7 @@
 {
     for (NSDictionary *appEntry in feedArray)
     {
-        AppData *appData = [[AppData alloc] initAppDataFromDictionary:appEntry];
+        ASAppData *appData = [[ASAppData alloc] initAppDataFromDictionary:appEntry];
         XCTAssert(appData.appName, @"App name should not be nil");
         XCTAssert(appData.category, @"App category should not be nil");
         XCTAssert(appData.price, @"App price should not be nil");

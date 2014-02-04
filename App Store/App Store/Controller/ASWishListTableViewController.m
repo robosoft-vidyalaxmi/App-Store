@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import "WishListTableViewController.h"
-#import "WishListTableViewCell.h"
-#import "AppData.h"
-#import "ImageLoader.h"
+#import "ASWishListTableViewController.h"
+#import "ASWishListTableViewCell.h"
+#import "ASAppData.h"
+#import "ASImageLoader.h"
 
-@interface WishListTableViewController () <ImageLoaderDelegate>
+@interface ASWishListTableViewController () <ASImageLoaderDelegate>
 
 @property (nonatomic, strong) NSMutableArray *wishListArray;
 @property (nonatomic) BOOL isTableViewInEditingMode;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation WishListTableViewController
+@implementation ASWishListTableViewController
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -47,7 +47,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WishListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableCellIdentifier forIndexPath:indexPath];
+    ASWishListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableCellIdentifier forIndexPath:indexPath];
     [self updateDataForCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -73,9 +73,9 @@
 -(void)updateImageForCell:(id)cell withData:(NSData *)data
 {
     UIImage *image = [[UIImage alloc] initWithData:data];
-    if ([cell isKindOfClass:[WishListTableViewCell class]])
+    if ([cell isKindOfClass:[ASWishListTableViewCell class]])
     {
-        WishListTableViewCell *wishListTableViewCell = (WishListTableViewCell *)cell;
+        ASWishListTableViewCell *wishListTableViewCell = (ASWishListTableViewCell *)cell;
         //set image for table view cells
         wishListTableViewCell.appImageView.image = image;
     }
@@ -103,13 +103,13 @@
 
 #pragma mark - User defined methods
 
--(void)updateDataForCell:(WishListTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+-(void)updateDataForCell:(ASWishListTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *appDictionary = [[NSDictionary alloc] initWithDictionary:[self.wishListArray objectAtIndex:indexPath.row]];
-    AppData *appData = [[AppData alloc] initAppDataFromDictionary:appDictionary];
+    ASAppData *appData = [[ASAppData alloc] initAppDataFromDictionary:appDictionary];
     
     //load images asynchronously using NSURLConnection
-    ImageLoader *imageLoader = [[ImageLoader alloc] init];
+    ASImageLoader *imageLoader = [[ASImageLoader alloc] init];
     imageLoader.delegate = self;
     [imageLoader loadImageAsynchronouslyForURL:appData.imageUrlString forCell:cell];
     

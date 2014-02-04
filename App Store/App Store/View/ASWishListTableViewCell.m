@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import "WishListTableViewCell.h"
+#import "ASWishListTableViewCell.h"
 
-@implementation WishListTableViewCell
+@implementation ASWishListTableViewCell
 
 - (IBAction)priceButtonClicked:(id)sender
 {

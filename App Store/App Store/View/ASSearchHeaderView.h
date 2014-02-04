@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol SearchDelegate <NSObject>
+@protocol ASSearchDelegate <NSObject>
 
 -(void) filterContentForSearchText:(NSString *)searchText inSearchBar:(UISearchBar *)searchBar ;
 -(void) displayAlert;
@@ -16,9 +16,9 @@
 
 @end
 
-@interface SearchHeaderView : UICollectionReusableView <UISearchBarDelegate>
+@interface ASSearchHeaderView : UICollectionReusableView <UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *appSearchBar;
-@property (nonatomic, assign) id<SearchDelegate> delegate;
+@property (nonatomic, assign) id<ASSearchDelegate> delegate;
 
 @end
