@@ -1,23 +1,24 @@
 //
-//  App_StoreTests.m
-//  App StoreTests
+//  TopPaidAppsTests.m
+//  App Store
 //
-//  Created by Vidyalaxmi Shenoy on 22/01/14.
+//  Created by Vidyalaxmi Shenoy on 04/02/14.
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 #import "AppData.h"
 
-@interface TopAppsTests : XCTestCase
+@interface TopPaidAppsTests : XCTestCase
 {
     NSData *data;
     NSDictionary *jsonDictionary;
     NSArray *feedArray;
 }
+
 @end
 
-@implementation TopAppsTests
+@implementation TopPaidAppsTests
 
 - (void)setUp
 {
@@ -27,8 +28,7 @@
 
 -(void)initialSetUp
 {
-    data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TopFreeAppsFeed" ofType:@"json"]];
-    
+    data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TopPaidAppsFeed" ofType:@"json"]];
     
     NSError *error;
     jsonDictionary = [NSJSONSerialization JSONObjectWithData:data

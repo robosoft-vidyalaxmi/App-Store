@@ -20,6 +20,8 @@
 		B7A04A261894BDFB00DD0EFE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A04A251894BDFB00DD0EFE /* Constants.m */; };
 		B7A04A301894D19500DD0EFE /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A04A2F1894D19500DD0EFE /* close.png */; };
 		B7A1045718A0ADCB0059095A /* TopFreeAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A1045618A0ADCB0059095A /* TopFreeAppsFeed.json */; };
+		B7A1045D18A0BBF80059095A /* TopPaidAppsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A1045C18A0BBF80059095A /* TopPaidAppsTests.m */; };
+		B7A1046118A0BC460059095A /* TopPaidAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = B7A1046018A0BC460059095A /* TopPaidAppsFeed.json */; };
 		B7A4D22C188FC00A00FD0941 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22B188FC00A00FD0941 /* Foundation.framework */; };
 		B7A4D22E188FC00A00FD0941 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22D188FC00A00FD0941 /* CoreGraphics.framework */; };
 		B7A4D230188FC00A00FD0941 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22F188FC00A00FD0941 /* UIKit.framework */; };
@@ -33,7 +35,7 @@
 		B7A4D24F188FC00B00FD0941 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22B188FC00A00FD0941 /* Foundation.framework */; };
 		B7A4D250188FC00B00FD0941 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22F188FC00A00FD0941 /* UIKit.framework */; };
 		B7A4D258188FC00B00FD0941 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D256188FC00B00FD0941 /* InfoPlist.strings */; };
-		B7A4D25A188FC00B00FD0941 /* TopAppsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D259188FC00B00FD0941 /* TopAppsTests.m */; };
+		B7A4D25A188FC00B00FD0941 /* TopFreeAppsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D259188FC00B00FD0941 /* TopFreeAppsTests.m */; };
 		B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D268188FC18E00FD0941 /* JSONParser.m */; };
 		B7A4D26E188FC64200FD0941 /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D26D188FC64200FD0941 /* AppData.m */; };
 		B7A4D275188FF09200FD0941 /* TopAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D274188FF09200FD0941 /* TopAppsViewController.m */; };
@@ -70,6 +72,8 @@
 		B7A04A251894BDFB00DD0EFE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		B7A04A2F1894D19500DD0EFE /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		B7A1045618A0ADCB0059095A /* TopFreeAppsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TopFreeAppsFeed.json; sourceTree = "<group>"; };
+		B7A1045C18A0BBF80059095A /* TopPaidAppsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPaidAppsTests.m; sourceTree = "<group>"; };
+		B7A1046018A0BC460059095A /* TopPaidAppsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TopPaidAppsFeed.json; sourceTree = "<group>"; };
 		B7A4D228188FC00A00FD0941 /* App Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A4D22B188FC00A00FD0941 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B7A4D22D188FC00A00FD0941 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,7 +91,7 @@
 		B7A4D24D188FC00B00FD0941 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B7A4D255188FC00B00FD0941 /* App StoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "App StoreTests-Info.plist"; sourceTree = "<group>"; };
 		B7A4D257188FC00B00FD0941 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B7A4D259188FC00B00FD0941 /* TopAppsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopAppsTests.m; sourceTree = "<group>"; };
+		B7A4D259188FC00B00FD0941 /* TopFreeAppsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopFreeAppsTests.m; sourceTree = "<group>"; };
 		B7A4D267188FC18E00FD0941 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONParser.h; path = "Model/JSON Parser/JSONParser.h"; sourceTree = "<group>"; };
 		B7A4D268188FC18E00FD0941 /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONParser.m; path = "Model/JSON Parser/JSONParser.m"; sourceTree = "<group>"; };
 		B7A4D26C188FC64200FD0941 /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppData.h; path = "Model/App Data/AppData.h"; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 				B7A04A241894BDFB00DD0EFE /* Constants.h */,
 				B7A04A251894BDFB00DD0EFE /* Constants.m */,
 				B7A1045618A0ADCB0059095A /* TopFreeAppsFeed.json */,
+				B7A1046018A0BC460059095A /* TopPaidAppsFeed.json */,
 				B7A4D233188FC00A00FD0941 /* App Store-Info.plist */,
 				B7A4D234188FC00A00FD0941 /* InfoPlist.strings */,
 				B7A4D237188FC00A00FD0941 /* main.m */,
@@ -258,7 +263,8 @@
 		B7A4D253188FC00B00FD0941 /* App StoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				B7A4D259188FC00B00FD0941 /* TopAppsTests.m */,
+				B7A4D259188FC00B00FD0941 /* TopFreeAppsTests.m */,
+				B7A1045C18A0BBF80059095A /* TopPaidAppsTests.m */,
 				B7A4D254188FC00B00FD0941 /* Supporting Files */,
 			);
 			path = "App StoreTests";
@@ -419,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7A04A301894D19500DD0EFE /* close.png in Resources */,
+				B7A1046118A0BC460059095A /* TopPaidAppsFeed.json in Resources */,
 				B7A1045718A0ADCB0059095A /* TopFreeAppsFeed.json in Resources */,
 				B7A4D242188FC00A00FD0941 /* Main_iPad.storyboard in Resources */,
 				B7A04329189B7E0C004A41EB /* Icon.png in Resources */,
@@ -466,7 +473,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7A4D25A188FC00B00FD0941 /* TopAppsTests.m in Sources */,
+				B7A4D25A188FC00B00FD0941 /* TopFreeAppsTests.m in Sources */,
+				B7A1045D18A0BBF80059095A /* TopPaidAppsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
