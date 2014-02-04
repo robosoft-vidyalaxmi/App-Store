@@ -14,17 +14,18 @@
 {
     if (self = [super init])
     {
-        self.appName = [[appDictionary valueForKey:@"im:name"] valueForKey:@"label"];
-        self.authorName = [[appDictionary valueForKey:@"im:artist"] valueForKey:@"label"];
-        self.category = [[[appDictionary valueForKey:@"category"] valueForKey:@"attributes"] valueForKey:@"label"];
-        self.copyright = [[appDictionary valueForKey:@"rights"] valueForKey:@"label"];
-        self.link = [[[appDictionary valueForKey:@"link"] valueForKey:@"attributes"] valueForKey:@"href"];
-        self.price = [[appDictionary valueForKey:@"im:price"] valueForKey:@"label"];
-        self.releaseDate = [[[appDictionary valueForKey:@"im:releaseDate"] valueForKey:@"attributes"]valueForKey:@"label"];
-        self.summary = [[appDictionary valueForKey:@"summary"] valueForKey:@"label"];
-        self.imagePathList = [appDictionary valueForKey:@"im:image"];
-
+        self.appDetailsDictionary = appDictionary;
+        self.appName = [appDictionary valueForKeyPath:@"im:name.label"];
+        self.authorName = [appDictionary valueForKeyPath:@"im:artist.label"];
+        self.category = [appDictionary valueForKeyPath:@"category.attributes.label"];
+        self.copyright = [appDictionary valueForKeyPath:@"rights.label"];
+        self.link = [appDictionary valueForKeyPath:@"link.attributes.href"];
+        self.price = [appDictionary valueForKeyPath:@"im:price.label"];
+        self.releaseDate = [appDictionary valueForKeyPath:@"im:releaseDate.attributes.label"];
+        self.summary = [appDictionary valueForKeyPath:@"summary.label"];
+        self.imageUrlString = [[[appDictionary valueForKey:@"im:image"] objectAtIndex:0] valueForKey:@"label"];
     }
     return self;
 }
+
 @end

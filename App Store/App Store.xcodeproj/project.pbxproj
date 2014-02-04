@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B74508E5189F57D2005DE9FF /* WishList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B74508E4189F57D2005DE9FF /* WishList.plist */; };
+		B778DCB0189A742B0060B0E9 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B778DCAF189A742B0060B0E9 /* ImageLoader.m */; };
 		B793C5D61891248C002FD7A1 /* SearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B793C5D51891248C002FD7A1 /* SearchHeaderView.m */; };
+		B79636BD1898CF670050F1C1 /* WishListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BC1898CF670050F1C1 /* WishListTableViewController.m */; };
+		B79636C01898D5710050F1C1 /* WishListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BF1898D5710050F1C1 /* WishListTableViewCell.m */; };
+		B79C69FD189766C30064BBE9 /* PopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C69FC189766C30064BBE9 /* PopUpView.m */; };
+		B79C69FF189766E10064BBE9 /* PopUpView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C69FE189766E10064BBE9 /* PopUpView_iPhone.xib */; };
+		B79C6A071897B4AE0064BBE9 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A061897B4AE0064BBE9 /* cart.png */; };
+		B79C6A091897BC960064BBE9 /* PopUpView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A081897BC960064BBE9 /* PopUpView_iPad.xib */; };
+		B7A04329189B7E0C004A41EB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A04328189B7E0C004A41EB /* Icon.png */; };
 		B7A04A261894BDFB00DD0EFE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A04A251894BDFB00DD0EFE /* Constants.m */; };
+		B7A04A301894D19500DD0EFE /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A04A2F1894D19500DD0EFE /* close.png */; };
 		B7A4D22C188FC00A00FD0941 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22B188FC00A00FD0941 /* Foundation.framework */; };
 		B7A4D22E188FC00A00FD0941 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22D188FC00A00FD0941 /* CoreGraphics.framework */; };
 		B7A4D230188FC00A00FD0941 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22F188FC00A00FD0941 /* UIKit.framework */; };
@@ -40,10 +50,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B74508E4189F57D2005DE9FF /* WishList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WishList.plist; sourceTree = "<group>"; };
+		B778DCAE189A742B0060B0E9 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLoader.h; path = Model/ImageLoader.h; sourceTree = "<group>"; };
+		B778DCAF189A742B0060B0E9 /* ImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageLoader.m; path = Model/ImageLoader.m; sourceTree = "<group>"; };
 		B793C5D41891248C002FD7A1 /* SearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHeaderView.h; path = View/SearchHeaderView.h; sourceTree = "<group>"; };
 		B793C5D51891248C002FD7A1 /* SearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHeaderView.m; path = View/SearchHeaderView.m; sourceTree = "<group>"; };
+		B79636BB1898CF670050F1C1 /* WishListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListTableViewController.h; path = Controller/WishListTableViewController.h; sourceTree = "<group>"; };
+		B79636BC1898CF670050F1C1 /* WishListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListTableViewController.m; path = Controller/WishListTableViewController.m; sourceTree = "<group>"; };
+		B79636BE1898D5710050F1C1 /* WishListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListTableViewCell.h; path = View/WishListTableViewCell.h; sourceTree = "<group>"; };
+		B79636BF1898D5710050F1C1 /* WishListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListTableViewCell.m; path = View/WishListTableViewCell.m; sourceTree = "<group>"; };
+		B79C69FB189766C30064BBE9 /* PopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpView.h; path = View/PopUpView.h; sourceTree = "<group>"; };
+		B79C69FC189766C30064BBE9 /* PopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopUpView.m; path = View/PopUpView.m; sourceTree = "<group>"; };
+		B79C69FE189766E10064BBE9 /* PopUpView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopUpView_iPhone.xib; path = ../PopUpView_iPhone.xib; sourceTree = "<group>"; };
+		B79C6A061897B4AE0064BBE9 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
+		B79C6A081897BC960064BBE9 /* PopUpView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpView_iPad.xib; sourceTree = "<group>"; };
+		B7A04328189B7E0C004A41EB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		B7A04A241894BDFB00DD0EFE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B7A04A251894BDFB00DD0EFE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		B7A04A2F1894D19500DD0EFE /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		B7A4D228188FC00A00FD0941 /* App Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A4D22B188FC00A00FD0941 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B7A4D22D188FC00A00FD0941 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,6 +120,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7A0431D189B5D2D004A41EB /* Image Loader */ = {
+			isa = PBXGroup;
+			children = (
+				B778DCAE189A742B0060B0E9 /* ImageLoader.h */,
+				B778DCAF189A742B0060B0E9 /* ImageLoader.m */,
+			);
+			name = "Image Loader";
+			sourceTree = "<group>";
+		};
+		B7A0431E189B5D57004A41EB /* App Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B7A4D276188FF4FD00FD0941 /* AppCell.h */,
+				B7A4D277188FF4FD00FD0941 /* AppCell.m */,
+			);
+			name = "App Cell";
+			sourceTree = "<group>";
+		};
+		B7A0431F189B5D63004A41EB /* Search Header View */ = {
+			isa = PBXGroup;
+			children = (
+				B793C5D41891248C002FD7A1 /* SearchHeaderView.h */,
+				B793C5D51891248C002FD7A1 /* SearchHeaderView.m */,
+			);
+			name = "Search Header View";
+			sourceTree = "<group>";
+		};
+		B7A04320189B5D77004A41EB /* PopUp View */ = {
+			isa = PBXGroup;
+			children = (
+				B79C69FB189766C30064BBE9 /* PopUpView.h */,
+				B79C69FC189766C30064BBE9 /* PopUpView.m */,
+			);
+			name = "PopUp View";
+			sourceTree = "<group>";
+		};
+		B7A04321189B5D83004A41EB /* WishList TableView Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B79636BE1898D5710050F1C1 /* WishListTableViewCell.h */,
+				B79636BF1898D5710050F1C1 /* WishListTableViewCell.m */,
+			);
+			name = "WishList TableView Cell";
+			sourceTree = "<group>";
+		};
+		B7A04322189B5DD8004A41EB /* TopApps View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B7A4D273188FF09200FD0941 /* TopAppsViewController.h */,
+				B7A4D274188FF09200FD0941 /* TopAppsViewController.m */,
+			);
+			name = "TopApps View Controller";
+			sourceTree = "<group>";
+		};
+		B7A04323189B5DEC004A41EB /* WishList TableView Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B79636BB1898CF670050F1C1 /* WishListTableViewController.h */,
+				B79636BC1898CF670050F1C1 /* WishListTableViewController.m */,
+			);
+			name = "WishList TableView Controller";
+			sourceTree = "<group>";
+		};
+		B7A04A2C1894D0F300DD0EFE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B7A04A2F1894D19500DD0EFE /* close.png */,
+				B79C6A061897B4AE0064BBE9 /* cart.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		B7A4D21F188FC00A00FD0941 = {
 			isa = PBXGroup;
 			children = (
@@ -129,12 +225,13 @@
 		B7A4D231188FC00A00FD0941 /* App Store */ = {
 			isa = PBXGroup;
 			children = (
+				B7A4D265188FC0E600FD0941 /* Model */,
 				B7A4D279188FFA9200FD0941 /* View */,
 				B7A4D26A188FC49200FD0941 /* Controller */,
-				B7A4D265188FC0E600FD0941 /* Model */,
 				B7A4D264188FC0A800FD0941 /* App Delegate */,
 				B7A4D263188FC08F00FD0941 /* Storyboard */,
 				B7A4D246188FC00A00FD0941 /* Images.xcassets */,
+				B7A04328189B7E0C004A41EB /* Icon.png */,
 				B7A4D232188FC00A00FD0941 /* Supporting Files */,
 			);
 			path = "App Store";
@@ -143,11 +240,13 @@
 		B7A4D232188FC00A00FD0941 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B7A04A2C1894D0F300DD0EFE /* Images */,
 				B7A04A241894BDFB00DD0EFE /* Constants.h */,
 				B7A04A251894BDFB00DD0EFE /* Constants.m */,
 				B7A4D233188FC00A00FD0941 /* App Store-Info.plist */,
 				B7A4D234188FC00A00FD0941 /* InfoPlist.strings */,
 				B7A4D237188FC00A00FD0941 /* main.m */,
+				B74508E4189F57D2005DE9FF /* WishList.plist */,
 				B7A4D239188FC00A00FD0941 /* App Store-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -194,6 +293,7 @@
 			children = (
 				B7A4D26B188FC60900FD0941 /* App Data */,
 				B7A4D266188FC15F00FD0941 /* JSON Parser */,
+				B7A0431D189B5D2D004A41EB /* Image Loader */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -210,8 +310,8 @@
 		B7A4D26A188FC49200FD0941 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B7A4D273188FF09200FD0941 /* TopAppsViewController.h */,
-				B7A4D274188FF09200FD0941 /* TopAppsViewController.m */,
+				B7A04322189B5DD8004A41EB /* TopApps View Controller */,
+				B7A04323189B5DEC004A41EB /* WishList TableView Controller */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -228,10 +328,12 @@
 		B7A4D279188FFA9200FD0941 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B7A4D276188FF4FD00FD0941 /* AppCell.h */,
-				B7A4D277188FF4FD00FD0941 /* AppCell.m */,
-				B793C5D41891248C002FD7A1 /* SearchHeaderView.h */,
-				B793C5D51891248C002FD7A1 /* SearchHeaderView.m */,
+				B7A0431E189B5D57004A41EB /* App Cell */,
+				B7A0431F189B5D63004A41EB /* Search Header View */,
+				B7A04320189B5D77004A41EB /* PopUp View */,
+				B7A04321189B5D83004A41EB /* WishList TableView Cell */,
+				B79C6A081897BC960064BBE9 /* PopUpView_iPad.xib */,
+				B79C69FE189766E10064BBE9 /* PopUpView_iPhone.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -313,10 +415,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7A04A301894D19500DD0EFE /* close.png in Resources */,
 				B7A4D242188FC00A00FD0941 /* Main_iPad.storyboard in Resources */,
+				B7A04329189B7E0C004A41EB /* Icon.png in Resources */,
 				B7A4D247188FC00A00FD0941 /* Images.xcassets in Resources */,
 				B7A4D23F188FC00A00FD0941 /* Main_iPhone.storyboard in Resources */,
+				B74508E5189F57D2005DE9FF /* WishList.plist in Resources */,
 				B7A4D236188FC00A00FD0941 /* InfoPlist.strings in Resources */,
+				B79C6A091897BC960064BBE9 /* PopUpView_iPad.xib in Resources */,
+				B79C6A071897B4AE0064BBE9 /* cart.png in Resources */,
+				B79C69FF189766E10064BBE9 /* PopUpView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,11 +445,15 @@
 			files = (
 				B793C5D61891248C002FD7A1 /* SearchHeaderView.m in Sources */,
 				B7A4D275188FF09200FD0941 /* TopAppsViewController.m in Sources */,
+				B79C69FD189766C30064BBE9 /* PopUpView.m in Sources */,
 				B7A4D23C188FC00A00FD0941 /* AppStoreAppDelegate.m in Sources */,
 				B7A04A261894BDFB00DD0EFE /* Constants.m in Sources */,
+				B79636C01898D5710050F1C1 /* WishListTableViewCell.m in Sources */,
 				B7A4D278188FF4FD00FD0941 /* AppCell.m in Sources */,
+				B79636BD1898CF670050F1C1 /* WishListTableViewController.m in Sources */,
 				B7A4D238188FC00A00FD0941 /* main.m in Sources */,
 				B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */,
+				B778DCB0189A742B0060B0E9 /* ImageLoader.m in Sources */,
 				B7A4D26E188FC64200FD0941 /* AppData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

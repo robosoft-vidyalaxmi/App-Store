@@ -19,5 +19,19 @@ extern CGFloat const kEdgeInsetsTop;
 extern CGFloat const kEdgeInsetsLeft;
 extern CGFloat const kEdgeInsetsBottom;
 extern CGFloat const kEdgeInsetsRight;
+extern CGFloat const kCollectionViewOffsetHeight;
+extern int const kTopAppLimit;
+extern CGFloat const kCollectionViewHeaderHeight;
+extern NSString * const kTopFreeAppsJsonFeed;
+extern NSString * const kTopPaidAppsJsonFeed;
+extern NSString * const kInstallTitle;
+extern NSString * const kButtonTitleDone;
+extern NSString * const kButtonTitleEdit;
+extern NSString * const kplistFileName;
+extern NSString * const kWishListFile;
+extern NSString * const kWishListFileExtension;
+extern NSString * const kTableCellIdentifier;
+extern NSString * const kCollectionViewIdentifier;
+extern NSString * const kHeaderViewIdentifier;
 
 @end

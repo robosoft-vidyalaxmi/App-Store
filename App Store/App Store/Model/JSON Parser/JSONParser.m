@@ -11,27 +11,42 @@
 
 @implementation JSONParser
 
-//parses JSON data from iTunes using JSON feed URL
--(NSArray *)parseAppDataUsingFeed:(NSString *)jsonFeed
+//parses JSON data from iTunes asynchronously using NSURLConnection
+-(void)parseAppDataUsingFeed:(NSString *)jsonFeed
 {
     NSURL *jsonFeedURL = [NSURL URLWithString:jsonFeed];
-    NSData *jsonData = [NSData dataWithContentsOfURL:jsonFeedURL];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:jsonFeedURL];
+    
+    NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:self];
+    
+    if (urlConnection == nil)
+    {
+        NSLog(@"Connection failed");
+    }
+}
+
+#pragma mark - NSURLConnectionDataDelegate methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
     NSError *error;
-    self.jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                              options:kNilOptions error:&error];
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
+                                                          options:kNilOptions error:&error];
     
-    
-    NSArray *feedArray = [NSArray arrayWithArray:[[self.jsonDictionary valueForKey:@"feed"] valueForKey:@"entry"]];
-    self.appDataArray = [[NSMutableArray alloc] initWithCapacity:25];
+    NSArray *feedArray = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
+    self.appDataArray = [[NSMutableArray alloc] initWithCapacity:kTopAppLimit];
     
     for (NSDictionary *appEntry in feedArray)
     {
+        //convert dictionary to appData object
         AppData *appData = [[AppData alloc] initAppDataFromDictionary:appEntry];
         [self.appDataArray addObject:appData];
     }
-    
-    return self.appDataArray;
-    
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    [self.delegate loadParsedData:self.appDataArray];
 }
 
 @end
