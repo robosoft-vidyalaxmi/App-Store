@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ASWishListTableViewController : UITableViewController
+@interface WishListTableViewController : UITableViewController
 
 @end

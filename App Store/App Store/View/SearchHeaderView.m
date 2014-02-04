@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import "ASSearchHeaderView.h"
+#import "SearchHeaderView.h"
 
-@implementation ASSearchHeaderView
+@implementation SearchHeaderView
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {

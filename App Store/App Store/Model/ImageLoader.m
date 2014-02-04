@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import "ASImageLoader.h"
+#import "ImageLoader.h"
 
-@implementation ASImageLoader
+@implementation ImageLoader
 
 -(void)loadImageAsynchronouslyForURL:(NSString *)imageUrlString forCell:(id)cell
 {

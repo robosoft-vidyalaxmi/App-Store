@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import "ASPopUpView.h"
+#import "PopUpView.h"
 
-@implementation ASPopUpView
+@implementation PopUpView
 
 +(instancetype)popUpView
 {
-    ASPopUpView *popUpView;
+    PopUpView *popUpView;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
 
@@ -22,7 +22,7 @@
     {
         popUpView = [[[NSBundle mainBundle] loadNibNamed:@"PopUpView_iPad" owner:nil options:nil] objectAtIndex:0];
     }
-    if ([popUpView isKindOfClass:[ASPopUpView class]])
+    if ([popUpView isKindOfClass:[PopUpView class]])
     {
         return popUpView;
     }

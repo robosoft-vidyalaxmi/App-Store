@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import "ASJSONParser.h"
-#import "ASAppData.h"
+#import "JSONParser.h"
+#import "AppData.h"
 
-@implementation ASJSONParser
+@implementation JSONParser
 
 //parses JSON data from iTunes asynchronously using NSURLConnection
 -(void)parseAppDataUsingFeed:(NSString *)jsonFeed
@@ -39,7 +39,7 @@
     for (NSDictionary *appEntry in feedArray)
     {
         //convert dictionary to appData object
-        ASAppData *appData = [[ASAppData alloc] initAppDataFromDictionary:appEntry];
+        AppData *appData = [[AppData alloc] initAppDataFromDictionary:appEntry];
         [self.appDataArray addObject:appData];
     }
 }

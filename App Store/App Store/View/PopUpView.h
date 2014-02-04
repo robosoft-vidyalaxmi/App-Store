@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol ASPopUpViewDelegate <NSObject>
+@protocol PopUpViewDelegate <NSObject>
 
 -(void)popUpViewDidAppear;
 -(void)dismissPopUp;
@@ -16,9 +16,9 @@
 
 @end
 
-@interface ASPopUpView : UIView
+@interface PopUpView : UIView
 
-@property (nonatomic, assign) id<ASPopUpViewDelegate> delegate;
+@property (nonatomic, assign) id<PopUpViewDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIImageView *appImageView;
 @property (weak, nonatomic) IBOutlet UITextView *appNameTextView;
 @property (weak, nonatomic) IBOutlet UITextView *inforationTextView;

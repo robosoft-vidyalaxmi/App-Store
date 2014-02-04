@@ -8,23 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		B74508E5189F57D2005DE9FF /* WishList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B74508E4189F57D2005DE9FF /* WishList.plist */; };
-		B778DCB0189A742B0060B0E9 /* ASImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B778DCAF189A742B0060B0E9 /* ASImageLoader.m */; };
-		B793C5D61891248C002FD7A1 /* ASSearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B793C5D51891248C002FD7A1 /* ASSearchHeaderView.m */; };
-		B79636BD1898CF670050F1C1 /* ASWishListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BC1898CF670050F1C1 /* ASWishListTableViewController.m */; };
+		B778DCB0189A742B0060B0E9 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B778DCAF189A742B0060B0E9 /* ImageLoader.m */; };
+		B793C5D61891248C002FD7A1 /* SearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B793C5D51891248C002FD7A1 /* SearchHeaderView.m */; };
+		B79636BD1898CF670050F1C1 /* WishListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BC1898CF670050F1C1 /* WishListTableViewController.m */; };
 		B79636C01898D5710050F1C1 /* WishListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BF1898D5710050F1C1 /* WishListTableViewCell.m */; };
-		B79C69FD189766C30064BBE9 /* ASPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C69FC189766C30064BBE9 /* ASPopUpView.m */; };
-		B79C69FF189766E10064BBE9 /* ASPopUpView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C69FE189766E10064BBE9 /* ASPopUpView_iPhone.xib */; };
+		B79C69FD189766C30064BBE9 /* PopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C69FC189766C30064BBE9 /* PopUpView.m */; };
+		B79C69FF189766E10064BBE9 /* PopUpView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C69FE189766E10064BBE9 /* PopUpView_iPhone.xib */; };
 		B79C6A071897B4AE0064BBE9 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A061897B4AE0064BBE9 /* cart.png */; };
-		B79C6A091897BC960064BBE9 /* ASPopUpView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A081897BC960064BBE9 /* ASPopUpView_iPad.xib */; };
+		B79C6A091897BC960064BBE9 /* PopUpView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A081897BC960064BBE9 /* PopUpView_iPad.xib */; };
 		B7A04329189B7E0C004A41EB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A04328189B7E0C004A41EB /* Icon.png */; };
-		B7A04A261894BDFB00DD0EFE /* ASConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A04A251894BDFB00DD0EFE /* ASConstants.m */; };
+		B7A04A261894BDFB00DD0EFE /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A04A251894BDFB00DD0EFE /* Constants.m */; };
 		B7A04A301894D19500DD0EFE /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A04A2F1894D19500DD0EFE /* close.png */; };
 		B7A4D22C188FC00A00FD0941 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22B188FC00A00FD0941 /* Foundation.framework */; };
 		B7A4D22E188FC00A00FD0941 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22D188FC00A00FD0941 /* CoreGraphics.framework */; };
 		B7A4D230188FC00A00FD0941 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22F188FC00A00FD0941 /* UIKit.framework */; };
 		B7A4D236188FC00A00FD0941 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D234188FC00A00FD0941 /* InfoPlist.strings */; };
 		B7A4D238188FC00A00FD0941 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D237188FC00A00FD0941 /* main.m */; };
-		B7A4D23C188FC00A00FD0941 /* ASAppStoreAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D23B188FC00A00FD0941 /* ASAppStoreAppDelegate.m */; };
+		B7A4D23C188FC00A00FD0941 /* AppStoreAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D23B188FC00A00FD0941 /* AppStoreAppDelegate.m */; };
 		B7A4D23F188FC00A00FD0941 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D23D188FC00A00FD0941 /* Main_iPhone.storyboard */; };
 		B7A4D242188FC00A00FD0941 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D240188FC00A00FD0941 /* Main_iPad.storyboard */; };
 		B7A4D247188FC00A00FD0941 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D246188FC00A00FD0941 /* Images.xcassets */; };
@@ -33,10 +33,10 @@
 		B7A4D250188FC00B00FD0941 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22F188FC00A00FD0941 /* UIKit.framework */; };
 		B7A4D258188FC00B00FD0941 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D256188FC00B00FD0941 /* InfoPlist.strings */; };
 		B7A4D25A188FC00B00FD0941 /* App_StoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D259188FC00B00FD0941 /* App_StoreTests.m */; };
-		B7A4D269188FC18E00FD0941 /* ASJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D268188FC18E00FD0941 /* ASJSONParser.m */; };
-		B7A4D26E188FC64200FD0941 /* ASAppData.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D26D188FC64200FD0941 /* ASAppData.m */; };
-		B7A4D275188FF09200FD0941 /* ASTopAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D274188FF09200FD0941 /* ASTopAppsViewController.m */; };
-		B7A4D278188FF4FD00FD0941 /* ASAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D277188FF4FD00FD0941 /* ASAppCell.m */; };
+		B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D268188FC18E00FD0941 /* JSONParser.m */; };
+		B7A4D26E188FC64200FD0941 /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D26D188FC64200FD0941 /* AppData.m */; };
+		B7A4D275188FF09200FD0941 /* TopAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D274188FF09200FD0941 /* TopAppsViewController.m */; };
+		B7A4D278188FF4FD00FD0941 /* AppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D277188FF4FD00FD0941 /* AppCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,22 +51,22 @@
 
 /* Begin PBXFileReference section */
 		B74508E4189F57D2005DE9FF /* WishList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WishList.plist; sourceTree = "<group>"; };
-		B778DCAE189A742B0060B0E9 /* ASImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASImageLoader.h; path = Model/ASImageLoader.h; sourceTree = "<group>"; };
-		B778DCAF189A742B0060B0E9 /* ASImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASImageLoader.m; path = Model/ASImageLoader.m; sourceTree = "<group>"; };
-		B793C5D41891248C002FD7A1 /* ASSearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSearchHeaderView.h; path = View/ASSearchHeaderView.h; sourceTree = "<group>"; };
-		B793C5D51891248C002FD7A1 /* ASSearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSearchHeaderView.m; path = View/ASSearchHeaderView.m; sourceTree = "<group>"; };
-		B79636BB1898CF670050F1C1 /* ASWishListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASWishListTableViewController.h; path = Controller/ASWishListTableViewController.h; sourceTree = "<group>"; };
-		B79636BC1898CF670050F1C1 /* ASWishListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASWishListTableViewController.m; path = Controller/ASWishListTableViewController.m; sourceTree = "<group>"; };
+		B778DCAE189A742B0060B0E9 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLoader.h; path = Model/ImageLoader.h; sourceTree = "<group>"; };
+		B778DCAF189A742B0060B0E9 /* ImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageLoader.m; path = Model/ImageLoader.m; sourceTree = "<group>"; };
+		B793C5D41891248C002FD7A1 /* SearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHeaderView.h; path = View/SearchHeaderView.h; sourceTree = "<group>"; };
+		B793C5D51891248C002FD7A1 /* SearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHeaderView.m; path = View/SearchHeaderView.m; sourceTree = "<group>"; };
+		B79636BB1898CF670050F1C1 /* WishListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListTableViewController.h; path = Controller/WishListTableViewController.h; sourceTree = "<group>"; };
+		B79636BC1898CF670050F1C1 /* WishListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListTableViewController.m; path = Controller/WishListTableViewController.m; sourceTree = "<group>"; };
 		B79636BE1898D5710050F1C1 /* WishListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WishListTableViewCell.h; path = View/WishListTableViewCell.h; sourceTree = "<group>"; };
 		B79636BF1898D5710050F1C1 /* WishListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WishListTableViewCell.m; path = View/WishListTableViewCell.m; sourceTree = "<group>"; };
-		B79C69FB189766C30064BBE9 /* ASPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASPopUpView.h; path = View/ASPopUpView.h; sourceTree = "<group>"; };
-		B79C69FC189766C30064BBE9 /* ASPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASPopUpView.m; path = View/ASPopUpView.m; sourceTree = "<group>"; };
-		B79C69FE189766E10064BBE9 /* ASPopUpView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ASPopUpView_iPhone.xib; path = ../ASPopUpView_iPhone.xib; sourceTree = "<group>"; };
+		B79C69FB189766C30064BBE9 /* PopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopUpView.h; path = View/PopUpView.h; sourceTree = "<group>"; };
+		B79C69FC189766C30064BBE9 /* PopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopUpView.m; path = View/PopUpView.m; sourceTree = "<group>"; };
+		B79C69FE189766E10064BBE9 /* PopUpView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopUpView_iPhone.xib; path = ../PopUpView_iPhone.xib; sourceTree = "<group>"; };
 		B79C6A061897B4AE0064BBE9 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
-		B79C6A081897BC960064BBE9 /* ASPopUpView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASPopUpView_iPad.xib; sourceTree = "<group>"; };
+		B79C6A081897BC960064BBE9 /* PopUpView_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpView_iPad.xib; sourceTree = "<group>"; };
 		B7A04328189B7E0C004A41EB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		B7A04A241894BDFB00DD0EFE /* ASConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASConstants.h; sourceTree = "<group>"; };
-		B7A04A251894BDFB00DD0EFE /* ASConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASConstants.m; sourceTree = "<group>"; };
+		B7A04A241894BDFB00DD0EFE /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		B7A04A251894BDFB00DD0EFE /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		B7A04A2F1894D19500DD0EFE /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		B7A4D228188FC00A00FD0941 /* App Store.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App Store.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A4D22B188FC00A00FD0941 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,8 +76,8 @@
 		B7A4D235188FC00A00FD0941 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B7A4D237188FC00A00FD0941 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B7A4D239188FC00A00FD0941 /* App Store-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "App Store-Prefix.pch"; sourceTree = "<group>"; };
-		B7A4D23A188FC00A00FD0941 /* ASAppStoreAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASAppStoreAppDelegate.h; sourceTree = "<group>"; };
-		B7A4D23B188FC00A00FD0941 /* ASAppStoreAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASAppStoreAppDelegate.m; sourceTree = "<group>"; };
+		B7A4D23A188FC00A00FD0941 /* AppStoreAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppStoreAppDelegate.h; sourceTree = "<group>"; };
+		B7A4D23B188FC00A00FD0941 /* AppStoreAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStoreAppDelegate.m; sourceTree = "<group>"; };
 		B7A4D23E188FC00A00FD0941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		B7A4D241188FC00A00FD0941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		B7A4D246188FC00A00FD0941 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -86,14 +86,14 @@
 		B7A4D255188FC00B00FD0941 /* App StoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "App StoreTests-Info.plist"; sourceTree = "<group>"; };
 		B7A4D257188FC00B00FD0941 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B7A4D259188FC00B00FD0941 /* App_StoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = App_StoreTests.m; sourceTree = "<group>"; };
-		B7A4D267188FC18E00FD0941 /* ASJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASJSONParser.h; path = "Model/JSON Parser/ASJSONParser.h"; sourceTree = "<group>"; };
-		B7A4D268188FC18E00FD0941 /* ASJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASJSONParser.m; path = "Model/JSON Parser/ASJSONParser.m"; sourceTree = "<group>"; };
-		B7A4D26C188FC64200FD0941 /* ASAppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASAppData.h; path = "Model/App Data/ASAppData.h"; sourceTree = "<group>"; };
-		B7A4D26D188FC64200FD0941 /* ASAppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASAppData.m; path = "Model/App Data/ASAppData.m"; sourceTree = "<group>"; };
-		B7A4D273188FF09200FD0941 /* ASTopAppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASTopAppsViewController.h; path = Controller/ASTopAppsViewController.h; sourceTree = "<group>"; };
-		B7A4D274188FF09200FD0941 /* ASTopAppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASTopAppsViewController.m; path = Controller/ASTopAppsViewController.m; sourceTree = "<group>"; };
-		B7A4D276188FF4FD00FD0941 /* ASAppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAppCell.h; sourceTree = "<group>"; };
-		B7A4D277188FF4FD00FD0941 /* ASAppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAppCell.m; sourceTree = "<group>"; };
+		B7A4D267188FC18E00FD0941 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONParser.h; path = "Model/JSON Parser/JSONParser.h"; sourceTree = "<group>"; };
+		B7A4D268188FC18E00FD0941 /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONParser.m; path = "Model/JSON Parser/JSONParser.m"; sourceTree = "<group>"; };
+		B7A4D26C188FC64200FD0941 /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppData.h; path = "Model/App Data/AppData.h"; sourceTree = "<group>"; };
+		B7A4D26D188FC64200FD0941 /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppData.m; path = "Model/App Data/AppData.m"; sourceTree = "<group>"; };
+		B7A4D273188FF09200FD0941 /* TopAppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopAppsViewController.h; path = Controller/TopAppsViewController.h; sourceTree = "<group>"; };
+		B7A4D274188FF09200FD0941 /* TopAppsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopAppsViewController.m; path = Controller/TopAppsViewController.m; sourceTree = "<group>"; };
+		B7A4D276188FF4FD00FD0941 /* AppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCell.h; sourceTree = "<group>"; };
+		B7A4D277188FF4FD00FD0941 /* AppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +123,8 @@
 		B7A0431D189B5D2D004A41EB /* Image Loader */ = {
 			isa = PBXGroup;
 			children = (
-				B778DCAE189A742B0060B0E9 /* ASImageLoader.h */,
-				B778DCAF189A742B0060B0E9 /* ASImageLoader.m */,
+				B778DCAE189A742B0060B0E9 /* ImageLoader.h */,
+				B778DCAF189A742B0060B0E9 /* ImageLoader.m */,
 			);
 			name = "Image Loader";
 			sourceTree = "<group>";
@@ -132,8 +132,8 @@
 		B7A0431E189B5D57004A41EB /* App Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B7A4D276188FF4FD00FD0941 /* ASAppCell.h */,
-				B7A4D277188FF4FD00FD0941 /* ASAppCell.m */,
+				B7A4D276188FF4FD00FD0941 /* AppCell.h */,
+				B7A4D277188FF4FD00FD0941 /* AppCell.m */,
 			);
 			name = "App Cell";
 			sourceTree = "<group>";
@@ -141,8 +141,8 @@
 		B7A0431F189B5D63004A41EB /* Search Header View */ = {
 			isa = PBXGroup;
 			children = (
-				B793C5D41891248C002FD7A1 /* ASSearchHeaderView.h */,
-				B793C5D51891248C002FD7A1 /* ASSearchHeaderView.m */,
+				B793C5D41891248C002FD7A1 /* SearchHeaderView.h */,
+				B793C5D51891248C002FD7A1 /* SearchHeaderView.m */,
 			);
 			name = "Search Header View";
 			sourceTree = "<group>";
@@ -150,8 +150,8 @@
 		B7A04320189B5D77004A41EB /* PopUp View */ = {
 			isa = PBXGroup;
 			children = (
-				B79C69FB189766C30064BBE9 /* ASPopUpView.h */,
-				B79C69FC189766C30064BBE9 /* ASPopUpView.m */,
+				B79C69FB189766C30064BBE9 /* PopUpView.h */,
+				B79C69FC189766C30064BBE9 /* PopUpView.m */,
 			);
 			name = "PopUp View";
 			sourceTree = "<group>";
@@ -168,8 +168,8 @@
 		B7A04322189B5DD8004A41EB /* TopApps View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B7A4D273188FF09200FD0941 /* ASTopAppsViewController.h */,
-				B7A4D274188FF09200FD0941 /* ASTopAppsViewController.m */,
+				B7A4D273188FF09200FD0941 /* TopAppsViewController.h */,
+				B7A4D274188FF09200FD0941 /* TopAppsViewController.m */,
 			);
 			name = "TopApps View Controller";
 			sourceTree = "<group>";
@@ -177,8 +177,8 @@
 		B7A04323189B5DEC004A41EB /* WishList TableView Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B79636BB1898CF670050F1C1 /* ASWishListTableViewController.h */,
-				B79636BC1898CF670050F1C1 /* ASWishListTableViewController.m */,
+				B79636BB1898CF670050F1C1 /* WishListTableViewController.h */,
+				B79636BC1898CF670050F1C1 /* WishListTableViewController.m */,
 			);
 			name = "WishList TableView Controller";
 			sourceTree = "<group>";
@@ -241,8 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				B7A04A2C1894D0F300DD0EFE /* Images */,
-				B7A04A241894BDFB00DD0EFE /* ASConstants.h */,
-				B7A04A251894BDFB00DD0EFE /* ASConstants.m */,
+				B7A04A241894BDFB00DD0EFE /* Constants.h */,
+				B7A04A251894BDFB00DD0EFE /* Constants.m */,
 				B7A4D233188FC00A00FD0941 /* App Store-Info.plist */,
 				B7A4D234188FC00A00FD0941 /* InfoPlist.strings */,
 				B7A4D237188FC00A00FD0941 /* main.m */,
@@ -282,8 +282,8 @@
 		B7A4D264188FC0A800FD0941 /* App Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				B7A4D23A188FC00A00FD0941 /* ASAppStoreAppDelegate.h */,
-				B7A4D23B188FC00A00FD0941 /* ASAppStoreAppDelegate.m */,
+				B7A4D23A188FC00A00FD0941 /* AppStoreAppDelegate.h */,
+				B7A4D23B188FC00A00FD0941 /* AppStoreAppDelegate.m */,
 			);
 			name = "App Delegate";
 			sourceTree = "<group>";
@@ -301,8 +301,8 @@
 		B7A4D266188FC15F00FD0941 /* JSON Parser */ = {
 			isa = PBXGroup;
 			children = (
-				B7A4D267188FC18E00FD0941 /* ASJSONParser.h */,
-				B7A4D268188FC18E00FD0941 /* ASJSONParser.m */,
+				B7A4D267188FC18E00FD0941 /* JSONParser.h */,
+				B7A4D268188FC18E00FD0941 /* JSONParser.m */,
 			);
 			name = "JSON Parser";
 			sourceTree = "<group>";
@@ -319,8 +319,8 @@
 		B7A4D26B188FC60900FD0941 /* App Data */ = {
 			isa = PBXGroup;
 			children = (
-				B7A4D26C188FC64200FD0941 /* ASAppData.h */,
-				B7A4D26D188FC64200FD0941 /* ASAppData.m */,
+				B7A4D26C188FC64200FD0941 /* AppData.h */,
+				B7A4D26D188FC64200FD0941 /* AppData.m */,
 			);
 			name = "App Data";
 			sourceTree = "<group>";
@@ -332,8 +332,8 @@
 				B7A0431F189B5D63004A41EB /* Search Header View */,
 				B7A04320189B5D77004A41EB /* PopUp View */,
 				B7A04321189B5D83004A41EB /* WishList TableView Cell */,
-				B79C6A081897BC960064BBE9 /* ASPopUpView_iPad.xib */,
-				B79C69FE189766E10064BBE9 /* ASPopUpView_iPhone.xib */,
+				B79C6A081897BC960064BBE9 /* PopUpView_iPad.xib */,
+				B79C69FE189766E10064BBE9 /* PopUpView_iPhone.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -422,9 +422,9 @@
 				B7A4D23F188FC00A00FD0941 /* Main_iPhone.storyboard in Resources */,
 				B74508E5189F57D2005DE9FF /* WishList.plist in Resources */,
 				B7A4D236188FC00A00FD0941 /* InfoPlist.strings in Resources */,
-				B79C6A091897BC960064BBE9 /* ASPopUpView_iPad.xib in Resources */,
+				B79C6A091897BC960064BBE9 /* PopUpView_iPad.xib in Resources */,
 				B79C6A071897B4AE0064BBE9 /* cart.png in Resources */,
-				B79C69FF189766E10064BBE9 /* ASPopUpView_iPhone.xib in Resources */,
+				B79C69FF189766E10064BBE9 /* PopUpView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,18 +443,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B793C5D61891248C002FD7A1 /* ASSearchHeaderView.m in Sources */,
-				B7A4D275188FF09200FD0941 /* ASTopAppsViewController.m in Sources */,
-				B79C69FD189766C30064BBE9 /* ASPopUpView.m in Sources */,
-				B7A4D23C188FC00A00FD0941 /* ASAppStoreAppDelegate.m in Sources */,
-				B7A04A261894BDFB00DD0EFE /* ASConstants.m in Sources */,
+				B793C5D61891248C002FD7A1 /* SearchHeaderView.m in Sources */,
+				B7A4D275188FF09200FD0941 /* TopAppsViewController.m in Sources */,
+				B79C69FD189766C30064BBE9 /* PopUpView.m in Sources */,
+				B7A4D23C188FC00A00FD0941 /* AppStoreAppDelegate.m in Sources */,
+				B7A04A261894BDFB00DD0EFE /* Constants.m in Sources */,
 				B79636C01898D5710050F1C1 /* WishListTableViewCell.m in Sources */,
-				B7A4D278188FF4FD00FD0941 /* ASAppCell.m in Sources */,
-				B79636BD1898CF670050F1C1 /* ASWishListTableViewController.m in Sources */,
+				B7A4D278188FF4FD00FD0941 /* AppCell.m in Sources */,
+				B79636BD1898CF670050F1C1 /* WishListTableViewController.m in Sources */,
 				B7A4D238188FC00A00FD0941 /* main.m in Sources */,
-				B7A4D269188FC18E00FD0941 /* ASJSONParser.m in Sources */,
-				B778DCB0189A742B0060B0E9 /* ASImageLoader.m in Sources */,
-				B7A4D26E188FC64200FD0941 /* ASAppData.m in Sources */,
+				B7A4D269188FC18E00FD0941 /* JSONParser.m in Sources */,
+				B778DCB0189A742B0060B0E9 /* ImageLoader.m in Sources */,
+				B7A4D26E188FC64200FD0941 /* AppData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

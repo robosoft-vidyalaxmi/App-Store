@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import "ASConstants.h"
+#import "Constants.h"
 
-@implementation ASConstants
+@implementation Constants
 
 CGFloat const kItemWidth_iPhone = 90;
 CGFloat const kItemHeight_iPhone = 90;
