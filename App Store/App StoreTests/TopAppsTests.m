@@ -9,16 +9,15 @@
 #import <XCTest/XCTest.h>
 #import "AppData.h"
 
-@interface App_StoreTests : XCTestCase
+@interface TopAppsTests : XCTestCase
 {
-    NSURL *url;
     NSData *data;
     NSDictionary *jsonDictionary;
     NSArray *feedArray;
 }
 @end
 
-@implementation App_StoreTests
+@implementation TopAppsTests
 
 - (void)setUp
 {
@@ -28,8 +27,7 @@
 
 -(void)initialSetUp
 {
-    url = [NSURL URLWithString:kTopFreeAppsJsonFeed];
-    data = [NSData dataWithContentsOfURL:url];
+    data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TopFreeAppsFeed" ofType:@"json"]];
     
     
     NSError *error;
@@ -39,12 +37,12 @@
     
 }
 
--(void)testData
+-(void)testJsonData
 {
-    XCTAssert(data, @"Data not loaded from url");
+    XCTAssert(data, @"Data should not be nil");
 }
 
--(void)testDict
+-(void)testjsonDict
 {
     XCTAssert(jsonDictionary, @"Parsing error");
 }
