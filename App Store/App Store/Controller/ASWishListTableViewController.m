@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import "WishListTableViewController.h"
+#import "ASWishListTableViewController.h"
 #import "WishListTableViewCell.h"
-#import "AppData.h"
-#import "ImageLoader.h"
+#import "ASAppData.h"
+#import "ASImageLoader.h"
 
-@interface WishListTableViewController () <ImageLoaderDelegate>
+@interface ASWishListTableViewController () <ASImageLoaderDelegate>
 
 @property (nonatomic, strong) NSMutableArray *wishListArray;
 @property (nonatomic) BOOL isTableViewInEditingMode;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation WishListTableViewController
+@implementation ASWishListTableViewController
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -106,10 +106,10 @@
 -(void)updateDataForCell:(WishListTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *appDictionary = [[NSDictionary alloc] initWithDictionary:[self.wishListArray objectAtIndex:indexPath.row]];
-    AppData *appData = [[AppData alloc] initAppDataFromDictionary:appDictionary];
+    ASAppData *appData = [[ASAppData alloc] initAppDataFromDictionary:appDictionary];
     
     //load images asynchronously using NSURLConnection
-    ImageLoader *imageLoader = [[ImageLoader alloc] init];
+    ASImageLoader *imageLoader = [[ASImageLoader alloc] init];
     imageLoader.delegate = self;
     [imageLoader loadImageAsynchronouslyForURL:appData.imageUrlString forCell:cell];
     

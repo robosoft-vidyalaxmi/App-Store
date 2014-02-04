@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Constants : NSObject
+@interface ASConstants : NSObject
 
 extern CGFloat const kItemWidth_iPhone;
 extern CGFloat const kItemHeight_iPhone;

@@ -6,25 +6,25 @@
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import "TopAppsViewController.h"
-#import "JSONParser.h"
-#import "AppCell.h"
-#import "AppData.h"
-#import "SearchHeaderView.h"
-#import "PopUpView.h"
-#import "ImageLoader.h"
+#import "ASTopAppsViewController.h"
+#import "ASJSONParser.h"
+#import "ASAppCell.h"
+#import "ASAppData.h"
+#import "ASSearchHeaderView.h"
+#import "ASPopUpView.h"
+#import "ASImageLoader.h"
 
-@interface TopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchDisplayDelegate, UIAlertViewDelegate, SearchDelegate, PopUpViewDelegate, JSONParserDelegate, ImageLoaderDelegate>
+@interface ASTopAppsViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchDisplayDelegate, UIAlertViewDelegate, ASSearchDelegate, ASPopUpViewDelegate, ASJSONParserDelegate, ASImageLoaderDelegate>
 
 @property (nonatomic, strong) NSArray *appDataArray;
 @property (nonatomic, strong) NSMutableArray *filteredAppDataArray;
 @property (nonatomic, strong) NSMutableArray *wishListArray;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic, strong) JSONParser *jsonParser;
+@property (nonatomic, strong) ASJSONParser *jsonParser;
 @property (nonatomic) BOOL isSearchBarDisplayed;
 @property (nonatomic) BOOL isFiltered;
 @property (nonatomic) BOOL isPopUpDisplayed;
-@property (nonatomic, strong) PopUpView *popUpView;
+@property (nonatomic, strong) ASPopUpView *popUpView;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UISearchBar *appSearchBar;
 
@@ -32,18 +32,18 @@
 
 @end
 
-@implementation TopAppsViewController
+@implementation ASTopAppsViewController
 
 -(void)setUpModel
 {
-    self.jsonParser = [[JSONParser alloc] init];
+    self.jsonParser = [[ASJSONParser alloc] init];
     self.jsonParser.delegate = self;
     self.appDataArray = [[NSArray alloc] init];
 }
 
 -(void)setUpPopUpView
 {
-    self.popUpView = [PopUpView popUpView];
+    self.popUpView = [ASPopUpView popUpView];
     self.popUpView.delegate= self;
     [self.collectionView addSubview:self.popUpView];
     self.popUpView.alpha = 0;
@@ -99,7 +99,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    AppCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewIdentifier forIndexPath:indexPath];
+    ASAppCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewIdentifier forIndexPath:indexPath];
 
     [self updateDataForCell:cell atIndexPath:indexPath];
     
@@ -113,7 +113,7 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    SearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderViewIdentifier forIndexPath:indexPath];
+    ASSearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderViewIdentifier forIndexPath:indexPath];
     headerView.delegate = self;
     return headerView;
 }
@@ -164,9 +164,9 @@
 
 #pragma mark Updating UICollectionViewCell
 
--(void)updateDataForCell:(AppCell *)cell atIndexPath:(NSIndexPath *)indexPath
+-(void)updateDataForCell:(ASAppCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    AppData *appData;
+    ASAppData *appData;
     if (self.isFiltered)
     {
         appData = [self.filteredAppDataArray objectAtIndex:indexPath.row];
@@ -177,7 +177,7 @@
     cell.appImageView.image = nil;
     [cell.activityIndicator startAnimating];
     //load images asynchronously using NSURLConnection
-    ImageLoader *imageLoader = [[ImageLoader alloc] init];
+    ASImageLoader *imageLoader = [[ASImageLoader alloc] init];
     imageLoader.delegate = self;
     [imageLoader loadImageAsynchronouslyForURL:appData.imageUrlString forCell:cell];
 
@@ -191,9 +191,9 @@
 -(void)updateImageForCell:(id)cell withData:(NSData *)data
 {
     UIImage *image = [[UIImage alloc] initWithData:data];
-    if ([cell isKindOfClass:[AppCell class]])
+    if ([cell isKindOfClass:[ASAppCell class]])
     {
-        AppCell *appCell = (AppCell *)cell;
+        ASAppCell *appCell = (ASAppCell *)cell;
         
         //set image for collection view cells
         appCell.appImageView.image = image;
@@ -239,7 +239,7 @@
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.appName contains[c] %@",searchText];
         NSMutableArray *appNameArray = [[NSMutableArray alloc] init];
-        for (AppData *appData in self.appDataArray)
+        for (ASAppData *appData in self.appDataArray)
         {
             [appNameArray addObject:appData];
         }
@@ -304,7 +304,7 @@
     
     //get the index path of item to be added to wish list
     NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
-    AppData *appData = [self.appDataArray objectAtIndex:indexPath.row];
+    ASAppData *appData = [self.appDataArray objectAtIndex:indexPath.row];
     
     //check that app is not already added to wish list
     if(![self.wishListArray containsObject:appData.appDetailsDictionary])
@@ -346,7 +346,7 @@
 
 -(void)configurePopUpForCellAtIndexPath:(NSIndexPath *)indexPath
 {
-    AppData *appData = [[AppData alloc] init];
+    ASAppData *appData = [[ASAppData alloc] init];
     appData = [self.appDataArray objectAtIndex:indexPath.row];
     
     NSURL *imageURL = [NSURL URLWithString:appData.imageUrlString];
