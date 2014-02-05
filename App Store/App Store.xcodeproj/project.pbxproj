@@ -15,6 +15,8 @@
 		B79906F518A215D0008B6491 /* ASTopFreeAppsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B79906F418A215D0008B6491 /* ASTopFreeAppsTests.m */; };
 		B79906F718A21626008B6491 /* ASTopFreeAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = B79906F618A21626008B6491 /* ASTopFreeAppsFeed.json */; };
 		B79906F818A21626008B6491 /* ASTopFreeAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = B79906F618A21626008B6491 /* ASTopFreeAppsFeed.json */; };
+		B79906FA18A21740008B6491 /* ASTopPaidAppsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B79906F918A21740008B6491 /* ASTopPaidAppsTests.m */; };
+		B79906FC18A21788008B6491 /* ASTopPaidAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = B79906FB18A21788008B6491 /* ASTopPaidAppsFeed.json */; };
 		B79C69FD189766C30064BBE9 /* ASPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C69FC189766C30064BBE9 /* ASPopUpView.m */; };
 		B79C69FF189766E10064BBE9 /* ASPopUpView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C69FE189766E10064BBE9 /* ASPopUpView_iPhone.xib */; };
 		B79C6A071897B4AE0064BBE9 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A061897B4AE0064BBE9 /* cart.png */; };
@@ -63,6 +65,8 @@
 		B79636BF1898D5710050F1C1 /* ASWishListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASWishListTableViewCell.m; path = View/ASWishListTableViewCell.m; sourceTree = "<group>"; };
 		B79906F418A215D0008B6491 /* ASTopFreeAppsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTopFreeAppsTests.m; sourceTree = "<group>"; };
 		B79906F618A21626008B6491 /* ASTopFreeAppsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ASTopFreeAppsFeed.json; sourceTree = "<group>"; };
+		B79906F918A21740008B6491 /* ASTopPaidAppsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTopPaidAppsTests.m; sourceTree = "<group>"; };
+		B79906FB18A21788008B6491 /* ASTopPaidAppsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ASTopPaidAppsFeed.json; sourceTree = "<group>"; };
 		B79C69FB189766C30064BBE9 /* ASPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASPopUpView.h; path = View/ASPopUpView.h; sourceTree = "<group>"; };
 		B79C69FC189766C30064BBE9 /* ASPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASPopUpView.m; path = View/ASPopUpView.m; sourceTree = "<group>"; };
 		B79C69FE189766E10064BBE9 /* ASPopUpView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ASPopUpView_iPhone.xib; path = ../ASPopUpView_iPhone.xib; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 			children = (
 				B7A4D254188FC00B00FD0941 /* Supporting Files */,
 				B79906F418A215D0008B6491 /* ASTopFreeAppsTests.m */,
+				B79906F918A21740008B6491 /* ASTopPaidAppsTests.m */,
 			);
 			path = "App StoreTests";
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 			children = (
 				B7A4D255188FC00B00FD0941 /* App StoreTests-Info.plist */,
 				B7A4D256188FC00B00FD0941 /* InfoPlist.strings */,
+				B79906FB18A21788008B6491 /* ASTopPaidAppsFeed.json */,
 				B79906F618A21626008B6491 /* ASTopFreeAppsFeed.json */,
 			);
 			name = "Supporting Files";
@@ -437,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B79906FC18A21788008B6491 /* ASTopPaidAppsFeed.json in Resources */,
 				B7A4D258188FC00B00FD0941 /* InfoPlist.strings in Resources */,
 				B79906F818A21626008B6491 /* ASTopFreeAppsFeed.json in Resources */,
 			);
@@ -469,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B79906F518A215D0008B6491 /* ASTopFreeAppsTests.m in Sources */,
+				B79906FA18A21740008B6491 /* ASTopPaidAppsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  ASTopFreeAppsTests.m
+//  ASTopPaidAppsTests.m
 //  App Store
 //
 //  Created by Vidyalaxmi Shenoy on 05/02/14.
@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "ASAppData.h"
 
-@interface ASTopFreeAppsTests : XCTestCase
+@interface ASTopPaidAppsTests : XCTestCase
 {
     NSData *data;
     NSDictionary *jsonDictionary;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation ASTopFreeAppsTests
+@implementation ASTopPaidAppsTests
 
 - (void)setUp
 {
@@ -28,7 +28,7 @@
 
 -(void)initialSetUp
 {
-    data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ASTopFreeAppsFeed" ofType:@"json"]];
+    data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ASTopPaidAppsFeed" ofType:@"json"]];
     
     NSError *error;
     jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
