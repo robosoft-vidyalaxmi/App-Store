@@ -39,7 +39,7 @@
         <!--Top Apps View Controller - Top Paid Apps-->
         <scene sceneID="cYx-QQ-Bdv">
             <objects>
-                <viewController id="u7d-JZ-q0x" customClass="TopAppsViewController" sceneMemberID="viewController">
+                <viewController id="u7d-JZ-q0x" customClass="ASTopAppsViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="iZ5-eN-83H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,8 +51,8 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.44999998807907104" contentMode="center" reuseIdentifier="cell" id="dUm-m8-jfj" customClass="AppCell">
-                                <rect key="frame" x="0.0" y="114" width="90" height="90"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.44999998807907104" contentMode="center" reuseIdentifier="cell" id="dUm-m8-jfj" customClass="ASAppCell">
+                                <rect key="frame" x="0.0" y="50" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
@@ -99,8 +99,8 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerView" id="Bz2-i2-77E" customClass="SearchHeaderView">
-                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerView" id="Bz2-i2-77E" customClass="ASSearchHeaderView">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <searchBar contentMode="redraw" placeholder="Search for an app" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-mM-YCC">
@@ -181,14 +181,14 @@
         <!--Wish List Table View Controller - Wish List-->
         <scene sceneID="esf-AA-v00">
             <objects>
-                <tableViewController id="RUu-Ry-McY" customClass="WishListTableViewController" sceneMemberID="viewController">
+                <tableViewController id="RUu-Ry-McY" customClass="ASWishListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="oDv-0Q-EKP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wishListCell" rowHeight="64" id="N6U-0c-dRO" customClass="WishListTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="64"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wishListCell" rowHeight="64" id="N6U-0c-dRO" customClass="ASWishListTableViewCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N6U-0c-dRO" id="2Zp-Kj-CSs">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
@@ -260,7 +260,7 @@
         <!--Top Apps View Controller - Top Free Apps-->
         <scene sceneID="xfs-xv-3K5">
             <objects>
-                <viewController id="BTR-QU-agP" customClass="TopAppsViewController" sceneMemberID="viewController">
+                <viewController id="BTR-QU-agP" customClass="ASTopAppsViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="xYx-aC-6SC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,8 +272,8 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.44999999999999962" contentMode="center" reuseIdentifier="cell" id="wYX-yS-fCr" customClass="AppCell">
-                                <rect key="frame" x="0.0" y="114" width="90" height="90"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.44999999999999962" contentMode="center" reuseIdentifier="cell" id="wYX-yS-fCr" customClass="ASAppCell">
+                                <rect key="frame" x="0.0" y="50" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
@@ -320,8 +320,8 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerView" id="Hau-tQ-mSF" customClass="SearchHeaderView">
-                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerView" id="Hau-tQ-mSF" customClass="ASSearchHeaderView">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <searchBar contentMode="redraw" placeholder="Search for an app" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obF-yl-JAR">

@@ -1,13 +1,13 @@
 //
-//  TopFreeAppsViewController.h
+//  AppStoreAppDelegate.m
 //  App Store
 //
 //  Created by Vidyalaxmi Shenoy on 22/01/14.
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ASAppStoreAppDelegate.h"
 
-@interface TopAppsViewController : UIViewController
+@implementation ASAppStoreAppDelegate
 
 @end

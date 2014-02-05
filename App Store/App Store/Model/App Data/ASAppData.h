@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AppData : NSObject
+@interface ASAppData : NSObject
 
 @property (nonatomic, strong) NSString *appName;
 @property (nonatomic, strong) NSString *authorName;

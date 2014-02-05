@@ -1,15 +1,15 @@
 //
-//  App_StoreTests.m
-//  App StoreTests
+//  ASTopPaidAppsTest.m
+//  App Store
 //
-//  Created by Vidyalaxmi Shenoy on 22/01/14.
+//  Created by Vidyalaxmi Shenoy on 05/02/14.
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 #import "ASAppData.h"
 
-@interface TopFreeAppsTests : XCTestCase
+@interface ASTopPaidAppsTest : XCTestCase
 {
     NSData *data;
     NSDictionary *jsonDictionary;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation TopFreeAppsTests
+@implementation ASTopPaidAppsTest
 
 - (void)setUp
 {
@@ -28,7 +28,9 @@
 
 -(void)initialSetUp
 {
-    data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TopFreeAppsFeed" ofType:@"json"]];
+    
+    data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ASTopPaidAppsFeed" ofType:@"json"]];
+    
     
     NSError *error;
     jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
@@ -37,12 +39,12 @@
     
 }
 
--(void)testJsonData
+-(void)testData
 {
-    XCTAssert(data, @"Data should not be nil");
+    XCTAssert(data, @"Data not loaded from url");
 }
 
--(void)testjsonDict
+-(void)testDict
 {
     XCTAssert(jsonDictionary, @"Parsing error");
 }
@@ -67,5 +69,7 @@
         XCTAssert(appData.authorName, @"App author name url should not be nil");
     }
 }
+
+
 
 @end
