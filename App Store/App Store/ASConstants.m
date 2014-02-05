@@ -10,30 +10,26 @@
 
 @implementation ASConstants
 
-CGFloat const kItemWidth_iPhone = 90;
-CGFloat const kItemHeight_iPhone = 90;
-CGFloat const kItemWidth_iPad = 150;
-CGFloat const kItemHeight_iPad = 150;
-CGFloat const kHeaderViewHeight = 50;
-CGFloat const kEdgeInsetsTop = 10;
-CGFloat const kEdgeInsetsLeft = 10;
-CGFloat const kEdgeInsetsBottom = 10;
-CGFloat const kEdgeInsetsRight = 10;
-CGFloat const kCollectionViewHeaderHeight = 50;
-CGFloat const kCollectionViewOffsetHeight = -64;
-int const kTopAppLimit = 50;
-NSString *const kTopFreeAppsJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=50/json";
-NSString *const kTopPaidAppsJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=50/json";
-NSString *const kInstallTitle = @"INSTALL";
-NSString *const kButtonTitleDone = @"Done";
-NSString *const kButtonTitleEdit = @"Edit";
-NSString *const kplistFileName = @"WishList.plist";
-NSString *const kWishListFile = @"WishList";
-NSString *const kWishListFileExtension = @"plist";
-NSString *const kTableCellIdentifier = @"wishListCell";
-NSString *const kCollectionViewIdentifier = @"cell";
-NSString *const kHeaderViewIdentifier = @"headerView";
-NSString *const kPopUpView_iPhone = @"ASPopUpView_iPhone";
-NSString *const kPopUpView_iPad = @"ASPopUpView_iPad";
+CGFloat const ASItemWidth_iPhone = 90;
+CGFloat const ASItemHeight_iPhone = 90;
+CGFloat const ASItemWidth_iPad = 150;
+CGFloat const ASItemHeight_iPad = 150;
+CGFloat const ASHeaderViewHeight = 50;
+CGFloat const ASEdgeInsetsTop = 10;
+CGFloat const ASEdgeInsetsLeft = 10;
+CGFloat const ASEdgeInsetsBottom = 10;
+CGFloat const ASEdgeInsetsRight = 10;
+CGFloat const ASCollectionViewHeaderHeight = 50;
+CGFloat const ASCollectionViewOffsetHeight = -64;
+int const ASTopAppLimit = 50;
+NSString *const ASTopFreeAppsJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=50/json";
+NSString *const ASTopPaidAppsJsonFeed = @"http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=50/json";
+NSString *const ASInstallTitle = @"INSTALL";
+NSString *const ASPlistFileName = @"WishList.plist";
+NSString *const ASWishListFile = @"WishList";
+NSString *const ASWishListFileExtension = @"plist";
+NSString *const ASTableCellIdentifier = @"wishListCell";
+NSString *const ASCollectionViewIdentifier = @"cell";
+NSString *const ASHeaderViewIdentifier = @"headerView";
 
 @end

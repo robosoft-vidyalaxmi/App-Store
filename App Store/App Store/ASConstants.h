@@ -10,30 +10,26 @@
 
 @interface ASConstants : NSObject
 
-extern CGFloat const kItemWidth_iPhone;
-extern CGFloat const kItemHeight_iPhone;
-extern CGFloat const kItemWidth_iPad;
-extern CGFloat const kItemHeight_iPad;
-extern CGFloat const kHeaderViewHeight;
-extern CGFloat const kEdgeInsetsTop;
-extern CGFloat const kEdgeInsetsLeft;
-extern CGFloat const kEdgeInsetsBottom;
-extern CGFloat const kEdgeInsetsRight;
-extern CGFloat const kCollectionViewOffsetHeight;
-extern int const kTopAppLimit;
-extern CGFloat const kCollectionViewHeaderHeight;
-extern NSString * const kTopFreeAppsJsonFeed;
-extern NSString * const kTopPaidAppsJsonFeed;
-extern NSString * const kInstallTitle;
-extern NSString * const kButtonTitleDone;
-extern NSString * const kButtonTitleEdit;
-extern NSString * const kplistFileName;
-extern NSString * const kWishListFile;
-extern NSString * const kWishListFileExtension;
-extern NSString * const kTableCellIdentifier;
-extern NSString * const kCollectionViewIdentifier;
-extern NSString * const kHeaderViewIdentifier;
-extern NSString * const kPopUpView_iPhone;
-extern NSString * const kPopUpView_iPad;
+extern CGFloat const ASItemWidth_iPhone;
+extern CGFloat const ASItemHeight_iPhone;
+extern CGFloat const ASItemWidth_iPad;
+extern CGFloat const ASItemHeight_iPad;
+extern CGFloat const ASHeaderViewHeight;
+extern CGFloat const ASEdgeInsetsTop;
+extern CGFloat const ASEdgeInsetsLeft;
+extern CGFloat const ASEdgeInsetsBottom;
+extern CGFloat const ASEdgeInsetsRight;
+extern CGFloat const ASCollectionViewOffsetHeight;
+extern int const ASTopAppLimit;
+extern CGFloat const ASCollectionViewHeaderHeight;
+extern NSString * const ASTopFreeAppsJsonFeed;
+extern NSString * const ASTopPaidAppsJsonFeed;
+extern NSString * const ASInstallTitle;
+extern NSString * const ASPlistFileName;
+extern NSString * const ASWishListFile;
+extern NSString * const ASWishListFileExtension;
+extern NSString * const ASTableCellIdentifier;
+extern NSString * const ASCollectionViewIdentifier;
+extern NSString * const ASHeaderViewIdentifier;
 
 @end
