@@ -10,26 +10,30 @@
 
 @interface ASConstants : NSObject
 
-extern CGFloat const TAItemWidth_iPhone;
-extern CGFloat const TAItemHeight_iPhone;
-extern CGFloat const TAItemWidth_iPad;
-extern CGFloat const TAItemHeight_iPad;
-extern CGFloat const TAHeaderViewHeight;
-extern CGFloat const TAEdgeInsetsTop;
-extern CGFloat const TAEdgeInsetsLeft;
-extern CGFloat const TAEdgeInsetsBottom;
-extern CGFloat const TAEdgeInsetsRight;
-extern CGFloat const TACollectionViewOffsetHeight;
-extern int const TATopAppLimit;
-extern CGFloat const TACollectionViewHeaderHeight;
-extern NSString * const TATopFreeAppsJsonFeed;
-extern NSString * const TATopPaidAppsJsonFeed;
-extern NSString * const TAInstallTitle;
-extern NSString * const TAplistFileName;
-extern NSString * const TAWishListFile;
-extern NSString * const TAWishListFileExtension;
-extern NSString * const TATableCellIdentifier;
-extern NSString * const TACollectionViewIdentifier;
-extern NSString * const TAHeaderViewIdentifier;
+extern CGFloat const kItemWidth_iPhone;
+extern CGFloat const kItemHeight_iPhone;
+extern CGFloat const kItemWidth_iPad;
+extern CGFloat const kItemHeight_iPad;
+extern CGFloat const kHeaderViewHeight;
+extern CGFloat const kEdgeInsetsTop;
+extern CGFloat const kEdgeInsetsLeft;
+extern CGFloat const kEdgeInsetsBottom;
+extern CGFloat const kEdgeInsetsRight;
+extern CGFloat const kCollectionViewOffsetHeight;
+extern int const kTopAppLimit;
+extern CGFloat const kCollectionViewHeaderHeight;
+extern NSString * const kTopFreeAppsJsonFeed;
+extern NSString * const kTopPaidAppsJsonFeed;
+extern NSString * const kInstallTitle;
+extern NSString * const kButtonTitleDone;
+extern NSString * const kButtonTitleEdit;
+extern NSString * const kplistFileName;
+extern NSString * const kWishListFile;
+extern NSString * const kWishListFileExtension;
+extern NSString * const kTableCellIdentifier;
+extern NSString * const kCollectionViewIdentifier;
+extern NSString * const kHeaderViewIdentifier;
+extern NSString * const kPopUpView_iPhone;
+extern NSString * const kPopUpView_iPad;
 
 @end

@@ -63,11 +63,11 @@
     //check which tab bar item is selected
     if ([self.tabBarController.tabBar.items indexOfObject:self.tabBarController.tabBar.selectedItem] == 0)
     {
-         [self.jsonParser parseAppDataUsingFeed:TATopFreeAppsJsonFeed];
+         [self.jsonParser parseAppDataUsingFeed:kTopFreeAppsJsonFeed];
     }
     else if([self.tabBarController.tabBar.items indexOfObject:self.tabBarController.tabBar.selectedItem] == 1)
     {
-         [self.jsonParser parseAppDataUsingFeed:TATopPaidAppsJsonFeed];
+         [self.jsonParser parseAppDataUsingFeed:kTopPaidAppsJsonFeed];
     }
     
     [self setUpPopUpView];
@@ -105,7 +105,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ASAppCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:TACollectionViewIdentifier forIndexPath:indexPath];
+    ASAppCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCollectionViewIdentifier forIndexPath:indexPath];
 
     [self updateDataForCell:cell atIndexPath:indexPath];
     
@@ -119,7 +119,7 @@
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    ASSearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:TAHeaderViewIdentifier forIndexPath:indexPath];
+    ASSearchHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kHeaderViewIdentifier forIndexPath:indexPath];
     headerView.delegate = self;
     return headerView;
 }
@@ -140,19 +140,19 @@
 {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
-        CGSize retval = CGSizeMake(TAItemWidth_iPhone, TAItemHeight_iPhone);
+        CGSize retval = CGSizeMake(kItemWidth_iPhone, kItemHeight_iPhone);
         return retval;
     }
     else
     {
-        CGSize retval = CGSizeMake(TAItemWidth_iPad, TAItemHeight_iPad);
+        CGSize retval = CGSizeMake(kItemWidth_iPad, kItemHeight_iPad);
         return retval;
     }
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(TAEdgeInsetsTop, TAEdgeInsetsLeft, TAEdgeInsetsBottom, TAEdgeInsetsRight);
+    return UIEdgeInsetsMake(kEdgeInsetsTop, kEdgeInsetsLeft, kEdgeInsetsBottom, kEdgeInsetsRight);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
@@ -163,7 +163,7 @@
     }
     else
     {
-        return CGSizeMake(self.collectionView.bounds.size.width, TACollectionViewHeaderHeight);
+        return CGSizeMake(self.collectionView.bounds.size.width, kCollectionViewHeaderHeight);
 
     }
 }
@@ -223,7 +223,7 @@
     [self.collectionView reloadData];
     
     //reset scroll on collection view
-    [self.collectionView setContentOffset:CGPointMake(0, TACollectionViewOffsetHeight) animated:YES];
+    [self.collectionView setContentOffset:CGPointMake(0, kCollectionViewOffsetHeight) animated:YES];
     
 }
 
@@ -330,14 +330,14 @@
 -(NSString *)dataPathForPlist
 {
     //Get plist file path where details about apps added to wishlist are stored
-    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:TAplistFileName];
+    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:kplistFileName];
     
     NSError *error;
     
     //if file doesn't exist then create file
     if (![[NSFileManager defaultManager] fileExistsAtPath: datapath])
     {
-        NSString *bundle = [[NSBundle mainBundle] pathForResource:TAWishListFile ofType:TAWishListFileExtension];
+        NSString *bundle = [[NSBundle mainBundle] pathForResource:kWishListFile ofType:kWishListFileExtension];
         [[NSFileManager defaultManager] copyItemAtPath:bundle toPath:datapath error:&error];
     }
     return datapath;

@@ -27,7 +27,7 @@
     [super viewWillAppear:YES];
     
     //initialize wishlist array with contents of plist
-    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:TAplistFileName];
+    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:kplistFileName];
     self.wishListArray = [NSArray arrayWithContentsOfFile:datapath];
     
     [self.tableView reloadData];
@@ -47,14 +47,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ASWishListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TATableCellIdentifier forIndexPath:indexPath];
+    ASWishListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableCellIdentifier forIndexPath:indexPath];
     [self updateDataForCell:cell atIndexPath:indexPath];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *datapath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:TAplistFileName];
+    NSString *datapath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:kplistFileName];
     
     //delete app from wishlist and update plist in app directory
     [self.wishListArray removeObjectAtIndex:indexPath.row];
@@ -89,7 +89,7 @@
         
         //allow table view editing
         [self setEditing:YES];
-        self.navigationItem.leftBarButtonItem.title = @"Done";
+        self.navigationItem.leftBarButtonItem.title = kButtonTitleDone;
     }
     else
     {
@@ -97,7 +97,7 @@
         
         //disable table view editing
         [self setEditing:NO];
-        self.navigationItem.leftBarButtonItem.title = @"Edit";
+        self.navigationItem.leftBarButtonItem.title = kButtonTitleEdit;
     }
 }
 
