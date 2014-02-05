@@ -12,6 +12,6 @@
 
 - (IBAction)priceButtonClicked:(id)sender
 {
-    [self.priceButton setTitle:kInstallTitle forState:UIControlStateNormal];
+    [self.priceButton setTitle:TAInstallTitle forState:UIControlStateNormal];
 }
 @end

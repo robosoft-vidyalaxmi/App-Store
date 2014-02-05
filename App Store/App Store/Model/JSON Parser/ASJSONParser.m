@@ -34,7 +34,7 @@
                                                           options:kNilOptions error:&error];
     
     NSArray *feedArray = [NSArray arrayWithArray:[jsonDictionary valueForKeyPath:@"feed.entry"]];
-    self.appDataArray = [[NSMutableArray alloc] initWithCapacity:kTopAppLimit];
+    self.appDataArray = [[NSMutableArray alloc] initWithCapacity:TATopAppLimit];
     
     for (NSDictionary *appEntry in feedArray)
     {
