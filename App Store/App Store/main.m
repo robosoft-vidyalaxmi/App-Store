@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AppStoreAppDelegate.h"
+#import "ASAppStoreAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppStoreAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([ASAppStoreAppDelegate class]));
     }
 }

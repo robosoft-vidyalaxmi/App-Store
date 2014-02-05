@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
-#import "WishListTableViewController.h"
-#import "WishListTableViewCell.h"
-#import "AppData.h"
-#import "ImageLoader.h"
+#import "ASWishListTableViewController.h"
+#import "ASWishListTableViewCell.h"
+#import "ASAppData.h"
+#import "ASImageLoader.h"
 
-@interface WishListTableViewController () <ImageLoaderDelegate>
+@interface ASWishListTableViewController () <ASImageLoaderDelegate>
 
 @property (nonatomic, strong) NSMutableArray *wishListArray;
 @property (nonatomic) BOOL isTableViewInEditingMode;
@@ -20,14 +20,14 @@
 
 @end
 
-@implementation WishListTableViewController
+@implementation ASWishListTableViewController
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     
     //initialize wishlist array with contents of plist
-    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:kplistFileName];
+    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:ASPlistFileName];
     self.wishListArray = [NSArray arrayWithContentsOfFile:datapath];
     
     [self.tableView reloadData];
@@ -47,14 +47,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WishListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableCellIdentifier forIndexPath:indexPath];
+    ASWishListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ASTableCellIdentifier forIndexPath:indexPath];
     [self updateDataForCell:cell atIndexPath:indexPath];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *datapath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:kplistFileName];
+    NSString *datapath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:ASPlistFileName];
     
     //delete app from wishlist and update plist in app directory
     [self.wishListArray removeObjectAtIndex:indexPath.row];
@@ -68,14 +68,14 @@
     return UITableViewCellEditingStyleDelete;
 }
 
-#pragma mark - ImageLoader delegate method
+#pragma mark - ImageLoader delegate methods
 
 -(void)updateImageForCell:(id)cell withData:(NSData *)data
 {
     UIImage *image = [[UIImage alloc] initWithData:data];
-    if ([cell isKindOfClass:[WishListTableViewCell class]])
+    if ([cell isKindOfClass:[ASWishListTableViewCell class]])
     {
-        WishListTableViewCell *wishListTableViewCell = (WishListTableViewCell *)cell;
+        ASWishListTableViewCell *wishListTableViewCell = (ASWishListTableViewCell *)cell;
         //set image for table view cells
         wishListTableViewCell.appImageView.image = image;
     }
@@ -89,7 +89,7 @@
         
         //allow table view editing
         [self setEditing:YES];
-        self.navigationItem.leftBarButtonItem.title = kButtonTitleDone;
+        self.navigationItem.leftBarButtonItem.title = @"Done";
     }
     else
     {
@@ -97,19 +97,19 @@
         
         //disable table view editing
         [self setEditing:NO];
-        self.navigationItem.leftBarButtonItem.title = kButtonTitleEdit;
+        self.navigationItem.leftBarButtonItem.title = @"Edit";
     }
 }
 
 #pragma mark - User defined methods
 
--(void)updateDataForCell:(WishListTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+-(void)updateDataForCell:(ASWishListTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *appDictionary = [[NSDictionary alloc] initWithDictionary:[self.wishListArray objectAtIndex:indexPath.row]];
-    AppData *appData = [[AppData alloc] initAppDataFromDictionary:appDictionary];
+    ASAppData *appData = [[ASAppData alloc] initAppDataFromDictionary:appDictionary];
     
     //load images asynchronously using NSURLConnection
-    ImageLoader *imageLoader = [[ImageLoader alloc] init];
+    ASImageLoader *imageLoader = [[ASImageLoader alloc] init];
     imageLoader.delegate = self;
     [imageLoader loadImageAsynchronouslyForURL:appData.imageUrlString forCell:cell];
     

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppCell : UICollectionViewCell
+@interface ASAppCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *appImageView;
