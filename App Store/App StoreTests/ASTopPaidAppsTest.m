@@ -1,24 +1,24 @@
 //
-//  App_StoreTests.m
-//  App StoreTests
+//  ASTopPaidAppsTest.m
+//  App Store
 //
-//  Created by Vidyalaxmi Shenoy on 22/01/14.
+//  Created by Vidyalaxmi Shenoy on 05/02/14.
 //  Copyright (c) 2014 Vidyalaxmi Shenoy. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 #import "ASAppData.h"
 
-@interface App_StoreTests : XCTestCase
+@interface ASTopPaidAppsTest : XCTestCase
 {
-    NSURL *url;
     NSData *data;
     NSDictionary *jsonDictionary;
     NSArray *feedArray;
 }
+
 @end
 
-@implementation App_StoreTests
+@implementation ASTopPaidAppsTest
 
 - (void)setUp
 {
@@ -28,8 +28,8 @@
 
 -(void)initialSetUp
 {
-    url = [NSURL URLWithString:kTopFreeAppsJsonFeed];
-    data = [NSData dataWithContentsOfURL:url];
+    
+    data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ASTopPaidAppsFeed" ofType:@"json"]];
     
     
     NSError *error;
@@ -69,5 +69,7 @@
         XCTAssert(appData.authorName, @"App author name url should not be nil");
     }
 }
+
+
 
 @end
