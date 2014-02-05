@@ -12,12 +12,6 @@
 		B793C5D61891248C002FD7A1 /* ASSearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B793C5D51891248C002FD7A1 /* ASSearchHeaderView.m */; };
 		B79636BD1898CF670050F1C1 /* ASWishListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BC1898CF670050F1C1 /* ASWishListTableViewController.m */; };
 		B79636C01898D5710050F1C1 /* ASWishListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BF1898D5710050F1C1 /* ASWishListTableViewCell.m */; };
-		B79906EB18A21081008B6491 /* ASTopFreeAppsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B79906EA18A21081008B6491 /* ASTopFreeAppsTest.m */; };
-		B79906ED18A210CC008B6491 /* ASTopFreeAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = B79906EC18A210CC008B6491 /* ASTopFreeAppsFeed.json */; };
-		B79906EE18A211C6008B6491 /* ASTopFreeAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = B79906EC18A210CC008B6491 /* ASTopFreeAppsFeed.json */; };
-		B79906F018A211E5008B6491 /* ASTopPaidAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = B79906EF18A211E5008B6491 /* ASTopPaidAppsFeed.json */; };
-		B79906F118A21218008B6491 /* ASTopPaidAppsFeed.json in Resources */ = {isa = PBXBuildFile; fileRef = B79906EF18A211E5008B6491 /* ASTopPaidAppsFeed.json */; };
-		B79906F318A21239008B6491 /* ASTopPaidAppsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B79906F218A21239008B6491 /* ASTopPaidAppsTest.m */; };
 		B79C69FD189766C30064BBE9 /* ASPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = B79C69FC189766C30064BBE9 /* ASPopUpView.m */; };
 		B79C69FF189766E10064BBE9 /* ASPopUpView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C69FE189766E10064BBE9 /* ASPopUpView_iPhone.xib */; };
 		B79C6A071897B4AE0064BBE9 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = B79C6A061897B4AE0064BBE9 /* cart.png */; };
@@ -38,6 +32,7 @@
 		B7A4D24F188FC00B00FD0941 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22B188FC00A00FD0941 /* Foundation.framework */; };
 		B7A4D250188FC00B00FD0941 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22F188FC00A00FD0941 /* UIKit.framework */; };
 		B7A4D258188FC00B00FD0941 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D256188FC00B00FD0941 /* InfoPlist.strings */; };
+		B7A4D25A188FC00B00FD0941 /* App_StoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D259188FC00B00FD0941 /* App_StoreTests.m */; };
 		B7A4D269188FC18E00FD0941 /* ASJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D268188FC18E00FD0941 /* ASJSONParser.m */; };
 		B7A4D26E188FC64200FD0941 /* ASAppData.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D26D188FC64200FD0941 /* ASAppData.m */; };
 		B7A4D275188FF09200FD0941 /* ASTopAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D274188FF09200FD0941 /* ASTopAppsViewController.m */; };
@@ -64,10 +59,6 @@
 		B79636BC1898CF670050F1C1 /* ASWishListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASWishListTableViewController.m; path = Controller/ASWishListTableViewController.m; sourceTree = "<group>"; };
 		B79636BE1898D5710050F1C1 /* ASWishListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASWishListTableViewCell.h; path = View/ASWishListTableViewCell.h; sourceTree = "<group>"; };
 		B79636BF1898D5710050F1C1 /* ASWishListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASWishListTableViewCell.m; path = View/ASWishListTableViewCell.m; sourceTree = "<group>"; };
-		B79906EA18A21081008B6491 /* ASTopFreeAppsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTopFreeAppsTest.m; sourceTree = "<group>"; };
-		B79906EC18A210CC008B6491 /* ASTopFreeAppsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ASTopFreeAppsFeed.json; sourceTree = "<group>"; };
-		B79906EF18A211E5008B6491 /* ASTopPaidAppsFeed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ASTopPaidAppsFeed.json; sourceTree = "<group>"; };
-		B79906F218A21239008B6491 /* ASTopPaidAppsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTopPaidAppsTest.m; sourceTree = "<group>"; };
 		B79C69FB189766C30064BBE9 /* ASPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASPopUpView.h; path = View/ASPopUpView.h; sourceTree = "<group>"; };
 		B79C69FC189766C30064BBE9 /* ASPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASPopUpView.m; path = View/ASPopUpView.m; sourceTree = "<group>"; };
 		B79C69FE189766E10064BBE9 /* ASPopUpView_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ASPopUpView_iPhone.xib; path = ../ASPopUpView_iPhone.xib; sourceTree = "<group>"; };
@@ -94,6 +85,7 @@
 		B7A4D24D188FC00B00FD0941 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B7A4D255188FC00B00FD0941 /* App StoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "App StoreTests-Info.plist"; sourceTree = "<group>"; };
 		B7A4D257188FC00B00FD0941 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7A4D259188FC00B00FD0941 /* App_StoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = App_StoreTests.m; sourceTree = "<group>"; };
 		B7A4D267188FC18E00FD0941 /* ASJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASJSONParser.h; path = "Model/JSON Parser/ASJSONParser.h"; sourceTree = "<group>"; };
 		B7A4D268188FC18E00FD0941 /* ASJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASJSONParser.m; path = "Model/JSON Parser/ASJSONParser.m"; sourceTree = "<group>"; };
 		B7A4D26C188FC64200FD0941 /* ASAppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASAppData.h; path = "Model/App Data/ASAppData.h"; sourceTree = "<group>"; };
@@ -263,9 +255,8 @@
 		B7A4D253188FC00B00FD0941 /* App StoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				B7A4D259188FC00B00FD0941 /* App_StoreTests.m */,
 				B7A4D254188FC00B00FD0941 /* Supporting Files */,
-				B79906EA18A21081008B6491 /* ASTopFreeAppsTest.m */,
-				B79906F218A21239008B6491 /* ASTopPaidAppsTest.m */,
 			);
 			path = "App StoreTests";
 			sourceTree = "<group>";
@@ -275,8 +266,6 @@
 			children = (
 				B7A4D255188FC00B00FD0941 /* App StoreTests-Info.plist */,
 				B7A4D256188FC00B00FD0941 /* InfoPlist.strings */,
-				B79906EC18A210CC008B6491 /* ASTopFreeAppsFeed.json */,
-				B79906EF18A211E5008B6491 /* ASTopPaidAppsFeed.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -429,14 +418,12 @@
 				B7A04A301894D19500DD0EFE /* close.png in Resources */,
 				B7A4D242188FC00A00FD0941 /* Main_iPad.storyboard in Resources */,
 				B7A04329189B7E0C004A41EB /* Icon.png in Resources */,
-				B79906F118A21218008B6491 /* ASTopPaidAppsFeed.json in Resources */,
 				B7A4D247188FC00A00FD0941 /* Images.xcassets in Resources */,
 				B7A4D23F188FC00A00FD0941 /* Main_iPhone.storyboard in Resources */,
 				B74508E5189F57D2005DE9FF /* WishList.plist in Resources */,
 				B7A4D236188FC00A00FD0941 /* InfoPlist.strings in Resources */,
 				B79C6A091897BC960064BBE9 /* ASPopUpView_iPad.xib in Resources */,
 				B79C6A071897B4AE0064BBE9 /* cart.png in Resources */,
-				B79906EE18A211C6008B6491 /* ASTopFreeAppsFeed.json in Resources */,
 				B79C69FF189766E10064BBE9 /* ASPopUpView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,9 +432,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B79906F018A211E5008B6491 /* ASTopPaidAppsFeed.json in Resources */,
 				B7A4D258188FC00B00FD0941 /* InfoPlist.strings in Resources */,
-				B79906ED18A210CC008B6491 /* ASTopFreeAppsFeed.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,8 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B79906EB18A21081008B6491 /* ASTopFreeAppsTest.m in Sources */,
-				B79906F318A21239008B6491 /* ASTopPaidAppsTest.m in Sources */,
+				B7A4D25A188FC00B00FD0941 /* App_StoreTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
