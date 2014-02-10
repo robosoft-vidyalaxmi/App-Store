@@ -17,6 +17,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    [searchBar resignFirstResponder];
     [self.delegate displayAlert];
 }
 

@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class ASAppData;
+
 @interface ASWishListTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *appImageView;
-@property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UIButton *priceButton;
-
-- (IBAction)priceButtonClicked:(id)sender;
+- (void)configureCellWith:(ASAppData *)appData;
 
 @end

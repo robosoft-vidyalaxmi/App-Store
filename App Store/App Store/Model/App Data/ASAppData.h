@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+//Class Name: ASAppData
+//To store app information
+
 @interface ASAppData : NSObject
 
 @property (nonatomic, strong) NSString *appName;
@@ -18,9 +21,9 @@
 @property (nonatomic, strong) NSString *price;
 @property (nonatomic, strong) NSString *releaseDate;
 @property (nonatomic, strong) NSString *summary;
-@property (nonatomic, strong) NSString  *imageUrlString;
+@property (nonatomic, strong) NSURL  *imageUrl;
 @property (nonatomic, strong) NSDictionary *appDetailsDictionary;
 
--(id)initAppDataFromDictionary:(NSDictionary *)appDictionary;
+- (id)initFromDictionary:(NSDictionary *)appDictionary;
 
 @end

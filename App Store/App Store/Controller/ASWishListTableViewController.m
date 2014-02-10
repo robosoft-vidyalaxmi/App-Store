@@ -9,10 +9,11 @@
 #import "ASWishListTableViewController.h"
 #import "ASWishListTableViewCell.h"
 #import "ASAppData.h"
-#import "ASImageLoader.h"
+#import "StandardPaths.h"
 
-@interface ASWishListTableViewController () <ASImageLoaderDelegate>
+@interface ASWishListTableViewController () 
 
+@property (nonatomic, strong) NSMutableArray *appDataArray;
 @property (nonatomic, strong) NSMutableArray *wishListArray;
 @property (nonatomic) BOOL isTableViewInEditingMode;
 
@@ -22,13 +23,19 @@
 
 @implementation ASWishListTableViewController
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     
     //initialize wishlist array with contents of plist
-    NSString *datapath = [[ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:ASPlistFileName];
-    self.wishListArray = [NSArray arrayWithContentsOfFile:datapath];
+    self.wishListArray = [NSArray arrayWithContentsOfFile:[[NSFileManager defaultManager] pathForPublicFile:ASWishListFile]];
+    self.appDataArray = [[NSMutableArray alloc] init];
+    
+    for( NSDictionary *appDictionary in self.wishListArray)
+    {
+        ASAppData *appData = [[ASAppData alloc] initFromDictionary:appDictionary];
+        [self.appDataArray addObject:appData];
+    }
     
     [self.tableView reloadData];
 }
@@ -48,37 +55,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ASWishListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ASTableCellIdentifier forIndexPath:indexPath];
-    [self updateDataForCell:cell atIndexPath:indexPath];
+    
+    [cell configureCellWith:[self.appDataArray objectAtIndex:indexPath.row]];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *datapath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:ASPlistFileName];
-    
     //delete app from wishlist and update plist in app directory
     [self.wishListArray removeObjectAtIndex:indexPath.row];
-    [self.wishListArray writeToFile:datapath atomically:YES];
+    [self.appDataArray removeObjectAtIndex:indexPath.row];
+    [self.wishListArray writeToFile:[[NSFileManager defaultManager] pathForPublicFile:ASWishListFile]  atomically:YES];
     
     [self.tableView reloadData];
-}
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return UITableViewCellEditingStyleDelete;
-}
-
-#pragma mark - ImageLoader delegate methods
-
--(void)updateImageForCell:(id)cell withData:(NSData *)data
-{
-    UIImage *image = [[UIImage alloc] initWithData:data];
-    if ([cell isKindOfClass:[ASWishListTableViewCell class]])
-    {
-        ASWishListTableViewCell *wishListTableViewCell = (ASWishListTableViewCell *)cell;
-        //set image for table view cells
-        wishListTableViewCell.appImageView.image = image;
-    }
 }
 
 - (IBAction)editWishList:(id)sender
@@ -99,27 +88,6 @@
         [self setEditing:NO];
         self.navigationItem.leftBarButtonItem.title = @"Edit";
     }
-}
-
-#pragma mark - User defined methods
-
--(void)updateDataForCell:(ASWishListTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    NSDictionary *appDictionary = [[NSDictionary alloc] initWithDictionary:[self.wishListArray objectAtIndex:indexPath.row]];
-    ASAppData *appData = [[ASAppData alloc] initAppDataFromDictionary:appDictionary];
-    
-    //load images asynchronously using NSURLConnection
-    ASImageLoader *imageLoader = [[ASImageLoader alloc] init];
-    imageLoader.delegate = self;
-    [imageLoader loadImageAsynchronouslyForURL:appData.imageUrlString forCell:cell];
-    
-    cell.appNameLabel.text = [appData appName];
-    cell.categoryLabel.text = [appData category];
-    [cell.priceButton setTitle:appData.price forState:UIControlStateNormal];
-    
-    //add border to button
-    [[cell.priceButton layer] setBorderWidth:2.0f];
-    [[cell.priceButton layer] setBorderColor:[UIColor blueColor].CGColor];
 }
 
 @end

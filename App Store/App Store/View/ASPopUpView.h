@@ -8,28 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+@class ASPopUpView;
+@class ASAppData;
+
 @protocol ASPopUpViewDelegate <NSObject>
 
--(void)popUpViewDidAppear;
--(void)dismissPopUp;
--(void)addAppToWishList;
+- (void)popUpViewDidAppear:(ASPopUpView *)popUpView;
+- (void)dismissPopUp;
+- (void)addAppToWishList;
 
 @end
 
 @interface ASPopUpView : UIView
 
 @property (nonatomic, assign) id<ASPopUpViewDelegate> delegate;
-@property (weak, nonatomic) IBOutlet UIImageView *appImageView;
-@property (weak, nonatomic) IBOutlet UITextView *appNameTextView;
-@property (weak, nonatomic) IBOutlet UITextView *inforationTextView;
-@property (weak, nonatomic) IBOutlet UIButton *priceButton;
-@property (weak, nonatomic) IBOutlet UITextView *summaryTextView;
 
-- (IBAction)priceButtonClicked:(id)sender;
-- (IBAction)closePopUp:(id)sender;
-- (IBAction)addToWishListButtonClicked:(id)sender;
-
-+(instancetype)popUpView;
--(void)animatePopUp;
++ (instancetype)popUpView;
+- (void)animatePopUp;
+- (void)configurePopUpForAppData:(ASAppData *)appData;
 
 @end

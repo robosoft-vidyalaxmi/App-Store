@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B74508E5189F57D2005DE9FF /* WishList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B74508E4189F57D2005DE9FF /* WishList.plist */; };
-		B778DCB0189A742B0060B0E9 /* ASImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B778DCAF189A742B0060B0E9 /* ASImageLoader.m */; };
+		B790EC0D18A8A8A900DF61F9 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B790EC0C18A8A8A900DF61F9 /* AsyncImageView.m */; };
+		B790EC1118A8AB0D00DF61F9 /* StandardPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = B790EC1018A8AB0D00DF61F9 /* StandardPaths.m */; };
+		B790EC1518A8AE9100DF61F9 /* RequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = B790EC1418A8AE9100DF61F9 /* RequestQueue.m */; };
 		B793C5D61891248C002FD7A1 /* ASSearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B793C5D51891248C002FD7A1 /* ASSearchHeaderView.m */; };
 		B79636BD1898CF670050F1C1 /* ASWishListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BC1898CF670050F1C1 /* ASWishListTableViewController.m */; };
 		B79636C01898D5710050F1C1 /* ASWishListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B79636BF1898D5710050F1C1 /* ASWishListTableViewCell.m */; };
@@ -37,7 +39,6 @@
 		B7A4D24F188FC00B00FD0941 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22B188FC00A00FD0941 /* Foundation.framework */; };
 		B7A4D250188FC00B00FD0941 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A4D22F188FC00A00FD0941 /* UIKit.framework */; };
 		B7A4D258188FC00B00FD0941 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7A4D256188FC00B00FD0941 /* InfoPlist.strings */; };
-		B7A4D269188FC18E00FD0941 /* ASJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D268188FC18E00FD0941 /* ASJSONParser.m */; };
 		B7A4D26E188FC64200FD0941 /* ASAppData.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D26D188FC64200FD0941 /* ASAppData.m */; };
 		B7A4D275188FF09200FD0941 /* ASTopAppsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D274188FF09200FD0941 /* ASTopAppsViewController.m */; };
 		B7A4D278188FF4FD00FD0941 /* ASAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B7A4D277188FF4FD00FD0941 /* ASAppCell.m */; };
@@ -55,8 +56,12 @@
 
 /* Begin PBXFileReference section */
 		B74508E4189F57D2005DE9FF /* WishList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WishList.plist; sourceTree = "<group>"; };
-		B778DCAE189A742B0060B0E9 /* ASImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASImageLoader.h; path = Model/ASImageLoader.h; sourceTree = "<group>"; };
-		B778DCAF189A742B0060B0E9 /* ASImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASImageLoader.m; path = Model/ASImageLoader.m; sourceTree = "<group>"; };
+		B790EC0B18A8A8A900DF61F9 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		B790EC0C18A8A8A900DF61F9 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		B790EC0F18A8AB0D00DF61F9 /* StandardPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardPaths.h; sourceTree = "<group>"; };
+		B790EC1018A8AB0D00DF61F9 /* StandardPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StandardPaths.m; sourceTree = "<group>"; };
+		B790EC1318A8AE9100DF61F9 /* RequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestQueue.h; sourceTree = "<group>"; };
+		B790EC1418A8AE9100DF61F9 /* RequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestQueue.m; sourceTree = "<group>"; };
 		B793C5D41891248C002FD7A1 /* ASSearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASSearchHeaderView.h; path = View/ASSearchHeaderView.h; sourceTree = "<group>"; };
 		B793C5D51891248C002FD7A1 /* ASSearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASSearchHeaderView.m; path = View/ASSearchHeaderView.m; sourceTree = "<group>"; };
 		B79636BB1898CF670050F1C1 /* ASWishListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASWishListTableViewController.h; path = Controller/ASWishListTableViewController.h; sourceTree = "<group>"; };
@@ -93,8 +98,6 @@
 		B7A4D24D188FC00B00FD0941 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B7A4D255188FC00B00FD0941 /* App StoreTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "App StoreTests-Info.plist"; sourceTree = "<group>"; };
 		B7A4D257188FC00B00FD0941 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B7A4D267188FC18E00FD0941 /* ASJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASJSONParser.h; path = "Model/JSON Parser/ASJSONParser.h"; sourceTree = "<group>"; };
-		B7A4D268188FC18E00FD0941 /* ASJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASJSONParser.m; path = "Model/JSON Parser/ASJSONParser.m"; sourceTree = "<group>"; };
 		B7A4D26C188FC64200FD0941 /* ASAppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASAppData.h; path = "Model/App Data/ASAppData.h"; sourceTree = "<group>"; };
 		B7A4D26D188FC64200FD0941 /* ASAppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASAppData.m; path = "Model/App Data/ASAppData.m"; sourceTree = "<group>"; };
 		B7A4D273188FF09200FD0941 /* ASTopAppsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASTopAppsViewController.h; path = Controller/ASTopAppsViewController.h; sourceTree = "<group>"; };
@@ -127,13 +130,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B7A0431D189B5D2D004A41EB /* Image Loader */ = {
+		B790EC0A18A8A8A900DF61F9 /* AsyncImageView */ = {
 			isa = PBXGroup;
 			children = (
-				B778DCAE189A742B0060B0E9 /* ASImageLoader.h */,
-				B778DCAF189A742B0060B0E9 /* ASImageLoader.m */,
+				B790EC0B18A8A8A900DF61F9 /* AsyncImageView.h */,
+				B790EC0C18A8A8A900DF61F9 /* AsyncImageView.m */,
 			);
-			name = "Image Loader";
+			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
+		B790EC0E18A8AB0D00DF61F9 /* StandardPaths */ = {
+			isa = PBXGroup;
+			children = (
+				B790EC0F18A8AB0D00DF61F9 /* StandardPaths.h */,
+				B790EC1018A8AB0D00DF61F9 /* StandardPaths.m */,
+			);
+			path = StandardPaths;
+			sourceTree = "<group>";
+		};
+		B790EC1218A8AE9100DF61F9 /* RequestQueue */ = {
+			isa = PBXGroup;
+			children = (
+				B790EC1318A8AE9100DF61F9 /* RequestQueue.h */,
+				B790EC1418A8AE9100DF61F9 /* RequestQueue.m */,
+			);
+			path = RequestQueue;
 			sourceTree = "<group>";
 		};
 		B7A0431E189B5D57004A41EB /* App Cell */ = {
@@ -301,20 +322,12 @@
 		B7A4D265188FC0E600FD0941 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B790EC1218A8AE9100DF61F9 /* RequestQueue */,
+				B790EC0E18A8AB0D00DF61F9 /* StandardPaths */,
+				B790EC0A18A8A8A900DF61F9 /* AsyncImageView */,
 				B7A4D26B188FC60900FD0941 /* App Data */,
-				B7A4D266188FC15F00FD0941 /* JSON Parser */,
-				B7A0431D189B5D2D004A41EB /* Image Loader */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		B7A4D266188FC15F00FD0941 /* JSON Parser */ = {
-			isa = PBXGroup;
-			children = (
-				B7A4D267188FC18E00FD0941 /* ASJSONParser.h */,
-				B7A4D268188FC18E00FD0941 /* ASJSONParser.m */,
-			);
-			name = "JSON Parser";
 			sourceTree = "<group>";
 		};
 		B7A4D26A188FC49200FD0941 /* Controller */ = {
@@ -461,12 +474,13 @@
 				B79C69FD189766C30064BBE9 /* ASPopUpView.m in Sources */,
 				B7A4D23C188FC00A00FD0941 /* ASAppStoreAppDelegate.m in Sources */,
 				B7A04A261894BDFB00DD0EFE /* ASConstants.m in Sources */,
+				B790EC1118A8AB0D00DF61F9 /* StandardPaths.m in Sources */,
 				B79636C01898D5710050F1C1 /* ASWishListTableViewCell.m in Sources */,
 				B7A4D278188FF4FD00FD0941 /* ASAppCell.m in Sources */,
+				B790EC1518A8AE9100DF61F9 /* RequestQueue.m in Sources */,
 				B79636BD1898CF670050F1C1 /* ASWishListTableViewController.m in Sources */,
 				B7A4D238188FC00A00FD0941 /* main.m in Sources */,
-				B7A4D269188FC18E00FD0941 /* ASJSONParser.m in Sources */,
-				B778DCB0189A742B0060B0E9 /* ASImageLoader.m in Sources */,
+				B790EC0D18A8A8A900DF61F9 /* AsyncImageView.m in Sources */,
 				B7A4D26E188FC64200FD0941 /* ASAppData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,6 +619,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ramachandra Acharya (66ANZ2UC56)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "App Store/App Store-Prefix.pch";
 				INFOPLIST_FILE = "App Store/App Store-Info.plist";

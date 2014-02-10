@@ -10,9 +10,9 @@
 
 @protocol ASSearchDelegate <NSObject>
 
--(void) filterContentForSearchText:(NSString *)searchText inSearchBar:(UISearchBar *)searchBar ;
--(void) displayAlert;
--(void) hideSearchBar;
+- (void) filterContentForSearchText:(NSString *)searchText inSearchBar:(UISearchBar *)searchBar ;
+- (void) displayAlert;
+- (void) hideSearchBar;
 
 @end
 
